@@ -9,9 +9,9 @@ python3 -c "import json;json.load(open('data/desk.json'))" || { echo "invalid JS
 AS_OF=$(python3 -c "import json;print(json.load(open('data/desk.json')).get('asOfET','unknown'))")
 git config user.name >/dev/null || git config user.name "Randec123"
 git config user.email >/dev/null || git config user.email "350354584+Randec123@users.noreply.github.com"
-git add data/desk.json
+git add data/
 if git diff --cached --quiet; then echo "No changes to data files"; exit 0; fi
-git commit -q -m "Refresh Signal Desk paper-log data (as of ${AS_OF})"
+git commit -q -m "Refresh WickHound Signals data (as of ${AS_OF})"
 AUTH=$(printf 'x-access-token:%s' "$GH_TOKEN" | base64 -w0)
 git -c http.extraheader="AUTHORIZATION: basic ${AUTH}" pull -q --rebase origin main
 git -c http.extraheader="AUTHORIZATION: basic ${AUTH}" push -q origin HEAD:main

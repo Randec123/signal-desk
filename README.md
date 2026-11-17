@@ -1,6 +1,6 @@
 # WickHound Signals
 
-A paper-trade desk for [Options Signal Scout](https://github.com/Randec123) and Stock Signal Scout alerts.
+A paper-trade desk for Options Signal Scout and Stock Signal Scout alerts, plus a Low Float News Scout section.
 
 **Live site:** https://randec123.github.io/signal-desk/
 
@@ -8,8 +8,9 @@ Every number on the site is copied from the paper logs. No real orders, and no W
 
 ## What’s on the site
 
-- **Overview** — totals per bot (alert count, open / partial / closed / missed entry, closed-trade win rate, paper P&L), today’s alerts, a cumulative equity curve, and a per-ticker summary.
-- **Options** and **Stocks** — filters for ticker, status, direction, rating, first hit, and date range; a sortable table; a detail card for each alert; and a ticker summary that follows the filters.
+- **Overview** — totals per bot (alert count, open / partial / closed / missed entry, closed-trade win rate, paper P&L), today’s alerts, a cumulative equity curve, a win/loss breakdown, and a per-ticker summary.
+- **Options** and **Stocks** — filters for ticker, status, direction, rating, first hit, and date range; a sortable table; a detail card for each alert with a price chart (entry, stop, targets, and current/exit when available); a win/loss breakdown; and a ticker summary that follows the filters. The stock equity curve is shown in R, with a second dollars-per-share curve (the log has no share count).
+- **Low Float** — Low Float News Scout alerts (not paper trades), with a mini chart, next-session close, and high-since-alert performance. If the log is empty, the tab shows a short empty state until the next scan.
 
 Times are America/New_York and are labeled ET. The page shows an “as of” stamp from when the data file was built.
 
@@ -26,10 +27,13 @@ Options trades may show `exit_rule` as `thirds`, `75/25`, or a hybrid such as `t
 
 ## Data
 
-The site reads `data/desk.json`, which is built from the paper CSVs:
+The site reads `data/desk.json` and `data/charts.json`, which are built from:
 
 - `/workspace/trading-log/oss_alerts_log.csv` (see `oss_alerts_README.md`)
 - `/workspace/trading-log/sss_alerts_log.csv` (see `sss_alerts_README.md`)
+- `/workspace/trading-log/lowfloat_alerts_log.csv` (see `lowfloat_alerts_README.md`)
+
+Price history is fetched at build time from the Yahoo Finance chart API and stored in `data/charts.json`. If a ticker fetch fails, that chart is omitted and the rest of the desk still builds. Chart candles use teal for up and white for down.
 
 Rebuild and publish:
 
@@ -37,7 +41,7 @@ Rebuild and publish:
 bash /workspace/signal-desk/publish.sh
 ```
 
-That script rebuilds the JSON, commits `data/desk.json` only if it changed, pulls/rebases, and pushes. It needs `GH_TOKEN` in the environment. The token is passed through a one-time `git -c http.extraheader` and is never written to `.git/config`.
+That script rebuilds the JSON, commits files under `data/` only if they changed, pulls/rebases, and pushes. It needs `GH_TOKEN` in the environment. The token is passed through a one-time `git -c http.extraheader` and is never written to `.git/config`.
 
 To rebuild without publishing:
 

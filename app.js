@@ -4,24 +4,35 @@
     { id: "overview", label: "Overview" },
     { id: "options", label: "Options" },
     { id: "stocks", label: "Stocks" },
+    { id: "lowfloat", label: "Low Float" },
   ];
+
+  const CANDLE_UP = "#26c6da";
+  const CANDLE_DOWN = "#e8eef5";
 
   const state = {
     data: null,
+    charts: {},
     tab: "overview",
     selectedId: null,
     filters: {
       options: emptyFilters(),
       stocks: emptyFilters(),
+      lowfloat: emptyLfFilters(),
     },
     sort: {
       options: { key: "alert_time_et", dir: "desc" },
       stocks: { key: "alert_time_et", dir: "desc" },
+      lowfloat: { key: "date_et", dir: "desc" },
     },
   };
 
   function emptyFilters() {
     return { ticker: "", status: "", side: "", rating: "", firstHit: "", from: "", to: "" };
+  }
+
+  function emptyLfFilters() {
+    return { ticker: "", session: "", catalyst: "", from: "", to: "" };
   }
 
   const workspace = () => document.getElementById("workspace");
@@ -119,9 +130,14 @@
   }
 
   function alertDate(alert) {
-    const text = String(alert?.alert_time_et || "");
+    const text = String(alert?.alert_time_et || alert?.date_et || "");
     const m = text.match(/^(\d{4}-\d{2}-\d{2})/);
     return m ? m[1] : "";
+  }
+
+  function lfTime(alert) {
+    if (alert?.date_et && alert?.time_et) return `${alert.date_et} ${alert.time_et}`;
+    return alert?.date_et || "";
   }
 
   function parseHash() {
@@ -146,6 +162,7 @@
   function botOf(alertId) {
     if (String(alertId).startsWith("OSS-")) return "options";
     if (String(alertId).startsWith("SSS-")) return "stocks";
+    if (String(alertId).startsWith("LF-")) return "lowfloat";
     return null;
   }
 
@@ -153,20 +170,34 @@
     const data = state.data;
     if (!data || !alertId) return null;
     const hit = data.options.alerts.find((a) => a.alert_id === alertId)
-      || data.stocks.alerts.find((a) => a.alert_id === alertId);
+      || data.stocks.alerts.find((a) => a.alert_id === alertId)
+      || (data.lowfloat?.alerts || []).find((a) => a.alert_id === alertId);
     return hit || null;
   }
 
   async function loadData() {
-    const res = await fetch(`data/desk.json?t=${Date.now()}`, { cache: "no-store" });
-    if (!res.ok) throw new Error(`Could not load desk data (${res.status})`);
-    state.data = await res.json();
+    const stamp = Date.now();
+    const deskRes = await fetch(`data/desk.json?t=${stamp}`, { cache: "no-store" });
+    if (!deskRes.ok) throw new Error(`Could not load desk data (${deskRes.status})`);
+    state.data = await deskRes.json();
+    try {
+      const chartRes = await fetch(`data/charts.json?t=${stamp}`, { cache: "no-store" });
+      if (chartRes.ok) {
+        const payload = await chartRes.json();
+        state.charts = payload.charts || {};
+      } else {
+        state.charts = {};
+      }
+    } catch (err) {
+      state.charts = {};
+    }
   }
 
   function renderNav() {
     const ossN = state.data?.options?.summary?.alerts ?? 0;
     const sssN = state.data?.stocks?.summary?.alerts ?? 0;
-    const counts = { overview: ossN + sssN, options: ossN, stocks: sssN };
+    const lfN = state.data?.lowfloat?.summary?.alerts ?? 0;
+    const counts = { overview: ossN + sssN + lfN, options: ossN, stocks: sssN, lowfloat: lfN };
     const side = document.getElementById("side-nav");
     const mobile = document.getElementById("mobile-tabs");
     const buttons = TABS.map((tab) => {
@@ -199,6 +230,7 @@
       <span class="pill snap">PAPER TRADES</span>
       <span class="pill">Options ${d.options.summary.alerts}</span>
       <span class="pill">Stocks ${d.stocks.summary.alerts}</span>
+      <span class="pill">Low Float ${d.lowfloat?.summary?.alerts ?? 0}</span>
       <span class="status-asof">As of ${escapeHtml(d.asOfET)}</span>
     `;
   }
@@ -213,6 +245,8 @@
       if (filters.status && String(a.status) !== filters.status) return false;
       if (filters.side && String(a.side) !== filters.side) return false;
       if (filters.rating && String(a.rating) !== filters.rating) return false;
+      if (filters.session && String(a.session) !== filters.session) return false;
+      if (filters.catalyst && String(a.catalyst_tag) !== filters.catalyst) return false;
       if (filters.firstHit === "__none__" && !isBlank(a.first_hit)) return false;
       if (filters.firstHit && filters.firstHit !== "__none__" && String(a.first_hit) !== filters.firstHit) return false;
       const day = alertDate(a);
@@ -238,7 +272,14 @@
 
   function sortAlerts(alerts, sort) {
     const copy = alerts.slice();
-    copy.sort((a, b) => compareValues(a, b, sort.key, sort.dir));
+    copy.sort((a, b) => {
+      if (sort.key === "date_et" && (a.date_et || a.time_et)) {
+        const cmp = compareValues({ t: lfTime(a) }, { t: lfTime(b) }, "t", sort.dir);
+        if (cmp) return cmp;
+        return compareValues(a, b, "alert_id", sort.dir);
+      }
+      return compareValues(a, b, sort.key, sort.dir);
+    });
     return copy;
   }
 
@@ -264,6 +305,16 @@
 
   function renderFilters(kind, alerts) {
     const f = state.filters[kind];
+    if (kind === "lowfloat") {
+      return `<div class="filters" data-filters="${kind}">
+        ${optionSelect(`${kind}-ticker`, "Ticker", f.ticker, uniqueValues(alerts, "ticker"))}
+        ${optionSelect(`${kind}-session`, "Session", f.session, uniqueValues(alerts, "session"))}
+        ${optionSelect(`${kind}-catalyst`, "Catalyst", f.catalyst, uniqueValues(alerts, "catalyst_tag"))}
+        ${dateInput(`${kind}-from`, "From", f.from)}
+        ${dateInput(`${kind}-to`, "To", f.to)}
+        <button type="button" class="btn" data-clear-filters="${kind}">Clear</button>
+      </div>`;
+    }
     const firstHits = uniqueValues(alerts, "first_hit");
     const firstOpts = firstHits.map((v) => ({ value: v, label: v }));
     firstOpts.push({ value: "__none__", label: "None yet" });
@@ -289,6 +340,8 @@
       [`#${kind}-side`, "side"],
       [`#${kind}-rating`, "rating"],
       [`#${kind}-first`, "firstHit"],
+      [`#${kind}-session`, "session"],
+      [`#${kind}-catalyst`, "catalyst"],
       [`#${kind}-from`, "from"],
       [`#${kind}-to`, "to"],
     ];
@@ -303,7 +356,7 @@
     const clear = $(`[data-clear-filters="${kind}"]`, box);
     if (clear) {
       clear.addEventListener("click", () => {
-        state.filters[kind] = emptyFilters();
+        state.filters[kind] = kind === "lowfloat" ? emptyLfFilters() : emptyFilters();
         render();
       });
     }
@@ -361,6 +414,10 @@
       return;
     }
     const kind = botOf(alert.alert_id);
+    if (kind === "lowfloat") {
+      renderLowFloatDrawer(alert);
+      return;
+    }
     const title = `${alert.alert_id} · ${dash(alert.ticker)} ${dash(alert.side)}`;
     const levels = kind === "options" ? optionLevels(alert) : stockLevels(alert);
     const exits = exitBlocks(alert, kind);
@@ -381,6 +438,8 @@
       </div>
       <div class="section-label">Setup</div>
       <p style="margin:0 0 12px;font-size:13px;color:var(--text)">${escapeHtml(dash(alert.setup_type))}</p>
+      <div class="section-label">Price</div>
+      ${renderPriceChart(alert, kind)}
       <div class="section-label">Levels</div>
       <div class="levels">${levels}</div>
       <div class="section-label">Details</div>
@@ -388,10 +447,62 @@
       ${exits}
       ${isBlank(alert.notes) ? "" : `<div class="section-label">Notes</div><div class="notes">${escapeHtml(alert.notes)}</div>`}
     </div>`;
-    $("[data-close-drawer]", root).addEventListener("click", closeDrawer);
+        $("[data-close-drawer]", root).addEventListener("click", closeDrawer);
     root.addEventListener("click", (event) => {
       if (event.target === root) closeDrawer();
     });
+  }
+
+  function bindDrawerClose(root) {
+    const btn = $("[data-close-drawer]", root);
+    if (btn) btn.addEventListener("click", closeDrawer);
+    root.addEventListener("click", (event) => {
+      if (event.target === root) closeDrawer();
+    });
+  }
+
+  function renderLowFloatDrawer(alert) {
+    const root = drawer();
+    const title = `${alert.alert_id} · ${dash(alert.ticker)}`;
+    const href = alert.news_url
+      ? `<a href="${escapeHtml(alert.news_url)}" target="_blank" rel="noopener noreferrer">Source</a>`
+      : "—";
+    root.hidden = false;
+    root.innerHTML = `<div class="drawer-card" role="dialog" aria-modal="true" aria-label="${escapeHtml(title)}">
+      <div class="drawer-top">
+        <div>
+          <h2>${escapeHtml(title)}</h2>
+          <div style="margin-top:6px;display:flex;flex-wrap:wrap;gap:6px;align-items:center">
+            <span class="chip">${escapeHtml(dash(alert.session))}</span>
+            <span class="chip">${escapeHtml(dash(alert.catalyst_tag))}</span>
+            <span class="pill">NEWS ALERT</span>
+          </div>
+        </div>
+        <button type="button" class="drawer-close" data-close-drawer aria-label="Close">×</button>
+      </div>
+      <div class="section-label">Headline</div>
+      <p style="margin:0 0 8px;font-size:13px;color:var(--text)">${escapeHtml(dash(alert.news_headline))}</p>
+      <p style="margin:0 0 12px;font-size:12px">${href}</p>
+      <div class="section-label">Price since alert</div>
+      ${renderPriceChart(alert, "lowfloat")}
+      <div class="section-label">Details</div>
+      <dl class="kv">
+        ${kv("Alert time", etStamp(lfTime(alert)))}
+        ${kv("Session", alert.session)}
+        ${kv("Price at alert", formatNumber(alert.price_at_alert, 2))}
+        ${kv("Float (M)", isBlank(alert.float_m) ? "—" : formatNumber(alert.float_m, 2))}
+        ${kv("Rel. volume", isBlank(alert.rel_vol) ? "—" : `${formatNumber(alert.rel_vol, 0)}x`)}
+        ${kv("Catalyst", alert.catalyst_tag)}
+        ${kv("Next session close", alert.nextSessionClose != null ? `${formatNumber(alert.nextSessionClose, 2)}${alert.nextSessionCloseDate ? ` (${alert.nextSessionCloseDate})` : ""}` : "—")}
+        ${kv("Chg to next close", `<span class="${pnlClass(alert.chgToNextClosePct)}">${formatPct(alert.chgToNextClosePct)}</span>`)}
+        ${kv("High since alert", alert.highSinceAlert != null ? `${formatNumber(alert.highSinceAlert, 2)}${alert.highSinceAlertTime ? ` at ${alert.highSinceAlertTime}` : ""}` : "—")}
+        ${kv("High since alert %", `<span class="${pnlClass(alert.highSinceAlertPct)}">${formatPct(alert.highSinceAlertPct)}</span>`)}
+        ${kv("Last", formatNumber(alert.lastPrice, 2))}
+        ${kv("Chg to last", `<span class="${pnlClass(alert.chgToLastPct)}">${formatPct(alert.chgToLastPct)}</span>`)}
+      </dl>
+      <p class="panel-note" style="border:0;padding:8px 0 0">Low Float News Scout alerts are news scans, not paper trades. Performance is computed from Yahoo Finance bars stored when this page was built.</p>
+    </div>`;
+    bindDrawerClose(root);
   }
 
   function kv(label, value, cls = "") {
@@ -559,7 +670,7 @@
   }
 
   function renderEquity(series, opts = {}) {
-    const { money = false, color = "var(--accent)", height = 220 } = opts;
+    const { money = false, color = CANDLE_UP, height = 220 } = opts;
     if (!series || !series.length) {
       return `<div class="chart-empty">No filled paper trades to plot yet.</div>`;
     }
@@ -605,13 +716,295 @@
         <polyline points="${points}" fill="none" stroke="${color}" stroke-width="2" />
         ${dots}
         ${labels}
-        <text x="${w - pad.r}" y="${Math.max(14, y(last.cumulative) - 8)}" text-anchor="end" fill="${Number(last.cumulative) >= 0 ? "var(--green)" : "var(--red)"}" font-size="11" font-family="var(--mono)">${escapeHtml(money ? formatUsd(last.cumulative) : formatSigned(last.cumulative, 3))}</text>
+        <text x="${w - pad.r}" y="${Math.max(14, y(last.cumulative) - 8)}" text-anchor="end" fill="${Number(last.cumulative) >= 0 ? CANDLE_UP : CANDLE_DOWN}" font-size="11" font-family="var(--mono)">${escapeHtml(money ? formatUsd(last.cumulative) : formatSigned(last.cumulative, 3))}</text>
       </svg>
     </div>`;
   }
 
+
+  function parseChartTime(value) {
+    if (isBlank(value)) return null;
+    const text = String(value).trim();
+    const m = text.match(/^(\d{4})-(\d{2})-(\d{2})(?:[ T](\d{2}):(\d{2})(?::(\d{2}))?)?/);
+    if (!m) return null;
+    return new Date(+m[1], +m[2] - 1, +m[3], +(m[4] || 0), +(m[5] || 0), +(m[6] || 0));
+  }
+
+  function tickerCharts(ticker) {
+    if (!ticker) return null;
+    return state.charts[String(ticker).toUpperCase()] || null;
+  }
+
+  function sliceBars(bars, start, end) {
+    if (!bars || !bars.length) return [];
+    return bars.filter((bar) => {
+      const dt = parseChartTime(bar.t);
+      if (!dt) return false;
+      if (start && dt < start) return false;
+      if (end && dt > end) return false;
+      return true;
+    });
+  }
+
+  function downsampleBars(bars, maxBars) {
+    if (!bars || bars.length <= maxBars) return bars || [];
+    const out = [];
+    const step = bars.length / maxBars;
+    for (let i = 0; i < maxBars; i++) {
+      const from = Math.floor(i * step);
+      const to = Math.max(from + 1, Math.floor((i + 1) * step));
+      const group = bars.slice(from, to);
+      if (!group.length) continue;
+      const first = group[0];
+      const last = group[group.length - 1];
+      let h = -Infinity;
+      let l = Infinity;
+      let v = 0;
+      group.forEach((b) => {
+        if (Number.isFinite(b.h)) h = Math.max(h, b.h);
+        if (Number.isFinite(b.l)) l = Math.min(l, b.l);
+        if (Number.isFinite(b.v)) v += b.v;
+      });
+      out.push({
+        t: last.t,
+        o: first.o,
+        h: Number.isFinite(h) ? h : last.h,
+        l: Number.isFinite(l) ? l : last.l,
+        c: last.c,
+        v,
+      });
+    }
+    return out;
+  }
+
+  function barsForAlert(alert, kind) {
+    const pack = tickerCharts(alert.ticker);
+    if (!pack) return { bars: [], interval: null };
+    const startRaw = kind === "lowfloat" ? lfTime(alert) : alert.alert_time_et;
+    const start = parseChartTime(startRaw);
+    const padMs = 36 * 60 * 60 * 1000;
+    const from = start ? new Date(start.getTime() - padMs) : null;
+    let end = null;
+    const lastExit = [alert.exit3_time, alert.exit2_time, alert.exit1_time].find((v) => !isBlank(v));
+    if (lastExit) {
+      const exitDt = parseChartTime(lastExit);
+      if (exitDt) end = new Date(exitDt.getTime() + padMs);
+    }
+    const intra = sliceBars(pack.intraday || [], from, end);
+    if (intra.length >= 8) return { bars: downsampleBars(intra, 180), interval: "15m" };
+    const daily = sliceBars(pack.daily || [], from ? new Date(from.getTime() - 2 * 86400000) : null, end);
+    if (daily.length) return { bars: daily, interval: "1d" };
+    if ((pack.daily || []).length) return { bars: pack.daily, interval: "1d" };
+    return { bars: pack.intraday || [], interval: pack.intraday?.length ? "15m" : null };
+  }
+
+  function renderSparkline(bars, w = 132, h = 36) {
+    const pts = (bars || []).filter((b) => Number.isFinite(Number(b.c)));
+    if (pts.length < 2) return `<div class="spark empty">No chart</div>`;
+    const ys = pts.map((b) => Number(b.c));
+    let min = Math.min(...ys);
+    let max = Math.max(...ys);
+    if (min === max) {
+      min -= 1;
+      max += 1;
+    }
+    const x = (i) => (i / (pts.length - 1)) * (w - 4) + 2;
+    const y = (v) => 2 + (1 - (v - min) / (max - min)) * (h - 4);
+    const d = pts.map((b, i) => `${i ? "L" : "M"}${x(i).toFixed(1)},${y(Number(b.c)).toFixed(1)}`).join(" ");
+    const up = ys[ys.length - 1] >= ys[0];
+    const color = up ? CANDLE_UP : CANDLE_DOWN;
+    return `<svg class="spark" viewBox="0 0 ${w} ${h}" width="${w}" height="${h}" aria-hidden="true"><path d="${d}" fill="none" stroke="${color}" stroke-width="1.5" /></svg>`;
+  }
+
+  function renderWinLoss(summary, opts = {}) {
+    const winners = Number(summary?.winners || 0);
+    const losers = Number(summary?.losers != null ? summary.losers : Math.max(0, (summary?.closedWithPnl || 0) - winners));
+    const closed = winners + losers;
+    const open = Number(summary?.open || 0);
+    const partial = Number(summary?.partial || 0);
+    const missed = Number(summary?.missedEntry || 0);
+    const title = opts.title || "Win / loss";
+    const note = opts.note || "Closed paper trades only. A win is P&amp;L greater than zero.";
+    if (!closed && !open && !partial && !missed) {
+      return `<div class="chart-empty">No trades to break down yet.</div>`;
+    }
+    const winPct = closed ? (winners / closed) * 100 : 0;
+    const lossPct = closed ? (losers / closed) * 100 : 0;
+    const parts = [];
+    if (closed) {
+      parts.push(`<div class="wl-bar"><div class="wl-win" style="width:${winPct}%"></div><div class="wl-loss" style="width:${lossPct}%"></div></div>`);
+    } else {
+      parts.push(`<div class="wl-bar muted"></div>`);
+    }
+    return `<div class="winloss">
+      <div class="wl-head"><strong>${escapeHtml(title)}</strong><span>${closed ? `${formatWinRate(closed ? winners / closed : null, winners, closed)}` : "—"}</span></div>
+      ${parts.join("")}
+      <div class="chart-legend">
+        <span><i class="swatch candle-up"></i> Wins ${winners}</span>
+        <span><i class="swatch candle-down"></i> Losses ${losers}</span>
+        ${open || partial || missed ? `<span class="dim">Open ${open} · Partial ${partial} · Missed ${missed}</span>` : ""}
+      </div>
+      <div class="panel-note" style="border:0;padding:6px 0 0">${note}</div>
+    </div>`;
+  }
+
+  function renderPriceChart(alert, kind) {
+    const { bars, interval } = barsForAlert(alert, kind);
+    if (!bars.length) {
+      return `<div class="chart-empty">Price history was not available when this page was built.</div>`;
+    }
+    const w = 640;
+    const h = 250;
+    const pad = { l: 50, r: 62, t: 16, b: 28 };
+    const xs = bars.map((_, i) => i);
+    const highs = bars.map((b) => Number(b.h ?? b.c)).filter(Number.isFinite);
+    const lows = bars.map((b) => Number(b.l ?? b.c)).filter(Number.isFinite);
+    const levels = priceLevels(alert, kind);
+    const levelVals = levels.map((lv) => lv.px).filter(Number.isFinite);
+    let min = Math.min(...lows, ...levelVals);
+    let max = Math.max(...highs, ...levelVals);
+    if (!Number.isFinite(min) || !Number.isFinite(max)) return `<div class="chart-empty">Price history was not available when this page was built.</div>`;
+    if (min === max) {
+      min -= 1;
+      max += 1;
+    }
+    const padAmt = (max - min) * 0.08;
+    min -= padAmt;
+    max += padAmt;
+    const innerW = w - pad.l - pad.r;
+    const innerH = h - pad.t - pad.b;
+    const slot = innerW / Math.max(bars.length, 1);
+    const x = (i) => pad.l + (i + 0.5) * slot;
+    const y = (v) => pad.t + (1 - (v - min) / (max - min)) * innerH;
+    const bodyW = Math.max(1.2, Math.min(7, slot * 0.7));
+    const candles = bars.map((b, i) => {
+      const o = Number(b.o ?? b.c);
+      const c = Number(b.c ?? b.o);
+      const hi = Number(b.h ?? Math.max(o, c));
+      const lo = Number(b.l ?? Math.min(o, c));
+      if (![o, c, hi, lo].every(Number.isFinite)) return "";
+      const up = c >= o;
+      const color = up ? CANDLE_UP : CANDLE_DOWN;
+      const top = y(Math.max(o, c));
+      const bot = y(Math.min(o, c));
+      const bodyH = Math.max(1, bot - top);
+      const cx = x(i);
+      return `<line x1="${cx.toFixed(1)}" x2="${cx.toFixed(1)}" y1="${y(hi).toFixed(1)}" y2="${y(lo).toFixed(1)}" stroke="${color}" stroke-width="1" />
+        <rect x="${(cx - bodyW / 2).toFixed(1)}" y="${top.toFixed(1)}" width="${bodyW.toFixed(1)}" height="${bodyH.toFixed(1)}" fill="${color}" />`;
+    }).join("");
+    const ticks = 4;
+    const grid = [];
+    for (let i = 0; i <= ticks; i++) {
+      const v = min + ((max - min) * i) / ticks;
+      const yy = y(v);
+      grid.push(`<line x1="${pad.l}" x2="${w - pad.r}" y1="${yy.toFixed(1)}" y2="${yy.toFixed(1)}" stroke="var(--border)" />
+        <text x="${pad.l - 6}" y="${yy + 3}" text-anchor="end" fill="var(--text-mute)" font-size="10" font-family="var(--mono)">${escapeHtml(formatNumber(v, 2))}</text>`);
+    }
+    const levelLines = levels.map((lv) => {
+      const yy = y(lv.px);
+      const dash = lv.dash ? `stroke-dasharray="${lv.dash}"` : "";
+      return `<line x1="${pad.l}" x2="${w - pad.r}" y1="${yy.toFixed(1)}" y2="${yy.toFixed(1)}" stroke="${lv.color}" stroke-width="1.1" ${dash} />
+        <text x="${w - pad.r + 4}" y="${yy + 3}" fill="${lv.color}" font-size="9" font-family="var(--mono)">${escapeHtml(lv.name)} ${formatNumber(lv.px, 2)}</text>`;
+    }).join("");
+    const alertRaw = kind === "lowfloat" ? lfTime(alert) : alert.alert_time_et;
+    const alertDt = parseChartTime(alertRaw);
+    let alertMark = "";
+    if (alertDt) {
+      let idx = 0;
+      let best = Infinity;
+      bars.forEach((b, i) => {
+        const dt = parseChartTime(b.t);
+        if (!dt) return;
+        const diff = Math.abs(dt - alertDt);
+        if (diff < best) {
+          best = diff;
+          idx = i;
+        }
+      });
+      const cx = x(idx);
+      alertMark = `<line x1="${cx.toFixed(1)}" x2="${cx.toFixed(1)}" y1="${pad.t}" y2="${h - pad.b}" stroke="var(--accent)" stroke-width="1" stroke-dasharray="3 3" />
+        <text x="${cx.toFixed(1)}" y="${pad.t + 10}" text-anchor="middle" fill="var(--accent)" font-size="9">Alert</text>`;
+    }
+    const firstT = String(bars[0].t || "").slice(5, 16);
+    const lastT = String(bars[bars.length - 1].t || "").slice(5, 16);
+    const lastC = bars[bars.length - 1].c;
+    return `<div class="chart-wrap price-chart">
+      <svg class="chart-svg" viewBox="0 0 ${w} ${h}" role="img" aria-label="Price chart">
+        ${grid.join("")}
+        ${alertMark}
+        ${levelLines}
+        ${candles}
+        <text x="${pad.l}" y="${h - 8}" fill="var(--text-mute)" font-size="9" font-family="var(--mono)">${escapeHtml(firstT)}</text>
+        <text x="${w - pad.r}" y="${h - 8}" text-anchor="end" fill="var(--text-mute)" font-size="9" font-family="var(--mono)">${escapeHtml(lastT)}</text>
+        <text x="${w - pad.r}" y="${Math.max(14, y(Number(lastC)) - 8)}" text-anchor="end" fill="${Number(lastC) >= Number(bars[0].c) ? CANDLE_UP : CANDLE_DOWN}" font-size="11" font-family="var(--mono)">${escapeHtml(formatNumber(lastC, 2))}</text>
+      </svg>
+      <div class="chart-legend">
+        <span><i class="swatch candle-up"></i> Up</span>
+        <span><i class="swatch candle-down"></i> Down</span>
+        <span class="dim">${interval === "15m" ? "15-minute bars (includes pre/post when available)" : "Daily bars"} from Yahoo Finance, stored at build time</span>
+      </div>
+    </div>`;
+  }
+
+  function priceLevels(alert, kind) {
+    if (kind === "lowfloat") {
+      const rows = [{ name: "Alert", px: Number(alert.price_at_alert), color: "var(--amber)", dash: "4 3" }];
+      if (Number.isFinite(Number(alert.nextSessionClose))) {
+        rows.push({ name: "Next close", px: Number(alert.nextSessionClose), color: CANDLE_UP });
+      }
+      if (Number.isFinite(Number(alert.highSinceAlert))) {
+        rows.push({ name: "High since", px: Number(alert.highSinceAlert), color: "var(--accent)" });
+      }
+      if (Number.isFinite(Number(alert.lastPrice))) {
+        rows.push({ name: "Last", px: Number(alert.lastPrice), color: CANDLE_DOWN, dash: "2 2" });
+      }
+      return rows.filter((r) => Number.isFinite(r.px));
+    }
+    if (kind === "options") {
+      return [
+        { name: "Stop", px: Number(alert.stop_level), color: CANDLE_DOWN, dash: "4 3" },
+        { name: "Zone lo", px: Number(alert.entry_zone_lo), color: "var(--amber)", dash: "2 2" },
+        { name: "Zone hi", px: Number(alert.entry_zone_hi), color: "var(--amber)", dash: "2 2" },
+        { name: "Alert", px: Number(alert.underlying_at_alert), color: "var(--accent)" },
+        { name: "TP1", px: Number(alert.tp1), color: CANDLE_UP },
+        { name: "TP2", px: Number(alert.tp2), color: CANDLE_UP, dash: "4 2" },
+        { name: "TP3", px: Number(alert.tp3), color: CANDLE_UP, dash: "1 3" },
+      ].filter((r) => Number.isFinite(r.px));
+    }
+    const rows = [
+      { name: "Stop", px: Number(alert.stop), color: CANDLE_DOWN, dash: "4 3" },
+      { name: "Zone lo", px: Number(alert.entry_zone_lo), color: "var(--amber)", dash: "2 2" },
+      { name: "Zone hi", px: Number(alert.entry_zone_hi), color: "var(--amber)", dash: "2 2" },
+      { name: "Alert", px: Number(alert.price_at_alert), color: "var(--accent)" },
+      { name: "Entry", px: Number(alert.entry_px), color: "var(--amber)" },
+      { name: "TP1", px: Number(alert.tp1), color: CANDLE_UP },
+      { name: "TP2", px: Number(alert.tp2), color: CANDLE_UP, dash: "4 2" },
+      { name: "TP3", px: Number(alert.tp3), color: CANDLE_UP, dash: "1 3" },
+    ];
+    if (Number.isFinite(Number(alert.exit1_px))) rows.push({ name: "Exit 1", px: Number(alert.exit1_px), color: CANDLE_DOWN, dash: "2 2" });
+    if (Number.isFinite(Number(alert.exit2_px))) rows.push({ name: "Exit 2", px: Number(alert.exit2_px), color: CANDLE_DOWN, dash: "2 2" });
+    return rows.filter((r) => Number.isFinite(r.px));
+  }
+
   function todayRows(list, kind) {
     if (!list.length) return `<div class="empty">No alerts dated ${escapeHtml(state.data.todayET)} ET.</div>`;
+    if (kind === "lowfloat") {
+      return `<div class="today-list">${list.map((a) => {
+        const pack = tickerCharts(a.ticker);
+        const sparkBars = (pack?.intraday && pack.intraday.length ? pack.intraday : pack?.daily) || [];
+        return `<div class="alert-row" data-alert-id="${escapeHtml(a.alert_id)}">
+          <div class="id">${escapeHtml(a.alert_id)}</div>
+          <div>
+            <div class="name-row"><span class="sym">${escapeHtml(dash(a.ticker))}</span> <span class="chip">${escapeHtml(dash(a.session))}</span></div>
+            <div class="sub">${escapeHtml(etStamp(lfTime(a)))} · ${escapeHtml(dash(a.catalyst_tag))}</div>
+          </div>
+          <div class="right">
+            ${renderSparkline(sparkBars)}
+            <div class="mono ${pnlClass(a.highSinceAlertPct)}">${formatPct(a.highSinceAlertPct)}</div>
+          </div>
+        </div>`;
+      }).join("")}</div>`;
+    }
     return `<div class="today-list">${list.map((a) => {
       const pnl = kind === "options" ? a.pnl_usd : a.pnl_per_share;
       const pnlText = kind === "options" ? formatUsd(a.pnl_usd) : (isBlank(a.pnl_per_share) ? "—" : `${formatSigned(a.pnl_per_share, 4)} /sh`);
@@ -640,21 +1033,23 @@
           <section class="panel">
             <div class="panel-head"><h2>Options Signal Scout</h2><span class="panel-updated">${oss.alerts} alerts</span></div>
             ${summaryCards(oss, "options")}
-            <div class="panel-note">Equity is cumulative paper P&amp;L in dollars. Closed trades are plotted at their last exit; open and partial trades are marked at the as-of time (amber dots).</div>
-            ${renderEquity(oss.equity, { money: true, color: "var(--accent)" })}
+            <div class="panel-note">Equity is cumulative paper P&amp;L in dollars. Closed trades are plotted at their last exit; open and partial trades are marked at the as-of time (amber dots). Chart up is teal, down is white.</div>
+            ${renderEquity(oss.equity, { money: true, color: CANDLE_UP })}
+            ${renderWinLoss(oss)}
           </section>
           <section class="panel">
             <div class="panel-head"><h2>Stock Signal Scout</h2><span class="panel-updated">${sss.alerts} alerts</span></div>
             ${summaryCards(sss, "stocks")}
             <div class="panel-note">This log reports dollars per share and R, not an account-dollar total. The curve below is cumulative R on filled paper trades. Amber dots are open or partial marks at the as-of time.</div>
-            ${renderEquity(sss.equityR, { money: false, color: "var(--cyan)" })}
-            <div class="chart-legend"><span><i class="swatch r"></i> Cumulative R</span></div>
+            ${renderEquity(sss.equityR, { money: false, color: CANDLE_UP })}
+            <div class="chart-legend"><span><i class="swatch candle-up"></i> Cumulative R</span></div>
+            ${renderWinLoss(sss)}
           </section>
         </div>
         <section class="panel">
           <div class="panel-head"><h2>Today’s alerts</h2><span class="panel-updated">${escapeHtml(d.todayET)} ET</span></div>
-          <div class="panel-note">Options: ${d.today.options.length} · Stocks: ${d.today.stocks.length}</div>
-          <div class="overview-grid" style="gap:0">
+          <div class="panel-note">Options: ${d.today.options.length} · Stocks: ${d.today.stocks.length} · Low Float: ${(d.today.lowfloat || []).length}</div>
+          <div class="overview-grid today-grid">
             <div>
               <div class="panel-head"><h2>Options</h2></div>
               ${todayRows(d.today.options, "options")}
@@ -662,6 +1057,10 @@
             <div>
               <div class="panel-head"><h2>Stocks</h2></div>
               ${todayRows(d.today.stocks, "stocks")}
+            </div>
+            <div>
+              <div class="panel-head"><h2>Low Float</h2></div>
+              ${todayRows(d.today.lowfloat || [], "lowfloat")}
             </div>
           </div>
         </section>
@@ -787,26 +1186,36 @@
     const sorted = sortAlerts(filtered, state.sort[kind]);
     const table = kind === "options" ? optionsTable(sorted, state.sort[kind]) : stocksTable(sorted, state.sort[kind]);
     const equity = kind === "options"
-      ? renderEquity(pack.summary.equity, { money: true, color: "var(--accent)" })
-      : renderEquity(pack.summary.equityR, { money: false, color: "var(--cyan)" });
+      ? renderEquity(pack.summary.equity, { money: true, color: CANDLE_UP })
+      : renderEquity(pack.summary.equityR, { money: false, color: CANDLE_UP });
+    const perShare = kind === "stocks"
+      ? renderEquity(pack.summary.equity, { money: true, color: CANDLE_UP, height: 180 })
+      : "";
     const equityNote = kind === "options"
-      ? "Cumulative paper P&L in dollars. Closed trades plot at the last exit; open and partial marks plot at the as-of time (amber)."
-      : "Cumulative R on filled paper trades (dollars-per-share is in the table). Open and partial marks plot at the as-of time (amber).";
+      ? "Cumulative paper P&L in dollars. Closed trades plot at the last exit; open and partial marks plot at the as-of time (amber). Up is teal, down is white."
+      : "Cumulative R on filled paper trades. The second curve is cumulative dollars per share (the log has no share count). Open and partial marks plot at the as-of time (amber).";
     workspace().innerHTML = `
       <div class="stack">
         <div>
           <h1 class="page-head">${escapeHtml(title)}</h1>
-          <p class="page-lead">Paper trades only. ${escapeHtml(pack.summary.winRateNote)} Showing ${sorted.length} of ${pack.alerts.length} alerts.</p>
+          <p class="page-lead">Paper trades only. ${escapeHtml(pack.summary.winRateNote)} Showing ${sorted.length} of ${pack.alerts.length} alerts. Open an alert to see its price chart with entry, stop, and targets.</p>
         </div>
         <section class="panel">
           <div class="panel-head"><h2>Totals</h2><span class="panel-updated">As of ${escapeHtml(state.data.asOfET)}</span></div>
           ${summaryCards(pack.summary, kind)}
         </section>
-        <section class="panel">
-          <div class="panel-head"><h2>Equity curve</h2></div>
-          <div class="panel-note">${equityNote}</div>
-          ${equity}
-        </section>
+        <div class="overview-grid">
+          <section class="panel">
+            <div class="panel-head"><h2>Equity curve</h2></div>
+            <div class="panel-note">${equityNote}</div>
+            ${equity}
+            ${kind === "stocks" ? `<div class="panel-note">Cumulative dollars per share</div>${perShare}` : ""}
+          </section>
+          <section class="panel">
+            <div class="panel-head"><h2>Win / loss</h2></div>
+            ${renderWinLoss(pack.summary)}
+          </section>
+        </div>
         <section class="panel">
           <div class="panel-head"><h2>Alerts</h2><span class="panel-updated">${sorted.length} shown</span></div>
           ${renderFilters(kind, pack.alerts)}
@@ -822,6 +1231,99 @@
     bindAlertClicks();
   }
 
+
+  function lowfloatTable(rows, sort) {
+    const body = rows.map((a) => {
+      const pack = tickerCharts(a.ticker);
+      const sparkBars = (pack?.intraday && pack.intraday.length ? pack.intraday : pack?.daily) || [];
+      const href = a.news_url
+        ? `<a href="${escapeHtml(a.news_url)}" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">Link</a>`
+        : "—";
+      return `<tr data-alert-id="${escapeHtml(a.alert_id)}" class="${state.selectedId === a.alert_id ? "selected" : ""}">
+        <td class="mono">${escapeHtml(etStamp(lfTime(a)))}</td>
+        <td class="mono">${escapeHtml(a.alert_id)}</td>
+        <td>${escapeHtml(dash(a.ticker))}</td>
+        <td>${escapeHtml(dash(a.session))}</td>
+        <td class="num">${formatNumber(a.price_at_alert, 2)}</td>
+        <td class="num">${isBlank(a.float_m) ? "—" : formatNumber(a.float_m, 2)}</td>
+        <td class="num">${isBlank(a.rel_vol) ? "—" : formatNumber(a.rel_vol, 0)}</td>
+        <td>${escapeHtml(dash(a.catalyst_tag))}</td>
+        <td class="chart-cell">${renderSparkline(sparkBars)}</td>
+        <td class="num ${pnlClass(a.chgToNextClosePct)}">${formatPct(a.chgToNextClosePct)}</td>
+        <td class="num ${pnlClass(a.highSinceAlertPct)}">${formatPct(a.highSinceAlertPct)}</td>
+        <td class="num ${pnlClass(a.chgToLastPct)}">${formatPct(a.chgToLastPct)}</td>
+        <td>${href}</td>
+      </tr>`;
+    }).join("");
+    return `<div class="table-wrap"><table class="data">
+      <thead><tr>
+        ${th("Alert time", "date_et", sort)}
+        ${th("ID", "alert_id", sort)}
+        ${th("Ticker", "ticker", sort)}
+        ${th("Session", "session", sort)}
+        ${th("Alert px", "price_at_alert", sort, "num")}
+        ${th("Float M", "float_m", sort, "num")}
+        ${th("RVOL", "rel_vol", sort, "num")}
+        ${th("Catalyst", "catalyst_tag", sort)}
+        <th>Chart</th>
+        ${th("Next close %", "chgToNextClosePct", sort, "num")}
+        ${th("High since %", "highSinceAlertPct", sort, "num")}
+        ${th("Last %", "chgToLastPct", sort, "num")}
+        <th>News</th>
+      </tr></thead>
+      <tbody>${body || `<tr><td colspan="13" class="empty">No alerts match these filters.</td></tr>`}</tbody>
+    </table></div>`;
+  }
+
+  function renderLowFloat() {
+    const pack = state.data.lowfloat || { alerts: [], summary: { alerts: 0, emptyNote: "Alerts will appear after the next Low Float News Scout scan." } };
+    const alerts = pack.alerts || [];
+    if (!alerts.length) {
+      workspace().innerHTML = `
+        <div class="stack">
+          <div>
+            <h1 class="page-head">Low Float News Scout</h1>
+            <p class="page-lead">News alerts on stocks with a float under about 20 million shares, priced $1 to $25, with breaking news and relative volume of at least 5x. These are not paper trades.</p>
+          </div>
+          <section class="panel">
+            <div class="empty-state">
+              <h2>No low-float alerts yet</h2>
+              <p>${escapeHtml(pack.summary.emptyNote || "Alerts will appear after the next Low Float News Scout scan.")}</p>
+            </div>
+          </section>
+        </div>`;
+      return;
+    }
+    const filtered = applyFilters(alerts, state.filters.lowfloat);
+    const sorted = sortAlerts(filtered, state.sort.lowfloat);
+    const sum = pack.summary;
+    workspace().innerHTML = `
+      <div class="stack">
+        <div>
+          <h1 class="page-head">Low Float News Scout</h1>
+          <p class="page-lead">News alerts, not paper trades. Next-session close is the regular-session close after a premarket alert, or the next trading day after an after-hours alert. High-since and last prices come from Yahoo Finance bars stored when this page was built. Showing ${sorted.length} of ${alerts.length} alerts.</p>
+        </div>
+        <div class="score-grid">
+          <div class="score-card"><div class="k">Alerts</div><div class="v">${sum.alerts}</div><div class="d">${sum.tickers} tickers · Premarket ${sum.bySession?.premarket || 0} · After hours ${sum.bySession?.afterhours || 0}</div></div>
+          <div class="score-card"><div class="k">Next-close win rate</div><div class="v">${escapeHtml(formatWinRate(sum.nextCloseWinRate, sum.nextCloseWinners, sum.withNextClose))}</div><div class="d">Share of alerts whose next regular-session close was above the alert price.</div></div>
+          <div class="score-card"><div class="k">Avg next-close chg</div><div class="v ${pnlClass(sum.avgChgToNextClosePct)}">${formatPct(sum.avgChgToNextClosePct)}</div><div class="d">Average percent change from the alert price to the next session close.</div></div>
+          <div class="score-card"><div class="k">Avg high since alert</div><div class="v ${pnlClass(sum.avgHighSinceAlertPct)}">${formatPct(sum.avgHighSinceAlertPct)}</div><div class="d">Average of each alert's high after the alert time, versus the alert price.</div></div>
+        </div>
+        <section class="panel">
+          <div class="panel-head"><h2>Next-close breakdown</h2></div>
+          ${renderWinLoss({ winners: sum.nextCloseWinners, losers: (sum.withNextClose || 0) - (sum.nextCloseWinners || 0), closedWithPnl: sum.withNextClose }, { title: "Next session close vs alert price", note: "A win means the next regular-session close was above the price in the alert. This is not a paper-trade P&amp;L." })}
+        </section>
+        <section class="panel">
+          <div class="panel-head"><h2>Alerts</h2><span class="panel-updated">${sorted.length} shown</span></div>
+          ${renderFilters("lowfloat", alerts)}
+          ${lowfloatTable(sorted, state.sort.lowfloat)}
+        </section>
+      </div>`;
+    bindFilters("lowfloat");
+    bindSort("lowfloat");
+    bindAlertClicks();
+  }
+
   function render() {
     parseHash();
     renderNav();
@@ -832,7 +1334,9 @@
     }
     if (state.tab === "overview") renderOverview();
     else if (state.tab === "options") renderBot("options");
-    else renderBot("stocks");
+    else if (state.tab === "stocks") renderBot("stocks");
+    else if (state.tab === "lowfloat") renderLowFloat();
+    else renderOverview();
     if (state.selectedId) renderDrawer(state.selectedId);
     else {
       drawer().hidden = true;
