@@ -1,4 +1,4 @@
-# Signal Desk
+# WickHound Signals
 
 A paper-trade desk for [Options Signal Scout](https://github.com/Randec123) and Stock Signal Scout alerts.
 

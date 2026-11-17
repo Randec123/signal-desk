@@ -1,6 +1,6 @@
 {
-  "name": "Signal Desk",
-  "short_name": "Signal Desk",
+  "name": "WickHound Signals",
+  "short_name": "WH Signals",
   "description": "Paper-trade desk for Options Signal Scout and Stock Signal Scout alerts.",
   "start_url": "./",
   "scope": "./",
