@@ -1080,8 +1080,6 @@
 
   function optionsTable(rows, sort) {
     const body = rows.map((a) => `<tr data-alert-id="${escapeHtml(a.alert_id)}" class="${state.selectedId === a.alert_id ? "selected" : ""}">
-      <td class="mono">${escapeHtml(etStamp(a.alert_time_et))}</td>
-      <td class="mono">${escapeHtml(a.alert_id)}</td>
       <td>${escapeHtml(dash(a.ticker))}</td>
       <td class="${sideClass(a.side)}">${escapeHtml(dash(a.side))}</td>
       <td>${escapeHtml(dash(a.rating))}</td>
@@ -1092,11 +1090,11 @@
       <td class="num ${pnlClass(a.pnl_pct)}">${formatPct(a.pnl_pct)}</td>
       <td class="num ${pnlClass(a.r_underlying)}">${formatSigned(a.r_underlying, 2, "R")}</td>
       <td>${escapeHtml(dash(a.exit_rule))}</td>
+      <td class="mono">${escapeHtml(etStamp(a.alert_time_et))}</td>
+      <td class="mono">${escapeHtml(a.alert_id)}</td>
     </tr>`).join("");
     return `<div class="table-wrap"><table class="data">
       <thead><tr>
-        ${th("Alert time", "alert_time_et", sort)}
-        ${th("ID", "alert_id", sort)}
         ${th("Ticker", "ticker", sort)}
         ${th("Dir", "side", sort)}
         ${th("Rating", "rating", sort)}
@@ -1107,6 +1105,8 @@
         ${th("P&L %", "pnl_pct", sort, "num")}
         ${th("R", "r_underlying", sort, "num")}
         ${th("Exit rule", "exit_rule", sort)}
+        ${th("Alert time", "alert_time_et", sort)}
+        ${th("ID", "alert_id", sort)}
       </tr></thead>
       <tbody>${body || `<tr><td colspan="12" class="empty">No alerts match these filters.</td></tr>`}</tbody>
     </table></div>`;
@@ -1114,8 +1114,6 @@
 
   function stocksTable(rows, sort) {
     const body = rows.map((a) => `<tr data-alert-id="${escapeHtml(a.alert_id)}" class="${state.selectedId === a.alert_id ? "selected" : ""}">
-      <td class="mono">${escapeHtml(etStamp(a.alert_time_et))}</td>
-      <td class="mono">${escapeHtml(a.alert_id)}</td>
       <td>${escapeHtml(dash(a.ticker))}</td>
       <td class="${sideClass(a.side)}">${escapeHtml(dash(a.side))}</td>
       <td>${escapeHtml(dash(a.rating))}</td>
@@ -1125,11 +1123,11 @@
       <td class="num ${pnlClass(a.pnl_per_share)}">${isBlank(a.pnl_per_share) ? "—" : formatSigned(a.pnl_per_share, 4)}</td>
       <td class="num ${pnlClass(a.r_result)}">${isBlank(a.r_result) ? "—" : formatSigned(a.r_result, 3, "R")}</td>
       <td>${escapeHtml(dash(a.exit_rule))}</td>
+      <td class="mono">${escapeHtml(etStamp(a.alert_time_et))}</td>
+      <td class="mono">${escapeHtml(a.alert_id)}</td>
     </tr>`).join("");
     return `<div class="table-wrap"><table class="data">
       <thead><tr>
-        ${th("Alert time", "alert_time_et", sort)}
-        ${th("ID", "alert_id", sort)}
         ${th("Ticker", "ticker", sort)}
         ${th("Dir", "side", sort)}
         ${th("Rating", "rating", sort)}
@@ -1139,6 +1137,8 @@
         ${th("P&L $/sh", "pnl_per_share", sort, "num")}
         ${th("R", "r_result", sort, "num")}
         ${th("Exit rule", "exit_rule", sort)}
+        ${th("Alert time", "alert_time_et", sort)}
+        ${th("ID", "alert_id", sort)}
       </tr></thead>
       <tbody>${body || `<tr><td colspan="11" class="empty">No alerts match these filters.</td></tr>`}</tbody>
     </table></div>`;
@@ -1239,10 +1239,14 @@
       const href = a.news_url
         ? `<a href="${escapeHtml(a.news_url)}" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">Link</a>`
         : "—";
+      const news = a.news_headline
+        ? (a.news_url
+          ? `<a href="${escapeHtml(a.news_url)}" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">${escapeHtml(a.news_headline)}</a>`
+          : escapeHtml(a.news_headline))
+        : href;
       return `<tr data-alert-id="${escapeHtml(a.alert_id)}" class="${state.selectedId === a.alert_id ? "selected" : ""}">
-        <td class="mono">${escapeHtml(etStamp(lfTime(a)))}</td>
-        <td class="mono">${escapeHtml(a.alert_id)}</td>
         <td>${escapeHtml(dash(a.ticker))}</td>
+        <td class="news-cell">${news}</td>
         <td>${escapeHtml(dash(a.session))}</td>
         <td class="num">${formatNumber(a.price_at_alert, 2)}</td>
         <td class="num">${isBlank(a.float_m) ? "—" : formatNumber(a.float_m, 2)}</td>
@@ -1252,14 +1256,14 @@
         <td class="num ${pnlClass(a.chgToNextClosePct)}">${formatPct(a.chgToNextClosePct)}</td>
         <td class="num ${pnlClass(a.highSinceAlertPct)}">${formatPct(a.highSinceAlertPct)}</td>
         <td class="num ${pnlClass(a.chgToLastPct)}">${formatPct(a.chgToLastPct)}</td>
-        <td>${href}</td>
+        <td class="mono">${escapeHtml(etStamp(lfTime(a)))}</td>
+        <td class="mono">${escapeHtml(a.alert_id)}</td>
       </tr>`;
     }).join("");
     return `<div class="table-wrap"><table class="data">
       <thead><tr>
-        ${th("Alert time", "date_et", sort)}
-        ${th("ID", "alert_id", sort)}
         ${th("Ticker", "ticker", sort)}
+        ${th("News", "news_headline", sort)}
         ${th("Session", "session", sort)}
         ${th("Alert px", "price_at_alert", sort, "num")}
         ${th("Float M", "float_m", sort, "num")}
@@ -1269,9 +1273,10 @@
         ${th("Next close %", "chgToNextClosePct", sort, "num")}
         ${th("High since %", "highSinceAlertPct", sort, "num")}
         ${th("Last %", "chgToLastPct", sort, "num")}
-        <th>News</th>
+        ${th("Alert time", "date_et", sort)}
+        ${th("ID", "alert_id", sort)}
       </tr></thead>
-      <tbody>${body || `<tr><td colspan="13" class="empty">No alerts match these filters.</td></tr>`}</tbody>
+      <tbody>${body || `<tr><td colspan="14" class="empty">No alerts match these filters.</td></tr>`}</tbody>
     </table></div>`;
   }
 

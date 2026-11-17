@@ -462,3 +462,5 @@ table.data th.num { text-align: right; }
 @media (max-width: 420px) {
   .score-grid { grid-template-columns: 1fr; }
 }
+
+.news-cell { min-width: 240px; max-width: 380px; white-space: normal; line-height: 1.3; }
