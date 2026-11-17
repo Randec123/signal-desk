@@ -1,6 +1,6 @@
 {
-  "asOfET": "3:09 PM ET, Nov 17, 2026",
-  "asOfISO": "2026-11-17T15:09:31.153161-05:00",
+  "asOfET": "4:24 PM ET, Nov 17, 2026",
+  "asOfISO": "2026-11-17T16:24:33.920872-05:00",
   "todayET": "2026-11-17",
   "disclaimer": "Paper trades only. No real orders, and no Webull or TradingView paper orders, are placed from these alerts.",
   "sources": {
@@ -364,7 +364,7 @@
           "kind": "closed"
         },
         {
-          "timeET": "2026-11-17 15:09",
+          "timeET": "2026-11-17 16:24",
           "pnl": 254.2,
           "cumulative": 615.63,
           "alertId": "OSS-004",
@@ -372,7 +372,7 @@
           "kind": "mark"
         },
         {
-          "timeET": "2026-11-17 15:09",
+          "timeET": "2026-11-17 16:24",
           "pnl": 273.95,
           "cumulative": 889.58,
           "alertId": "OSS-005",
@@ -622,7 +622,7 @@
       ],
       "equity": [
         {
-          "timeET": "2026-11-17 15:09",
+          "timeET": "2026-11-17 16:24",
           "pnl": 0.9825,
           "cumulative": 0.9825,
           "alertId": "SSS-001",
@@ -630,7 +630,7 @@
           "kind": "mark"
         },
         {
-          "timeET": "2026-11-17 15:09",
+          "timeET": "2026-11-17 16:24",
           "pnl": 0.25,
           "cumulative": 1.2325,
           "alertId": "SSS-004",
@@ -640,7 +640,7 @@
       ],
       "equityR": [
         {
-          "timeET": "2026-11-17 15:09",
+          "timeET": "2026-11-17 16:24",
           "pnl": 0.319,
           "cumulative": 0.319,
           "alertId": "SSS-001",
@@ -648,7 +648,7 @@
           "kind": "mark"
         },
         {
-          "timeET": "2026-11-17 15:09",
+          "timeET": "2026-11-17 16:24",
           "pnl": 0.126,
           "cumulative": 0.445,
           "alertId": "SSS-004",
