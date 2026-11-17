@@ -1,6 +1,6 @@
 {
-  "asOfET": "5:47 PM ET, Nov 17, 2026",
-  "asOfISO": "2026-11-17T17:47:00.984361-05:00",
+  "asOfET": "6:14 PM ET, Nov 17, 2026",
+  "asOfISO": "2026-11-17T18:14:05.787087-05:00",
   "todayET": "2026-11-17",
   "disclaimer": "Paper trades only. No real orders, and no Webull or TradingView paper orders, are placed from these alerts. Low Float News Scout rows are news alerts, not paper trades.",
   "chartSource": "Yahoo Finance chart API, fetched at build time. A missing ticker or failed request is omitted; the rest of the desk still builds.",
@@ -375,7 +375,7 @@
           "kind": "closed"
         },
         {
-          "timeET": "2026-11-17 17:47",
+          "timeET": "2026-11-17 18:14",
           "pnl": 254.2,
           "cumulative": 615.63,
           "alertId": "OSS-004",
@@ -383,7 +383,7 @@
           "kind": "mark"
         },
         {
-          "timeET": "2026-11-17 17:47",
+          "timeET": "2026-11-17 18:14",
           "pnl": 273.95,
           "cumulative": 889.58,
           "alertId": "OSS-005",
@@ -638,7 +638,7 @@
       ],
       "equity": [
         {
-          "timeET": "2026-11-17 17:47",
+          "timeET": "2026-11-17 18:14",
           "pnl": 0.9825,
           "cumulative": 0.9825,
           "alertId": "SSS-001",
@@ -646,7 +646,7 @@
           "kind": "mark"
         },
         {
-          "timeET": "2026-11-17 17:47",
+          "timeET": "2026-11-17 18:14",
           "pnl": 0.25,
           "cumulative": 1.2325,
           "alertId": "SSS-004",
@@ -656,7 +656,7 @@
       ],
       "equityR": [
         {
-          "timeET": "2026-11-17 17:47",
+          "timeET": "2026-11-17 18:14",
           "pnl": 0.319,
           "cumulative": 0.319,
           "alertId": "SSS-001",
@@ -664,7 +664,7 @@
           "kind": "mark"
         },
         {
-          "timeET": "2026-11-17 17:47",
+          "timeET": "2026-11-17 18:14",
           "pnl": 0.126,
           "cumulative": 0.445,
           "alertId": "SSS-004",
@@ -696,7 +696,9 @@
         "highSinceAlertPct": 35.6994,
         "lastPrice": 3.5,
         "chgToLastPct": -26.9311,
-        "chartAvailable": true
+        "chartAvailable": true,
+        "move_day": "Day 1",
+        "move_day_basis": "Prior session Nov 11 was not a big move (+0%); no earlier alert in the prior 2 trading days."
       },
       {
         "alert_id": "LF-002",
@@ -718,7 +720,9 @@
         "highSinceAlertPct": 6.7841,
         "lastPrice": 0.974,
         "chgToLastPct": -44.6591,
-        "chartAvailable": true
+        "chartAvailable": true,
+        "move_day": "Day 1",
+        "move_day_basis": "Prior session Nov 11 was not a big move (-7% on 0.9x volume); no earlier alert in the prior 2 trading days."
       },
       {
         "alert_id": "LF-003",
@@ -740,7 +744,9 @@
         "highSinceAlertPct": 48.9331,
         "lastPrice": 4.69,
         "chgToLastPct": 42.5532,
-        "chartAvailable": true
+        "chartAvailable": true,
+        "move_day": "Day 1",
+        "move_day_basis": "Prior session Nov 11 was not a big move (-1% on 1.1x volume); no earlier alert in the prior 2 trading days."
       },
       {
         "alert_id": "LF-004",
@@ -762,7 +768,9 @@
         "highSinceAlertPct": 33.0882,
         "lastPrice": 2.08,
         "chgToLastPct": -23.5294,
-        "chartAvailable": true
+        "chartAvailable": true,
+        "move_day": "Day 1",
+        "move_day_basis": "Prior session Nov 11 was not a big move (+7% on 1.0x volume); no earlier alert in the prior 2 trading days."
       },
       {
         "alert_id": "LF-005",
@@ -784,7 +792,9 @@
         "highSinceAlertPct": 44.1147,
         "lastPrice": 4.69,
         "chgToLastPct": 37.9412,
-        "chartAvailable": true
+        "chartAvailable": true,
+        "move_day": "Day 1",
+        "move_day_basis": "Prior session Nov 11 was not a big move (-1% on 1.1x volume); no earlier alert in the prior 2 trading days."
       },
       {
         "alert_id": "LF-006",
@@ -806,7 +816,9 @@
         "highSinceAlertPct": 27.9152,
         "lastPrice": 2.08,
         "chgToLastPct": -26.5018,
-        "chartAvailable": true
+        "chartAvailable": true,
+        "move_day": "Day 1",
+        "move_day_basis": "Prior session Nov 11 was not a big move (+7% on 1.0x volume); no earlier alert in the prior 2 trading days."
       },
       {
         "alert_id": "LF-007",
@@ -828,7 +840,9 @@
         "highSinceAlertPct": 8.8235,
         "lastPrice": 2.08,
         "chgToLastPct": -23.5294,
-        "chartAvailable": true
+        "chartAvailable": true,
+        "move_day": "Day 2",
+        "move_day_basis": "1 trading day after Nov 12 -1% on 12x volume"
       },
       {
         "alert_id": "LF-008",
@@ -850,7 +864,9 @@
         "highSinceAlertPct": 66.9492,
         "lastPrice": 1.69,
         "chgToLastPct": 43.2203,
-        "chartAvailable": true
+        "chartAvailable": true,
+        "move_day": "Day 2",
+        "move_day_basis": "1 trading day after Nov 12 +0% on 71x volume"
       },
       {
         "alert_id": "LF-009",
@@ -872,7 +888,9 @@
         "highSinceAlertPct": 40.8017,
         "lastPrice": 4.69,
         "chgToLastPct": 34.7701,
-        "chartAvailable": true
+        "chartAvailable": true,
+        "move_day": "Day 2",
+        "move_day_basis": "1 trading day after Nov 12 +6% on 147x volume"
       },
       {
         "alert_id": "LF-010",
@@ -894,7 +912,9 @@
         "highSinceAlertPct": 44.2308,
         "lastPrice": 1.23,
         "chgToLastPct": 18.2692,
-        "chartAvailable": true
+        "chartAvailable": true,
+        "move_day": "Day 1",
+        "move_day_basis": "Prior session Nov 13 was not a big move (-2% on 0.4x volume); no earlier alert in the prior 2 trading days."
       },
       {
         "alert_id": "LF-011",
@@ -916,7 +936,9 @@
         "highSinceAlertPct": 145.5172,
         "lastPrice": 2.62,
         "chgToLastPct": 80.6897,
-        "chartAvailable": true
+        "chartAvailable": true,
+        "move_day": "Day 3",
+        "move_day_basis": "2 trading days after Nov 12 +175% on 123x volume"
       },
       {
         "alert_id": "LF-012",
@@ -938,7 +960,9 @@
         "highSinceAlertPct": 5.3957,
         "lastPrice": 1.23,
         "chgToLastPct": -11.5108,
-        "chartAvailable": true
+        "chartAvailable": true,
+        "move_day": "Day 3",
+        "move_day_basis": "2 trading days after Nov 12 +119% on 1,382x volume"
       },
       {
         "alert_id": "LF-013",
@@ -960,7 +984,9 @@
         "highSinceAlertPct": 28.1893,
         "lastPrice": 3.04,
         "chgToLastPct": 8.5714,
-        "chartAvailable": true
+        "chartAvailable": true,
+        "move_day": "Day 1",
+        "move_day_basis": "Prior session Nov 13 was not a big move (-1% on 1.5x volume); no earlier alert in the prior 2 trading days."
       },
       {
         "alert_id": "LF-014",
@@ -982,7 +1008,9 @@
         "highSinceAlertPct": 1.5209,
         "lastPrice": 2.66,
         "chgToLastPct": 1.1407,
-        "chartAvailable": true
+        "chartAvailable": true,
+        "move_day": "Day 1",
+        "move_day_basis": "Prior session Nov 13 was not a big move (-1% on 0.7x volume); no earlier alert in the prior 2 trading days."
       },
       {
         "alert_id": "LF-015",
@@ -1004,7 +1032,9 @@
         "highSinceAlertPct": 16.8889,
         "lastPrice": 0.973,
         "chgToLastPct": -56.7556,
-        "chartAvailable": true
+        "chartAvailable": true,
+        "move_day": "Day 1",
+        "move_day_basis": "Prior session Nov 13 was not a big move (-7% on 2.3x volume); no earlier alert in the prior 2 trading days."
       },
       {
         "alert_id": "LF-016",
@@ -1026,7 +1056,9 @@
         "highSinceAlertPct": 18.0691,
         "lastPrice": 3.04,
         "chgToLastPct": 0.0,
-        "chartAvailable": true
+        "chartAvailable": true,
+        "move_day": "Day 1",
+        "move_day_basis": "Prior session Nov 13 was not a big move (-1% on 1.5x volume); no earlier alert in the prior 2 trading days."
       },
       {
         "alert_id": "LF-017",
@@ -1048,7 +1080,9 @@
         "highSinceAlertPct": 0.7547,
         "lastPrice": 2.66,
         "chgToLastPct": 0.3774,
-        "chartAvailable": true
+        "chartAvailable": true,
+        "move_day": "Day 2",
+        "move_day_basis": "1 trading day after Nov 16 +2% on 57x volume"
       },
       {
         "alert_id": "LF-018",
@@ -1070,7 +1104,9 @@
         "highSinceAlertPct": 13.468,
         "lastPrice": 3.04,
         "chgToLastPct": 2.3569,
-        "chartAvailable": true
+        "chartAvailable": true,
+        "move_day": "Day 2",
+        "move_day_basis": "1 trading day after Nov 16 -11% on 25x volume"
       },
       {
         "alert_id": "LF-019",
@@ -1092,7 +1128,9 @@
         "highSinceAlertPct": 12.6246,
         "lastPrice": 2.62,
         "chgToLastPct": -12.9568,
-        "chartAvailable": true
+        "chartAvailable": true,
+        "move_day": "Day 4+",
+        "move_day_basis": "3 trading days after Nov 12 +175% on 123x volume"
       },
       {
         "alert_id": "LF-020",
@@ -1114,7 +1152,9 @@
         "highSinceAlertPct": 11.7207,
         "lastPrice": 4.17,
         "chgToLastPct": 3.99,
-        "chartAvailable": true
+        "chartAvailable": true,
+        "move_day": "Day 1",
+        "move_day_basis": "Prior session Nov 16 was not a big move (-4% on 1.1x volume); no earlier alert in the prior 2 trading days."
       }
     ],
     "summary": {
@@ -1137,6 +1177,46 @@
       "nextCloseWinRate": 0.65,
       "avgChgToNextClosePct": 0.0201,
       "avgHighSinceAlertPct": 30.5745,
+      "byMoveDay": {
+        "Day 1": 12,
+        "Day 2": 5,
+        "Day 3": 2,
+        "Day 4+": 1,
+        "Unknown": 0
+      },
+      "moveDayStats": {
+        "Day 1": {
+          "alerts": 12,
+          "withNextClose": 12,
+          "avgChgToNextClosePct": -1.6376,
+          "avgHighSinceAlertPct": 26.4295
+        },
+        "Day 2": {
+          "alerts": 5,
+          "withNextClose": 5,
+          "avgChgToNextClosePct": 10.7509,
+          "avgHighSinceAlertPct": 26.1594
+        },
+        "Day 3": {
+          "alerts": 2,
+          "withNextClose": 2,
+          "avgChgToNextClosePct": -10.3721,
+          "avgHighSinceAlertPct": 75.4565
+        },
+        "Day 4+": {
+          "alerts": 1,
+          "withNextClose": 1,
+          "avgChgToNextClosePct": -12.9568,
+          "avgHighSinceAlertPct": 12.6246
+        },
+        "Unknown": {
+          "alerts": 0,
+          "withNextClose": 0,
+          "avgChgToNextClosePct": null,
+          "avgHighSinceAlertPct": null
+        }
+      },
+      "moveDayNote": "Day 1 is the first session of a move: the prior regular session was not up 20% or more and did not trade at least 5x its 20-day average volume, and there was no earlier low-float alert on that ticker in the prior 2 trading days. Day 2, Day 3, and Day 4+ count trading days from that start. Premarket alerts belong to the coming session; after-hours alerts belong to the session that just closed. If daily bars are missing, the alert is marked Unknown.",
       "emptyNote": "Alerts will appear after the next Low Float News Scout scan."
     }
   },
@@ -1290,7 +1370,9 @@
         "highSinceAlertPct": 0.7547,
         "lastPrice": 2.66,
         "chgToLastPct": 0.3774,
-        "chartAvailable": true
+        "chartAvailable": true,
+        "move_day": "Day 2",
+        "move_day_basis": "1 trading day after Nov 16 +2% on 57x volume"
       },
       {
         "alert_id": "LF-018",
@@ -1312,7 +1394,9 @@
         "highSinceAlertPct": 13.468,
         "lastPrice": 3.04,
         "chgToLastPct": 2.3569,
-        "chartAvailable": true
+        "chartAvailable": true,
+        "move_day": "Day 2",
+        "move_day_basis": "1 trading day after Nov 16 -11% on 25x volume"
       },
       {
         "alert_id": "LF-019",
@@ -1334,7 +1418,9 @@
         "highSinceAlertPct": 12.6246,
         "lastPrice": 2.62,
         "chgToLastPct": -12.9568,
-        "chartAvailable": true
+        "chartAvailable": true,
+        "move_day": "Day 4+",
+        "move_day_basis": "3 trading days after Nov 12 +175% on 123x volume"
       },
       {
         "alert_id": "LF-020",
@@ -1356,7 +1442,9 @@
         "highSinceAlertPct": 11.7207,
         "lastPrice": 4.17,
         "chgToLastPct": 3.99,
-        "chartAvailable": true
+        "chartAvailable": true,
+        "move_day": "Day 1",
+        "move_day_basis": "Prior session Nov 16 was not a big move (-4% on 1.1x volume); no earlier alert in the prior 2 trading days."
       }
     ]
   },

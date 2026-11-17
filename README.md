@@ -10,9 +10,19 @@ Every number on the site is copied from the paper logs. No real orders, and no W
 
 - **Overview** — totals per bot (alert count, open / partial / closed / missed entry, closed-trade win rate, paper P&L), today’s alerts, a cumulative equity curve, a win/loss breakdown, and a per-ticker summary.
 - **Options** and **Stocks** — filters for ticker, status, direction, rating, first hit, and date range; a sortable table; a detail card for each alert with a price chart (entry, stop, targets, and current/exit when available); a win/loss breakdown; and a ticker summary that follows the filters. The stock equity curve is shown in R, with a second dollars-per-share curve (the log has no share count).
-- **Low Float** — Low Float News Scout alerts (not paper trades), with a mini chart, next-session close, and high-since-alert performance. If the log is empty, the tab shows a short empty state until the next scan.
+- **Low Float** — Low Float News Scout alerts (not paper trades), with a mini chart, next-session close, and high-since-alert performance. Alerts are tagged Day 1, Day 2, Day 3, or Day 4+ so you can separate first-day moves from continuations. If the log is empty, the tab shows a short empty state until the next scan.
 
 Times are America/New_York and are labeled ET. The page shows an “as of” stamp from when the data file was built.
+
+## Low Float move-day tags
+
+Each Low Float alert is tagged from Yahoo daily bars stored at build time, not from a guess:
+
+- A regular session is a **big move day** if it closed at least **+20%** from the prior close, or if volume was at least **5×** the average volume of the prior 20 sessions (or as many as are available, minimum 5).
+- **Day 1** means the alert’s session is the first day of the move: the prior regular session was not a big move day, and there was no earlier low-float alert on that ticker in the prior 2 trading days.
+- **Day 2**, **Day 3**, and **Day 4+** count trading days from that start. The Low Float page groups Day 2 and Day 3 under a “Day 2-3 continuation” tab.
+- An after-hours alert belongs to the session that just closed. A premarket alert belongs to the coming session.
+- If daily bars are missing and the prior session cannot be judged, the tag is **Unknown**. Each row also stores a short `move_day_basis` reason, such as “Prior day +85% on 12x volume.”
 
 ## How P&L and win rate are counted
 

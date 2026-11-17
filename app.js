@@ -25,6 +25,7 @@
       stocks: { key: "alert_time_et", dir: "desc" },
       lowfloat: { key: "date_et", dir: "desc" },
     },
+    lfMoveTab: "all",
   };
 
   function emptyFilters() {
@@ -474,6 +475,7 @@
           <h2>${escapeHtml(title)}</h2>
           <div style="margin-top:6px;display:flex;flex-wrap:wrap;gap:6px;align-items:center">
             <span class="chip">${escapeHtml(dash(alert.session))}</span>
+            ${moveDayChip(alert)}
             <span class="chip">${escapeHtml(dash(alert.catalyst_tag))}</span>
             <span class="pill">NEWS ALERT</span>
           </div>
@@ -493,6 +495,7 @@
         ${kv("Float (M)", isBlank(alert.float_m) ? "—" : formatNumber(alert.float_m, 2))}
         ${kv("Rel. volume", isBlank(alert.rel_vol) ? "—" : `${formatNumber(alert.rel_vol, 0)}x`)}
         ${kv("Catalyst", alert.catalyst_tag)}
+        ${kv("Move day", `${moveDayChip(alert)}${alert.move_day_basis ? ` <span class="dim">${escapeHtml(alert.move_day_basis)}</span>` : ""}`)}
         ${kv("Next session close", alert.nextSessionClose != null ? `${formatNumber(alert.nextSessionClose, 2)}${alert.nextSessionCloseDate ? ` (${alert.nextSessionCloseDate})` : ""}` : "—")}
         ${kv("Chg to next close", `<span class="${pnlClass(alert.chgToNextClosePct)}">${formatPct(alert.chgToNextClosePct)}</span>`)}
         ${kv("High since alert", alert.highSinceAlert != null ? `${formatNumber(alert.highSinceAlert, 2)}${alert.highSinceAlertTime ? ` at ${alert.highSinceAlertTime}` : ""}` : "—")}
@@ -995,7 +998,7 @@
         return `<div class="alert-row" data-alert-id="${escapeHtml(a.alert_id)}">
           <div class="id">${escapeHtml(a.alert_id)}</div>
           <div>
-            <div class="name-row"><span class="sym">${escapeHtml(dash(a.ticker))}</span> <span class="chip">${escapeHtml(dash(a.session))}</span></div>
+            <div class="name-row"><span class="sym">${escapeHtml(dash(a.ticker))}</span> <span class="chip">${escapeHtml(dash(a.session))}</span> ${moveDayChip(a)}</div>
             <div class="sub">${escapeHtml(etStamp(lfTime(a)))} · ${escapeHtml(dash(a.catalyst_tag))}</div>
           </div>
           <div class="right">
@@ -1232,6 +1235,90 @@
   }
 
 
+  function moveDayChipClass(label) {
+    if (label === "Day 1") return "move-day1";
+    if (label === "Day 2" || label === "Day 3") return "move-day23";
+    if (label === "Day 4+") return "move-day4";
+    return "move-unknown";
+  }
+
+  function moveDayChip(alert) {
+    const label = alert.move_day || "Unknown";
+    const basis = alert.move_day_basis || "";
+    const title = basis ? ` title="${escapeHtml(basis)}"` : "";
+    return `<span class="chip ${moveDayChipClass(label)}"${title}>${escapeHtml(label)}</span>`;
+  }
+
+  function alertsForMoveTab(alerts, tab) {
+    if (tab === "day1") return alerts.filter((a) => a.move_day === "Day 1");
+    if (tab === "day23") return alerts.filter((a) => a.move_day === "Day 2" || a.move_day === "Day 3");
+    if (tab === "day4") return alerts.filter((a) => a.move_day === "Day 4+");
+    if (tab === "unknown") return alerts.filter((a) => a.move_day === "Unknown" || !a.move_day);
+    return alerts;
+  }
+
+  function moveTabStats(alerts) {
+    const nexts = alerts.filter((a) => typeof a.chgToNextClosePct === "number");
+    const highs = alerts.filter((a) => typeof a.highSinceAlertPct === "number");
+    const avg = (rows, key) => (rows.length ? rows.reduce((sum, a) => sum + a[key], 0) / rows.length : null);
+    return {
+      count: alerts.length,
+      avgNext: avg(nexts, "chgToNextClosePct"),
+      avgHigh: avg(highs, "highSinceAlertPct"),
+    };
+  }
+
+  function renderMoveTabs(alerts) {
+    const counts = {
+      all: alerts.length,
+      day1: alerts.filter((a) => a.move_day === "Day 1").length,
+      day23: alerts.filter((a) => a.move_day === "Day 2" || a.move_day === "Day 3").length,
+      day4: alerts.filter((a) => a.move_day === "Day 4+").length,
+      unknown: alerts.filter((a) => a.move_day === "Unknown" || !a.move_day).length,
+    };
+    const tabs = [
+      { id: "all", label: "All" },
+      { id: "day1", label: "Day 1" },
+      { id: "day23", label: "Day 2-3 continuation" },
+    ];
+    if (counts.day4) tabs.push({ id: "day4", label: "Day 4+" });
+    if (counts.unknown) tabs.push({ id: "unknown", label: "Unknown" });
+    if (!tabs.some((t) => t.id === state.lfMoveTab)) state.lfMoveTab = "all";
+
+    const buttons = tabs.map((t) => {
+      const active = state.lfMoveTab === t.id ? " active" : "";
+      return `<button type="button" class="move-tab${active}" data-move-tab="${t.id}" role="tab" aria-selected="${state.lfMoveTab === t.id ? "true" : "false"}">${escapeHtml(t.label)} <span class="count">${counts[t.id]}</span></button>`;
+    }).join("");
+
+    const stats = tabs.map((t) => {
+      const s = moveTabStats(alertsForMoveTab(alerts, t.id));
+      const active = state.lfMoveTab === t.id ? " active" : "";
+      return `<button type="button" class="move-stat${active}" data-move-tab="${t.id}">
+        <div class="k">${escapeHtml(t.label)}</div>
+        <div class="v">${s.count} alert${s.count === 1 ? "" : "s"}</div>
+        <div class="d">Avg next close <span class="${pnlClass(s.avgNext)}">${formatPct(s.avgNext)}</span><br>Avg high since <span class="${pnlClass(s.avgHigh)}">${formatPct(s.avgHigh)}</span></div>
+      </button>`;
+    }).join("");
+
+    const note = state.data?.lowfloat?.summary?.moveDayNote
+      || "Day 1 is the first session of a move: the prior regular session was not up 20% or more and did not trade at least 5x its 20-day average volume, and there was no earlier low-float alert on that ticker in the prior 2 trading days. Day 2 and Day 3 are continuations. Premarket alerts belong to the coming session; after-hours alerts belong to the session that just closed.";
+
+    return `<div class="move-tabs" role="tablist" aria-label="Move day">${buttons}</div>
+      <div class="move-stats">${stats}</div>
+      <p class="panel-note move-note">${escapeHtml(note)}</p>`;
+  }
+
+  function bindMoveTabs() {
+    workspace().querySelectorAll("[data-move-tab]").forEach((el) => {
+      el.addEventListener("click", () => {
+        const tab = el.getAttribute("data-move-tab");
+        if (!tab || tab === state.lfMoveTab) return;
+        state.lfMoveTab = tab;
+        render();
+      });
+    });
+  }
+
   function lowfloatTable(rows, sort) {
     const body = rows.map((a) => {
       const pack = tickerCharts(a.ticker);
@@ -1247,6 +1334,7 @@
       return `<tr data-alert-id="${escapeHtml(a.alert_id)}" class="${state.selectedId === a.alert_id ? "selected" : ""}">
         <td>${escapeHtml(dash(a.ticker))}</td>
         <td class="news-cell">${news}</td>
+        <td>${moveDayChip(a)}</td>
         <td>${escapeHtml(dash(a.session))}</td>
         <td class="num">${formatNumber(a.price_at_alert, 2)}</td>
         <td class="num">${isBlank(a.float_m) ? "—" : formatNumber(a.float_m, 2)}</td>
@@ -1264,6 +1352,7 @@
       <thead><tr>
         ${th("Ticker", "ticker", sort)}
         ${th("News", "news_headline", sort)}
+        ${th("Move day", "move_day", sort)}
         ${th("Session", "session", sort)}
         ${th("Alert px", "price_at_alert", sort, "num")}
         ${th("Float M", "float_m", sort, "num")}
@@ -1276,7 +1365,7 @@
         ${th("Alert time", "date_et", sort)}
         ${th("ID", "alert_id", sort)}
       </tr></thead>
-      <tbody>${body || `<tr><td colspan="14" class="empty">No alerts match these filters.</td></tr>`}</tbody>
+      <tbody>${body || `<tr><td colspan="15" class="empty">No alerts match these filters.</td></tr>`}</tbody>
     </table></div>`;
   }
 
@@ -1299,7 +1388,8 @@
         </div>`;
       return;
     }
-    const filtered = applyFilters(alerts, state.filters.lowfloat);
+    const moveFiltered = alertsForMoveTab(alerts, state.lfMoveTab);
+    const filtered = applyFilters(moveFiltered, state.filters.lowfloat);
     const sorted = sortAlerts(filtered, state.sort.lowfloat);
     const sum = pack.summary;
     workspace().innerHTML = `
@@ -1320,10 +1410,12 @@
         </section>
         <section class="panel">
           <div class="panel-head"><h2>Alerts</h2><span class="panel-updated">${sorted.length} shown</span></div>
+          ${renderMoveTabs(alerts)}
           ${renderFilters("lowfloat", alerts)}
           ${lowfloatTable(sorted, state.sort.lowfloat)}
         </section>
       </div>`;
+    bindMoveTabs();
     bindFilters("lowfloat");
     bindSort("lowfloat");
     bindAlertClicks();

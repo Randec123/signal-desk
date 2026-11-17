@@ -11,7 +11,7 @@ import time
 import urllib.error
 import urllib.parse
 import urllib.request
-from datetime import datetime, timedelta
+from datetime import date, datetime, timedelta
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
@@ -456,6 +456,235 @@ def high_since_alert(bars: list[dict], alert_dt: datetime) -> tuple[float | None
     return best, best_t
 
 
+
+# Low-float move-day classification, from stored Yahoo daily bars (not guesses).
+# A regular session is a "big move day" if it closed at least +20% from the
+# prior close, or if volume was at least 5x the average volume of the prior
+# 20 sessions (using as many sessions as are available, minimum 5).
+BIG_MOVE_PCT = 20.0
+VOLUME_SPIKE_X = 5.0
+VOLUME_AVG_LOOKBACK = 20
+VOLUME_AVG_MIN_BARS = 5
+MOVE_DAY_LABELS = ("Day 1", "Day 2", "Day 3", "Day 4+", "Unknown")
+
+
+def lf_session_date(alert: dict) -> date | None:
+    """Premarket belongs to the coming session; after-hours to the session that just closed."""
+    dt = lf_alert_dt(alert)
+    if not dt:
+        return None
+    return dt.date()
+
+
+def daily_rows(daily: list[dict]) -> list[tuple[date, dict]]:
+    rows: list[tuple[date, dict]] = []
+    for bar in daily or []:
+        dt = bar_dt(bar)
+        if not dt or bar.get("c") is None:
+            continue
+        rows.append((dt.date(), bar))
+    rows.sort(key=lambda item: item[0])
+    return rows
+
+
+def format_move_pct(pct: float) -> str:
+    sign = "+" if pct >= 0 else ""
+    return f"{sign}{pct:.0f}%"
+
+
+def format_vol_mult(mult: float) -> str:
+    if mult >= 10:
+        return f"{mult:,.0f}x volume"
+    return f"{mult:.1f}x volume"
+
+
+def short_date(value: date) -> str:
+    return f"{value.strftime('%b')} {value.day}"
+
+
+def session_move_stats(rows: list[tuple[date, dict]], day: date) -> dict:
+    idx = next((i for i, (d, _) in enumerate(rows) if d == day), None)
+    if idx is None:
+        return {"status": "missing", "pct": None, "vol_mult": None, "is_big": False, "reasons": []}
+    _date, bar = rows[idx]
+    close = bar.get("c")
+    vol = bar.get("v")
+    pct = None
+    if idx > 0:
+        pct = pct_change(rows[idx - 1][1].get("c"), close)
+    prior_vols: list[float] = []
+    start = max(0, idx - VOLUME_AVG_LOOKBACK)
+    for i in range(start, idx):
+        value = rows[i][1].get("v")
+        if isinstance(value, (int, float)):
+            prior_vols.append(float(value))
+    vol_mult = None
+    if isinstance(vol, (int, float)) and len(prior_vols) >= VOLUME_AVG_MIN_BARS:
+        avg = sum(prior_vols) / len(prior_vols)
+        if avg > 0:
+            vol_mult = float(vol) / avg
+    reasons: list[str] = []
+    is_big = False
+    if pct is not None and pct >= BIG_MOVE_PCT:
+        is_big = True
+        reasons.append(format_move_pct(pct))
+    if vol_mult is not None and vol_mult >= VOLUME_SPIKE_X:
+        is_big = True
+        reasons.append(format_vol_mult(vol_mult))
+    return {
+        "status": "ok",
+        "pct": pct,
+        "vol_mult": vol_mult,
+        "is_big": is_big,
+        "reasons": reasons,
+    }
+
+
+def describe_session_stats(stats: dict) -> str:
+    parts = []
+    if stats.get("pct") is not None:
+        parts.append(format_move_pct(stats["pct"]))
+    if stats.get("vol_mult") is not None and stats["vol_mult"] > 0:
+        parts.append(format_vol_mult(stats["vol_mult"]))
+    return " on ".join(parts) if parts else "no close or volume"
+
+
+def trading_calendar(rows: list[tuple[date, dict]], extra_dates) -> list[date]:
+    dates = {d for d, _ in rows}
+    dates.update(d for d in extra_dates if d is not None)
+    return sorted(dates)
+
+
+def prior_dates(dates: list[date], session: date, n: int = 2) -> list[date]:
+    priors = [d for d in dates if d < session]
+    return priors[-n:] if n else priors
+
+
+def trading_days_inclusive(dates: list[date], start: date, end: date) -> int:
+    return len([d for d in dates if start <= d <= end])
+
+
+def classify_move_day(
+    alert: dict,
+    rows: list[tuple[date, dict]],
+    alert_dates: set[date],
+    dates: list[date],
+) -> tuple[str, str]:
+    session = lf_session_date(alert)
+    if session is None:
+        return "Unknown", "Alert time is missing."
+
+    def is_link(day: date) -> tuple[bool, dict, bool]:
+        has_alert = day in alert_dates
+        stats = session_move_stats(rows, day)
+        return has_alert or bool(stats.get("is_big")), stats, has_alert
+
+    lookback = prior_dates(dates, session, 2)
+    prior = lookback[-1] if lookback else None
+    linked_days = []
+    for day in lookback:
+        linked, stats, has_alert = is_link(day)
+        if linked:
+            linked_days.append((day, stats, has_alert))
+
+    if not linked_days:
+        if prior is None:
+            if not rows:
+                return "Unknown", "No daily bars to judge the prior session."
+            return "Day 1", "No prior session in the stored daily bars; treated as the first day of the move."
+        stats = session_move_stats(rows, prior)
+        if stats["status"] == "missing" and prior not in alert_dates and not rows:
+            return "Unknown", "No daily bars to judge the prior session."
+        if stats["status"] == "missing" and prior not in alert_dates:
+            return "Unknown", f"Prior session {short_date(prior)} bars are missing."
+        return (
+            "Day 1",
+            f"Prior session {short_date(prior)} was not a big move "
+            f"({describe_session_stats(stats)}); no earlier alert in the prior 2 trading days.",
+        )
+
+    cursor = session
+    start = session
+    visited: set[date] = set()
+    while cursor not in visited:
+        visited.add(cursor)
+        links = [day for day in prior_dates(dates, cursor, 2) if is_link(day)[0]]
+        if not links:
+            start = cursor
+            break
+        cursor = links[0]
+        start = cursor
+
+    if dates:
+        day_num = trading_days_inclusive(dates, start, session)
+    else:
+        day_num = 1
+        walker = start
+        while walker < session:
+            walker += timedelta(days=1)
+            if walker.weekday() < 5:
+                day_num += 1
+
+    if day_num <= 1:
+        label = "Day 1"
+    elif day_num == 2:
+        label = "Day 2"
+    elif day_num == 3:
+        label = "Day 3"
+    else:
+        label = "Day 4+"
+
+    start_stats = session_move_stats(rows, start)
+    offset = max(day_num - 1, 0)
+    if offset == 0:
+        offset_txt = "Same session as"
+    elif offset == 1:
+        offset_txt = "1 trading day after"
+    else:
+        offset_txt = f"{offset} trading days after"
+    if start_stats.get("is_big"):
+        basis = f"{offset_txt} {short_date(start)} {describe_session_stats(start_stats)}"
+    elif start in alert_dates:
+        basis = f"{offset_txt} the {short_date(start)} alert on this ticker"
+        if start_stats.get("status") == "ok":
+            basis += f" ({describe_session_stats(start_stats)})"
+    else:
+        basis = f"{offset_txt} {short_date(start)}"
+    return label, basis
+
+
+def attach_lowfloat_move_days(alerts: list[dict], charts: dict[str, dict]) -> None:
+    by_ticker: dict[str, list[dict]] = {}
+    for alert in alerts:
+        ticker = str(alert.get("ticker") or "").strip().upper()
+        by_ticker.setdefault(ticker, []).append(alert)
+
+    for ticker, group in by_ticker.items():
+        pack = charts.get(ticker) or {}
+        rows = daily_rows(pack.get("daily") or [])
+        alert_dates = {d for d in (lf_session_date(a) for a in group) if d}
+        dates = trading_calendar(rows, alert_dates)
+        for alert in group:
+            label, basis = classify_move_day(alert, rows, alert_dates, dates)
+            alert["move_day"] = label
+            alert["move_day_basis"] = basis
+
+
+def move_day_stats(alerts: list[dict]) -> dict:
+    out: dict[str, dict] = {}
+    for label in MOVE_DAY_LABELS:
+        subset = [a for a in alerts if a.get("move_day") == label]
+        nexts = [a["chgToNextClosePct"] for a in subset if isinstance(a.get("chgToNextClosePct"), (int, float))]
+        highs = [a["highSinceAlertPct"] for a in subset if isinstance(a.get("highSinceAlertPct"), (int, float))]
+        out[label] = {
+            "alerts": len(subset),
+            "withNextClose": len(nexts),
+            "avgChgToNextClosePct": None if not nexts else round(sum(nexts) / len(nexts), 4),
+            "avgHighSinceAlertPct": None if not highs else round(sum(highs) / len(highs), 4),
+        }
+    return out
+
+
 def attach_lowfloat_performance(alerts: list[dict], charts: dict[str, dict]) -> None:
     for alert in alerts:
         ticker = str(alert.get("ticker") or "").strip().upper()
@@ -507,6 +736,16 @@ def summarize_lowfloat(alerts: list[dict]) -> dict:
                 4,
             )
         ),
+        "byMoveDay": {label: sum(1 for a in alerts if a.get("move_day") == label) for label in MOVE_DAY_LABELS},
+        "moveDayStats": move_day_stats(alerts),
+        "moveDayNote": (
+            "Day 1 is the first session of a move: the prior regular session was not up 20% or more "
+            "and did not trade at least 5x its 20-day average volume, and there was no earlier "
+            "low-float alert on that ticker in the prior 2 trading days. Day 2, Day 3, and Day 4+ "
+            "count trading days from that start. Premarket alerts belong to the coming session; "
+            "after-hours alerts belong to the session that just closed. If daily bars are missing, "
+            "the alert is marked Unknown."
+        ),
         "emptyNote": "Alerts will appear after the next Low Float News Scout scan.",
     }
 
@@ -534,13 +773,32 @@ def main() -> None:
     skip_charts = os.environ.get("SIGNAL_DESK_SKIP_CHARTS", "").strip() in {"1", "true", "yes"}
     charts: dict[str, dict] = {}
     chart_errors: dict[str, list[str]] = {}
+    existing_charts: dict[str, dict] = {}
+    if CHARTS_OUT.is_file():
+        try:
+            existing_charts = (json.loads(CHARTS_OUT.read_text(encoding="utf-8")) or {}).get("charts") or {}
+        except (OSError, json.JSONDecodeError):
+            existing_charts = {}
     if not skip_charts:
         for ticker in collect_tickers(oss, sss, lowfloat):
             pack = fetch_ticker_charts(ticker)
+            old = existing_charts.get(ticker) or {}
+            if old:
+                if not pack.get("daily") and old.get("daily"):
+                    pack["daily"] = old["daily"]
+                    pack["errors"] = [e for e in (pack.get("errors") or []) if e != "daily"]
+                if not pack.get("intraday") and old.get("intraday"):
+                    pack["intraday"] = old["intraday"]
+                    pack["errors"] = [e for e in (pack.get("errors") or []) if e != "intraday"]
+                if pack.get("last") is None and old.get("last") is not None:
+                    pack["last"] = old["last"]
             charts[ticker] = pack
             if pack.get("errors"):
                 chart_errors[ticker] = pack["errors"]
+    elif existing_charts:
+        charts = existing_charts
     attach_lowfloat_performance(lowfloat, charts)
+    attach_lowfloat_move_days(lowfloat, charts)
 
     payload = {
         "asOfET": format_as_of(now),
