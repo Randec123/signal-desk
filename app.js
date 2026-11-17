@@ -1031,6 +1031,16 @@
         </div>
         <div class="overview-grid">
           <section class="panel">
+            <div class="panel-head"><h2>Options by ticker</h2></div>
+            ${tickerTable(oss.tickers, "options")}
+          </section>
+          <section class="panel">
+            <div class="panel-head"><h2>Stocks by ticker</h2></div>
+            ${tickerTable(sss.tickers, "stocks")}
+          </section>
+        </div>
+        <div class="overview-grid">
+          <section class="panel">
             <div class="panel-head"><h2>Options Signal Scout</h2><span class="panel-updated">${oss.alerts} alerts</span></div>
             ${summaryCards(oss, "options")}
             <div class="panel-note">Equity is cumulative paper P&amp;L in dollars. Closed trades are plotted at their last exit; open and partial trades are marked at the as-of time (amber dots). Chart up is teal, down is white.</div>
@@ -1064,16 +1074,6 @@
             </div>
           </div>
         </section>
-        <div class="overview-grid">
-          <section class="panel">
-            <div class="panel-head"><h2>Options by ticker</h2></div>
-            ${tickerTable(oss.tickers, "options")}
-          </section>
-          <section class="panel">
-            <div class="panel-head"><h2>Stocks by ticker</h2></div>
-            ${tickerTable(sss.tickers, "stocks")}
-          </section>
-        </div>
       </div>`;
     bindAlertClicks();
   }
@@ -1201,6 +1201,10 @@
           <p class="page-lead">Paper trades only. ${escapeHtml(pack.summary.winRateNote)} Showing ${sorted.length} of ${pack.alerts.length} alerts. Open an alert to see its price chart with entry, stop, and targets.</p>
         </div>
         <section class="panel">
+          <div class="panel-head"><h2>By ticker</h2><span class="panel-updated">Matches current filters</span></div>
+          ${tickerTable(filteredTickerRows(filtered, kind), kind)}
+        </section>
+        <section class="panel">
           <div class="panel-head"><h2>Totals</h2><span class="panel-updated">As of ${escapeHtml(state.data.asOfET)}</span></div>
           ${summaryCards(pack.summary, kind)}
         </section>
@@ -1220,10 +1224,6 @@
           <div class="panel-head"><h2>Alerts</h2><span class="panel-updated">${sorted.length} shown</span></div>
           ${renderFilters(kind, pack.alerts)}
           ${table}
-        </section>
-        <section class="panel">
-          <div class="panel-head"><h2>By ticker</h2><span class="panel-updated">Matches current filters</span></div>
-          ${tickerTable(filteredTickerRows(filtered, kind), kind)}
         </section>
       </div>`;
     bindFilters(kind);

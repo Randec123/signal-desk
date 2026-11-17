@@ -1,5 +1,5 @@
 /* Cache version: bump this whenever the app shell (html/css/js/icons) changes. */
-const CACHE_VERSION = "signal-desk-shell-v3";
+const CACHE_VERSION = "signal-desk-shell-v4";
 
 const SHELL = [
   "./",
