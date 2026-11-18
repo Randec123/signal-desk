@@ -1,18 +1,18 @@
 {
-  "asOfET": "2:20 PM ET, Nov 18, 2026",
-  "asOfISO": "2026-11-18T14:20:28.258531-05:00",
+  "asOfET": "4:22 PM ET, Nov 18, 2026",
+  "asOfISO": "2026-11-18T16:22:26.711714-05:00",
   "todayET": "2026-11-18",
   "disclaimer": "Paper trades only. No real orders, and no Webull or TradingView paper orders, are placed from these alerts. Low Float News Scout rows are news alerts, not paper trades.",
   "chartSource": "Yahoo Finance chart API, fetched at build time. A missing ticker or failed request is omitted; the rest of the desk still builds.",
   "sources": {
     "oss": {
       "file": "oss_alerts_log.csv",
-      "logMtimeET": "12:20 PM ET, Nov 18, 2026",
+      "logMtimeET": "4:20 PM ET, Nov 18, 2026",
       "rows": 5
     },
     "sss": {
       "file": "sss_alerts_log.csv",
-      "logMtimeET": "12:20 PM ET, Nov 18, 2026",
+      "logMtimeET": "4:20 PM ET, Nov 18, 2026",
       "rows": 7
     },
     "lowfloat": {
@@ -196,9 +196,9 @@
         "exit3_time": null,
         "exit3_px": null,
         "exit3_reason": null,
-        "pnl_usd": 224.2,
-        "pnl_pct": 11.79,
-        "r_underlying": 1.11,
+        "pnl_usd": 111.7,
+        "pnl_pct": 5.87,
+        "r_underlying": 1.03,
         "mfe_opt": 5.46,
         "mae_opt": -1.47,
         "mfe_und": 14.0,
@@ -206,10 +206,10 @@
         "first_hit": null,
         "exit_rule": "75/25",
         "alt_rule": "thirds",
-        "alt_pnl_usd": 544.2,
-        "alt_pnl_pct": 28.61,
-        "alt_r_underlying": 1.81,
-        "notes": "Logged after the fact at the 17:11 ET 11/16 rule change. Alert arrived 13:45 ET, before the rule change; no TP or stop was hit before 17:11, so the trade is tagged exit_rule=75/25 (no exits to convert). Entered at alert: META about 624.3 (OSS) inside 622-626. Webull 1-min bars around the alert (actual): 13:43 O/H/L/C 624.11/624.52/624.05/624.315 (matches the OSS ~624.3 quote); 13:45 O/H/L/C 624.61/625.54/624.61/625.32, all inside the zone. underlying_at_alert uses the OSS 624.3 figure (as with prior OSS alerts). Option alert quote mid 19.02 (bid 18.60 / ask 19.45, snapshot at alert). No 13:45 option trade bar. Nearest 1-min prints: 13:38 at 19.78 and 13:55 at 17.85 (last-trade prices, not mids). R unit = 632.00-624.3 = 7.7. Stop is an hourly close above 632. Time exit is the 2026-11-24 regular-session close (2 trading days before 11/27 expiry; 11/26 is Thanksgiving, market closed). TP3 583.8 is ignored under 75/25. | 13:45-16:00 ET 11/16 check: META 1-min bars (actual) through the 15:59 close 626.41; post-entry high 627.81 at 13:50, low 623.27 at 14:43. No TP1 (610). No stop: clock-hour closes 14:00=627.00, 15:00=627.00, 16:00=626.41, all below 632. Option trade high after entry 19.56 (14:45 actual bar); trade low 17.85 (13:55). Closing snapshot mid 17.55 (bid 17.00 / ask 18.10 at 15:59:59 ET; last print 18.32 at 15:53). Marked at that mid, 1 contract, incl. $0.65 entry and reserved $0.65 exit commission: -148.30 USD (-7.80%). r_underlying=(624.3-626.41)/7.7=-0.27R. MFE/MAE opt 0.54 / -1.47 (mid extends MAE); MFE/MAE und 1.03 / -3.51. Alt thirds would still be fully open at this mark, so alt P&L and R match. Status open. | 11:14 ET 11/17 check: META 1-min bars (actual) low 613.51 at 10:54 ET, high 627.48; no TP1 (610), no stop (15-min closes max 624.90 < 632). Snapshot 11:14 bid 21.05/ask 22.10 mid 21.575 (snapshot; session high 24.30). Mark-to-market +254.20 (+13.37%) incl. commissions. r=(624.30-618.72)/7.7=+0.72R. Status open. | 12:12 ET 11/17 check: META 1-min bars (actual) 11:14-12:11 range 613.68-619.98, no TP1 (610), no stop. Snapshot bid 21.75/ask 22.60/mid 22.175 (snapshot). Mark approx +316 incl. comms (~+16.6%). Status open. | 10:20 ET 11/18 check: META 1-min bars (actual) 11/17 12:12 to 11/18 10:20 range 613.69-623.32; no TP1 (610), no stop. Snapshot bid 19.70/ask 20.40/mid 20.05 (snapshot). Mark +101.70 (+5.35%) incl. comms. Status open. | 11:21 ET 11/18 check: META 1-min bars (actual, complete 10:14-11:20, no gaps) since 10:20 range 611.17-619.10; session low 610.34 per 11:21 snapshot, so TP1 610 NOT hit (0.34 away). No stop: clock-hour close 10:59 (11:00 hour) well below 632 (bar max 619.10); 60-min cross-check not needed. Option 1-min prints (actual): 10:16 19.50, 10:30 21.31, 11:17 23.80 (sparse, last-trade). Snapshot 11:20:30 bid 24.05/ask 24.90/mid 24.475 (snapshot, higher than last print 23.80). Mark +544.20 (+28.61%) incl. comms. r=(624.30-610.39)/7.7=+1.81R. MFE opt 5.46 (mid extends). Alt thirds also fully open, same mark. Status open. | 12:20 ET 11/18 check: META 1-min bars (actual, complete 11:05-12:19) since 11:15 range 610.30 (11:21)-616.93; TP1 610 NOT hit (0.30 away), no stop (632; clock-hour closes far below). Option 1-min prints (actual, last-trade): 11:53 23.08, 12:05 21.26, 12:10 21.35, 12:13 22.25. Snapshot bid 21.00/ask 21.55/mid 21.275 (snapshot). Mark +224.20 (+11.79%) incl. comms; r=(624.30-615.735)/7.7=+1.11R. MFE opt 5.46 unchanged (23.80 print/24.475 mid earlier); MFE und 14.00 (low 610.30). Alt thirds also fully open, same mark. Status open."
+        "alt_pnl_usd": 111.7,
+        "alt_pnl_pct": 5.87,
+        "alt_r_underlying": 1.03,
+        "notes": "Logged after the fact at the 17:11 ET 11/16 rule change. Alert arrived 13:45 ET, before the rule change; no TP or stop was hit before 17:11, so the trade is tagged exit_rule=75/25 (no exits to convert). Entered at alert: META about 624.3 (OSS) inside 622-626. Webull 1-min bars around the alert (actual): 13:43 O/H/L/C 624.11/624.52/624.05/624.315 (matches the OSS ~624.3 quote); 13:45 O/H/L/C 624.61/625.54/624.61/625.32, all inside the zone. underlying_at_alert uses the OSS 624.3 figure (as with prior OSS alerts). Option alert quote mid 19.02 (bid 18.60 / ask 19.45, snapshot at alert). No 13:45 option trade bar. Nearest 1-min prints: 13:38 at 19.78 and 13:55 at 17.85 (last-trade prices, not mids). R unit = 632.00-624.3 = 7.7. Stop is an hourly close above 632. Time exit is the 2026-11-24 regular-session close (2 trading days before 11/27 expiry; 11/26 is Thanksgiving, market closed). TP3 583.8 is ignored under 75/25. | 13:45-16:00 ET 11/16 check: META 1-min bars (actual) through the 15:59 close 626.41; post-entry high 627.81 at 13:50, low 623.27 at 14:43. No TP1 (610). No stop: clock-hour closes 14:00=627.00, 15:00=627.00, 16:00=626.41, all below 632. Option trade high after entry 19.56 (14:45 actual bar); trade low 17.85 (13:55). Closing snapshot mid 17.55 (bid 17.00 / ask 18.10 at 15:59:59 ET; last print 18.32 at 15:53). Marked at that mid, 1 contract, incl. $0.65 entry and reserved $0.65 exit commission: -148.30 USD (-7.80%). r_underlying=(624.3-626.41)/7.7=-0.27R. MFE/MAE opt 0.54 / -1.47 (mid extends MAE); MFE/MAE und 1.03 / -3.51. Alt thirds would still be fully open at this mark, so alt P&L and R match. Status open. | 11:14 ET 11/17 check: META 1-min bars (actual) low 613.51 at 10:54 ET, high 627.48; no TP1 (610), no stop (15-min closes max 624.90 < 632). Snapshot 11:14 bid 21.05/ask 22.10 mid 21.575 (snapshot; session high 24.30). Mark-to-market +254.20 (+13.37%) incl. commissions. r=(624.30-618.72)/7.7=+0.72R. Status open. | 12:12 ET 11/17 check: META 1-min bars (actual) 11:14-12:11 range 613.68-619.98, no TP1 (610), no stop. Snapshot bid 21.75/ask 22.60/mid 22.175 (snapshot). Mark approx +316 incl. comms (~+16.6%). Status open. | 10:20 ET 11/18 check: META 1-min bars (actual) 11/17 12:12 to 11/18 10:20 range 613.69-623.32; no TP1 (610), no stop. Snapshot bid 19.70/ask 20.40/mid 20.05 (snapshot). Mark +101.70 (+5.35%) incl. comms. Status open. | 11:21 ET 11/18 check: META 1-min bars (actual, complete 10:14-11:20, no gaps) since 10:20 range 611.17-619.10; session low 610.34 per 11:21 snapshot, so TP1 610 NOT hit (0.34 away). No stop: clock-hour close 10:59 (11:00 hour) well below 632 (bar max 619.10); 60-min cross-check not needed. Option 1-min prints (actual): 10:16 19.50, 10:30 21.31, 11:17 23.80 (sparse, last-trade). Snapshot 11:20:30 bid 24.05/ask 24.90/mid 24.475 (snapshot, higher than last print 23.80). Mark +544.20 (+28.61%) incl. comms. r=(624.30-610.39)/7.7=+1.81R. MFE opt 5.46 (mid extends). Alt thirds also fully open, same mark. Status open. | 12:20 ET 11/18 check: META 1-min bars (actual, complete 11:05-12:19) since 11:15 range 610.30 (11:21)-616.93; TP1 610 NOT hit (0.30 away), no stop (632; clock-hour closes far below). Option 1-min prints (actual, last-trade): 11:53 23.08, 12:05 21.26, 12:10 21.35, 12:13 22.25. Snapshot bid 21.00/ask 21.55/mid 21.275 (snapshot). Mark +224.20 (+11.79%) incl. comms; r=(624.30-615.735)/7.7=+1.11R. MFE opt 5.46 unchanged (23.80 print/24.475 mid earlier); MFE und 14.00 (low 610.30). Alt thirds also fully open, same mark. Status open. | 16:20 ET check: META 1-min bars (actual, complete 12:20-15:59, no gaps) range 613.48 (15:24)-619.44 (15:55), close 616.38; TP1 610 NOT hit (session low 610.30), no stop: clock-hour closes 12:59=616.80, 13:59=617.315, 14:59=615.05, 15:59=616.38, all below 632. Option 1-min prints (actual, last-trade) 12:26 20.30, 12:56 20.73, 13:04 21.00, 13:20 21.45, 13:23 21.15, 14:01 20.60, 14:20 21.62, 14:43 21.55, 15:39 20.98, 15:50 20.87 (sparse). Closing snapshot bid 19.65/ask 20.65/mid 20.15 (snapshot at 16:00). Mark +111.70 (+5.87%) incl. comms. r=(624.30-616.38)/7.7=+1.03R. MFE/MAE opt 5.46/-1.47 and und 14.00/-3.51 unchanged. Alt thirds also fully open, same mark. Next time exit 2026-11-24 close. Status open."
       },
       {
         "alert_id": "OSS-005",
@@ -243,9 +243,9 @@
         "exit3_time": null,
         "exit3_px": null,
         "exit3_reason": null,
-        "pnl_usd": 258.33,
-        "pnl_pct": 28.48,
-        "r_underlying": 1.57,
+        "pnl_usd": 242.08,
+        "pnl_pct": 26.69,
+        "r_underlying": 1.11,
         "mfe_opt": 3.11,
         "mae_opt": -0.59,
         "mfe_und": 6.54,
@@ -256,7 +256,7 @@
         "alt_pnl_usd": null,
         "alt_pnl_pct": null,
         "alt_r_underlying": null,
-        "notes": "Logged after the fact at the 17:11 ET 11/16 rule change. Alert arrived 13:45 ET, before the rule change; no TP or stop was hit before 17:11, so the trade is tagged exit_rule=75/25 (no exits to convert). Entered at alert: GOOGL about 285.0 (OSS) inside 284-286. Webull 1-min bars around the alert (actual): 13:44 O/H/L/C 285.055/285.14/285.00/285.14; 13:45 O/H/L/C 285.15/285.34/285.14/285.21, all inside the zone. underlying_at_alert uses the OSS 285.0 figure. Option alert quote mid 9.07 (bid 8.85 / ask 9.30, snapshot at alert). No 13:45 option trade bar. Nearest 1-min prints: 13:40 at 9.00 and 13:57 at 8.48-8.53 (last-trade prices, not mids). Stop is a 15-minute close above 287.3 (not hourly). R unit = 287.3-285.0 = 2.3. Time exit is the 2026-12-02 regular-session close (2 trading days before 12/4 expiry). TP3 272.5 is ignored under 75/25. | 13:45-16:00 ET 11/16 check: GOOGL 1-min bars (actual) through the 15:59 close 283.72; post-entry high 286.31 at 13:52, low 282.96 at 15:58 (session low). No TP1 (280; 282.96 stayed above it). No stop: every 15-minute close after 13:45 was at or below 285.92, all under 287.3 (earlier 15-min closes above 287.3 were before entry). Option trade high after entry 9.66 (15:56 actual bar, also the day high); trade low 8.48 (13:57). Closing snapshot mid 9.65 (bid 9.30 / ask 10.00 at 15:59:59 ET; last print 9.66 at 15:56). Marked at that mid, 1 contract, incl. $0.65 entry and reserved $0.65 exit commission: +56.70 USD (+6.25%). r_underlying=(285.0-283.72)/2.3=+0.56R. MFE/MAE opt 0.59 / -0.59; MFE/MAE und 2.04 / -1.31. Alt thirds would still be fully open at this mark, so alt P&L and R match. Status open. | 11:14 ET 11/17 check: GOOGL 1-min bars (actual) first traded through TP1 280 at 10:46 ET (session low 278.46 at 10:54). No stop. No option print at 10:46; nearest real print 12.18 at 10:52 ET (actual 1-min bar) used as the 75% fill. Remaining 25% marked at 11:14 snapshot mid 10.75 (bid 10.30/ask 11.20). P&L = 0.75*(12.18-9.07)*100 + 0.25*(10.75-9.07)*100 - 1.30 comm (incl. reserved exit) = +273.95 (+30.20%). r_underlying=(285.00-280.00)/2.3 at TP1 = ... see 2.17R at TP1 level; marked R uses last 281.00 = +1.74R. Waits for TP2 277, 15-min close above 287.3, or 12/2 time exit. Status partial. | 12:12 ET 11/17 check: GOOGL 1-min bars (actual) 11:14-12:11 range 279.97-281.98, no TP2 (277), no stop. Snapshot bid 10.30/ask 11.45/mid 10.875 (snapshot). Status partial. | 10:20 ET 11/18 check: GOOGL 1-min bars (actual) 11/17 12:12 to 11/18 10:20 range 278.975-284.963; no TP2 (277), no 15m close above 287.3. Snapshot bid 8.95/ask 9.60/mid 9.275 (snapshot). 25% remainder marked; P&L +237.08 (+26.14%) incl. comms. Status partial. | 11:21 ET 11/18 check: GOOGL 1-min bars (actual, complete) since 10:20 range 280.91-283.70; snapshot day low 280.57 at 11:21, TP1 already hit, TP2 277 not hit, no 15m close above 287.3. Option 1-min print (actual): only 10:23 at 9.21; snapshot bid 10.00/ask 10.55/mid 10.275 (snapshot; wide vs last print). 25% remainder marked at mid: P&L +262.08 (+28.90%) incl. comms; r=(285.00-280.59)/2.3=+1.92R. Status partial. | 12:20 ET 11/18 check: GOOGL 1-min bars (actual, complete) since 11:15 range 279.69 (11:55)-281.96; TP1 already hit, TP2 277 not hit, no 15m close above 287.3. Option 1-min prints (actual): none since 10:23 (9.21). Snapshot bid 9.80/ask 10.45/mid 10.125 (snapshot; wide vs last print). 25% remainder marked at mid: P&L +258.33 (+28.48%) incl. comms; r=(285.00-281.39)/2.3=+1.57R. Status partial."
+        "notes": "Logged after the fact at the 17:11 ET 11/16 rule change. Alert arrived 13:45 ET, before the rule change; no TP or stop was hit before 17:11, so the trade is tagged exit_rule=75/25 (no exits to convert). Entered at alert: GOOGL about 285.0 (OSS) inside 284-286. Webull 1-min bars around the alert (actual): 13:44 O/H/L/C 285.055/285.14/285.00/285.14; 13:45 O/H/L/C 285.15/285.34/285.14/285.21, all inside the zone. underlying_at_alert uses the OSS 285.0 figure. Option alert quote mid 9.07 (bid 8.85 / ask 9.30, snapshot at alert). No 13:45 option trade bar. Nearest 1-min prints: 13:40 at 9.00 and 13:57 at 8.48-8.53 (last-trade prices, not mids). Stop is a 15-minute close above 287.3 (not hourly). R unit = 287.3-285.0 = 2.3. Time exit is the 2026-12-02 regular-session close (2 trading days before 12/4 expiry). TP3 272.5 is ignored under 75/25. | 13:45-16:00 ET 11/16 check: GOOGL 1-min bars (actual) through the 15:59 close 283.72; post-entry high 286.31 at 13:52, low 282.96 at 15:58 (session low). No TP1 (280; 282.96 stayed above it). No stop: every 15-minute close after 13:45 was at or below 285.92, all under 287.3 (earlier 15-min closes above 287.3 were before entry). Option trade high after entry 9.66 (15:56 actual bar, also the day high); trade low 8.48 (13:57). Closing snapshot mid 9.65 (bid 9.30 / ask 10.00 at 15:59:59 ET; last print 9.66 at 15:56). Marked at that mid, 1 contract, incl. $0.65 entry and reserved $0.65 exit commission: +56.70 USD (+6.25%). r_underlying=(285.0-283.72)/2.3=+0.56R. MFE/MAE opt 0.59 / -0.59; MFE/MAE und 2.04 / -1.31. Alt thirds would still be fully open at this mark, so alt P&L and R match. Status open. | 11:14 ET 11/17 check: GOOGL 1-min bars (actual) first traded through TP1 280 at 10:46 ET (session low 278.46 at 10:54). No stop. No option print at 10:46; nearest real print 12.18 at 10:52 ET (actual 1-min bar) used as the 75% fill. Remaining 25% marked at 11:14 snapshot mid 10.75 (bid 10.30/ask 11.20). P&L = 0.75*(12.18-9.07)*100 + 0.25*(10.75-9.07)*100 - 1.30 comm (incl. reserved exit) = +273.95 (+30.20%). r_underlying=(285.00-280.00)/2.3 at TP1 = ... see 2.17R at TP1 level; marked R uses last 281.00 = +1.74R. Waits for TP2 277, 15-min close above 287.3, or 12/2 time exit. Status partial. | 12:12 ET 11/17 check: GOOGL 1-min bars (actual) 11:14-12:11 range 279.97-281.98, no TP2 (277), no stop. Snapshot bid 10.30/ask 11.45/mid 10.875 (snapshot). Status partial. | 10:20 ET 11/18 check: GOOGL 1-min bars (actual) 11/17 12:12 to 11/18 10:20 range 278.975-284.963; no TP2 (277), no 15m close above 287.3. Snapshot bid 8.95/ask 9.60/mid 9.275 (snapshot). 25% remainder marked; P&L +237.08 (+26.14%) incl. comms. Status partial. | 11:21 ET 11/18 check: GOOGL 1-min bars (actual, complete) since 10:20 range 280.91-283.70; snapshot day low 280.57 at 11:21, TP1 already hit, TP2 277 not hit, no 15m close above 287.3. Option 1-min print (actual): only 10:23 at 9.21; snapshot bid 10.00/ask 10.55/mid 10.275 (snapshot; wide vs last print). 25% remainder marked at mid: P&L +262.08 (+28.90%) incl. comms; r=(285.00-280.59)/2.3=+1.92R. Status partial. | 12:20 ET 11/18 check: GOOGL 1-min bars (actual, complete) since 11:15 range 279.69 (11:55)-281.96; TP1 already hit, TP2 277 not hit, no 15m close above 287.3. Option 1-min prints (actual): none since 10:23 (9.21). Snapshot bid 9.80/ask 10.45/mid 10.125 (snapshot; wide vs last print). 25% remainder marked at mid: P&L +258.33 (+28.48%) incl. comms; r=(285.00-281.39)/2.3=+1.57R. Status partial. | 16:20 ET check: GOOGL 1-min bars (actual, complete 12:20-15:59) range 280.31 (13:11)-284.48 (14:27), close 282.44; TP2 277 not hit, no 15m close above 287.3 (max high 284.48). Option 1-min prints (actual): 9.75 (13:23), 9.98 (13:38), 9.24 (13:39), 9.05 (13:48), 9.25 (14:09), 8.74 (14:22), 9.23 (15:38), 9.17 (15:39), 9.19 (15:51), 9.37 (15:55). Closing snapshot bid 9.15/ask 9.80/mid 9.475 (snapshot). 25% remainder marked at mid: 0.75*(12.18-9.07)*100+0.25*(9.475-9.07)*100-1.30 comms = +242.08 (+26.69%). r=(285.00-282.44)/2.3=+1.11R. MFE/MAE unchanged. Status partial."
       }
     ],
     "summary": {
@@ -273,9 +273,9 @@
       "closed": 3,
       "missedEntry": 0,
       "closedPnlUsd": 361.43,
-      "markPnlUsd": 843.96,
+      "markPnlUsd": 715.21,
       "closedR": 3.8,
-      "markR": 6.48,
+      "markR": 5.94,
       "winRate": 0.6667,
       "winners": 2,
       "losers": 1,
@@ -292,13 +292,13 @@
           "closed": 1,
           "missedEntry": 0,
           "closedPnl": 394.03,
-          "markPnl": 652.36,
+          "markPnl": 636.11,
           "winRate": 1.0,
           "winners": 1,
           "losers": 0,
           "closedWithPnl": 1,
           "closedR": 2.13,
-          "markR": 3.7
+          "markR": 3.24
         },
         {
           "ticker": "META",
@@ -308,13 +308,13 @@
           "closed": 0,
           "missedEntry": 0,
           "closedPnl": null,
-          "markPnl": 224.2,
+          "markPnl": 111.7,
           "winRate": null,
           "winners": 0,
           "losers": 0,
           "closedWithPnl": 0,
           "closedR": null,
-          "markR": 1.11
+          "markR": 1.03
         },
         {
           "ticker": "MSTR",
@@ -375,17 +375,17 @@
           "kind": "closed"
         },
         {
-          "timeET": "2026-11-18 14:20",
-          "pnl": 224.2,
-          "cumulative": 585.63,
+          "timeET": "2026-11-18 16:22",
+          "pnl": 111.7,
+          "cumulative": 473.13,
           "alertId": "OSS-004",
           "ticker": "META",
           "kind": "mark"
         },
         {
-          "timeET": "2026-11-18 14:20",
-          "pnl": 258.33,
-          "cumulative": 843.96,
+          "timeET": "2026-11-18 16:22",
+          "pnl": 242.08,
+          "cumulative": 715.21,
           "alertId": "OSS-005",
           "ticker": "GOOGL",
           "kind": "mark"
@@ -445,12 +445,12 @@
         "exit2_time": null,
         "exit2_px": null,
         "exit2_reason": null,
-        "r_result": 0.326,
-        "pnl_per_share": 1.0025,
+        "r_result": 0.24,
+        "pnl_per_share": 0.74,
         "mfe": 3.46,
         "mae": -3.04,
         "first_hit": "TP1",
-        "notes": "Entered: GOOGL was already inside 281.90-283.00 at the 9:54:47 ET alert, so the short filled at the alert price 281.92 at about 9:55. price_at_alert uses that 281.92 quote. The 9:54 ET Webull 1-min RTH bar (actual) was O/H/L/C 282.125/282.180/281.820/281.940; the 9:55 bar opened 281.93. R unit = stop 285.00 - entry 281.92 = 3.08. Exit rule is 75/25; TP3 271.80 is ignored. No commission is applied in this share log. | 09:55-11:15 ET 11/17 check: Webull 1-min RTH bars (actual, no gaps from 9:30 through the in-progress 11:15 bar). First traded through TP1 280.76 at 10:43 (O/H/L/C 280.95/281.14/280.61/280.69); 75% sold at 280.76. The 10:43 bar did not also tag the stop. TP2 277.10 has not been hit (post-entry low 278.46 at 10:54). Stop 285.00 has not been hit (post-entry high 283.6076 at 10:12, O/H/L/C 283.305/283.6076/283.255/283.390). Remaining 25% marked at the 11:15:25 ET Webull snapshot last 281.01 (bid 280.98 / ask 281.03 / mid 281.005). Weighted P&L = 0.75*(281.92-280.76) + 0.25*(281.92-281.01) = +1.0975/share (+0.356R). MFE +3.46 / MAE -1.6876 vs entry, from post-entry 1-min lows/highs. Status partial. If still open at 15:59 ET, the remaining 25% stays open. | 11:15-13:42 ET 11/17 check: Webull 1-min RTH bars (actual, no gaps from 11:15 through the in-progress 13:42 bar) plus the 13:42:11 ET Webull snapshot. TP2 277.10 has not been hit (post-entry low remains 278.46 at 10:54; since-11:15 low 279.9702 at 11:46, O/H/L/C 280.01/280.88/279.9702/280.735). Stop 285.00 has not been hit (post-entry high remains 283.6076 at 10:12; since-11:15 high 282.62 at 12:25, O/H/L/C 282.25/282.62/282.25/282.575). Remaining 25% marked at the 13:42:11 ET Webull snapshot last 281.47 (bid 281.44 / ask 281.47 / mid 281.455). Weighted P&L = 0.75*(281.92-280.76) + 0.25*(281.92-281.47) = +0.9825/share (+0.319R). MFE +3.46 / MAE -1.6876 vs entry, unchanged from the post-entry 1-min extremes. Status partial. | 10:20 ET 11/18 check: GOOGL 1-min bars (actual) since 11/17 12:12 range 278.975-284.963; no TP2 (277.10), no stop (285.00; high 284.963 came close). Remainder marked at last 283.345: 0.75*1.16+0.25*(281.92-283.345)=+0.5138/share (+0.167R). MAE -3.04. Status partial. | 11:21 ET 11/18 check: GOOGL 1-min bars (actual, complete) since 10:20 range 280.91-283.70; no TP2 (277.10), no stop (285.00). Remainder marked at 11:21 snapshot last 280.59 (bid 280.56/ask 280.59): 0.75*1.16+0.25*(281.92-280.59)=+1.2025/share (+0.390R). MFE/MAE unchanged. Status partial. | 12:20 ET 11/18 check: GOOGL 1-min bars (actual, complete) since 11:15 range 279.69-281.96; no TP2 (277.10), no stop (285.00). Remainder marked at snapshot last 281.39 (bid 281.39/ask 281.42): 0.75*1.16+0.25*(281.92-281.39)=+1.0025/share (+0.326R). MFE/MAE unchanged. Status partial."
+        "notes": "Entered: GOOGL was already inside 281.90-283.00 at the 9:54:47 ET alert, so the short filled at the alert price 281.92 at about 9:55. price_at_alert uses that 281.92 quote. The 9:54 ET Webull 1-min RTH bar (actual) was O/H/L/C 282.125/282.180/281.820/281.940; the 9:55 bar opened 281.93. R unit = stop 285.00 - entry 281.92 = 3.08. Exit rule is 75/25; TP3 271.80 is ignored. No commission is applied in this share log. | 09:55-11:15 ET 11/17 check: Webull 1-min RTH bars (actual, no gaps from 9:30 through the in-progress 11:15 bar). First traded through TP1 280.76 at 10:43 (O/H/L/C 280.95/281.14/280.61/280.69); 75% sold at 280.76. The 10:43 bar did not also tag the stop. TP2 277.10 has not been hit (post-entry low 278.46 at 10:54). Stop 285.00 has not been hit (post-entry high 283.6076 at 10:12, O/H/L/C 283.305/283.6076/283.255/283.390). Remaining 25% marked at the 11:15:25 ET Webull snapshot last 281.01 (bid 280.98 / ask 281.03 / mid 281.005). Weighted P&L = 0.75*(281.92-280.76) + 0.25*(281.92-281.01) = +1.0975/share (+0.356R). MFE +3.46 / MAE -1.6876 vs entry, from post-entry 1-min lows/highs. Status partial. If still open at 15:59 ET, the remaining 25% stays open. | 11:15-13:42 ET 11/17 check: Webull 1-min RTH bars (actual, no gaps from 11:15 through the in-progress 13:42 bar) plus the 13:42:11 ET Webull snapshot. TP2 277.10 has not been hit (post-entry low remains 278.46 at 10:54; since-11:15 low 279.9702 at 11:46, O/H/L/C 280.01/280.88/279.9702/280.735). Stop 285.00 has not been hit (post-entry high remains 283.6076 at 10:12; since-11:15 high 282.62 at 12:25, O/H/L/C 282.25/282.62/282.25/282.575). Remaining 25% marked at the 13:42:11 ET Webull snapshot last 281.47 (bid 281.44 / ask 281.47 / mid 281.455). Weighted P&L = 0.75*(281.92-280.76) + 0.25*(281.92-281.47) = +0.9825/share (+0.319R). MFE +3.46 / MAE -1.6876 vs entry, unchanged from the post-entry 1-min extremes. Status partial. | 10:20 ET 11/18 check: GOOGL 1-min bars (actual) since 11/17 12:12 range 278.975-284.963; no TP2 (277.10), no stop (285.00; high 284.963 came close). Remainder marked at last 283.345: 0.75*1.16+0.25*(281.92-283.345)=+0.5138/share (+0.167R). MAE -3.04. Status partial. | 11:21 ET 11/18 check: GOOGL 1-min bars (actual, complete) since 10:20 range 280.91-283.70; no TP2 (277.10), no stop (285.00). Remainder marked at 11:21 snapshot last 280.59 (bid 280.56/ask 280.59): 0.75*1.16+0.25*(281.92-280.59)=+1.2025/share (+0.390R). MFE/MAE unchanged. Status partial. | 12:20 ET 11/18 check: GOOGL 1-min bars (actual, complete) since 11:15 range 279.69-281.96; no TP2 (277.10), no stop (285.00). Remainder marked at snapshot last 281.39 (bid 281.39/ask 281.42): 0.75*1.16+0.25*(281.92-281.39)=+1.0025/share (+0.326R). MFE/MAE unchanged. Status partial. | 16:20 ET check: GOOGL 1-min bars (actual, complete 12:20-15:59) range 280.31-284.48; no TP2 (277.10), no stop (285.00; high 284.48). Remainder marked at 15:59 close 282.44 (RTH close; after-hours quote not used): 0.75*1.16+0.25*(281.92-282.44)=+0.74/share (+0.240R, 1R=3.08). MFE 3.46/MAE -3.04 unchanged. Status partial."
       },
       {
         "alert_id": "SSS-002",
@@ -538,12 +538,12 @@
         "exit2_time": null,
         "exit2_px": null,
         "exit2_reason": null,
-        "r_result": -0.313,
-        "pnl_per_share": -0.6237,
+        "r_result": -0.382,
+        "pnl_per_share": -0.76,
         "mfe": 0.85,
-        "mae": -1.19,
+        "mae": -1.54,
         "first_hit": null,
-        "notes": "Entered: HOOD was already inside 68.40-69.00 at the 13:37:34 ET alert (price_at_alert 68.41), so the short filled at the alert price 68.41 at 13:38, not at the suggested paper entry 68.70. The 13:37 ET Webull 1-min RTH bar (actual) was O/H/L/C 68.374/68.43/68.3458/68.39; 68.41 sits in that bar. The 13:38 bar opened already slightly below the zone (O/H/L/C 68.36/68.38/68.27/68.2961); the fill is still the alert price per the in-zone-at-alert rule. R unit = stop 70.40 - entry 68.41 = 1.99. Exit rule is 75/25; TP3 61.20 is ignored. No commission is applied in this share log.  | 13:38-13:42 ET 11/17 check: Webull 1-min RTH bars (actual, 13:38 through the in-progress 13:42 bar) plus the 13:42:11 ET Webull snapshot. TP1 66.50 and TP2 64.00 have not been hit (post-entry low 68.085 at 13:41, O/H/L/C 68.151/68.1601/68.085/68.16). Stop 70.40 has not been hit (post-entry high 68.38 at 13:38). Open 100% marked at the 13:42:11 ET Webull snapshot last 68.16 (bid 68.16 / ask 68.18 / mid 68.17). P&L = 68.41-68.16 = +0.25/share (+0.126R). MFE +0.325 / MAE +0.03 vs entry, from post-entry 1-min lows/highs (price has not traded above the 68.41 fill since entry, so MAE is a small positive). Status open. first_hit blank. If still open at 15:59 ET, it stays open. Note: MSTR and HOOD were sent together and move together. | 10:20 ET 11/18 check: HOOD 1-min bars (actual) since 11/17 12:12 range 67.56-69.60; no TP1 (66.50), no stop (70.40). Marked at last 68.84: -0.43/share (-0.216R). MFE 0.85, MAE -1.19. Status open. | 11:21 ET 11/18 check: HOOD 1-min bars (actual, complete) since 10:20 range 68.05-69.11; no TP1 (66.50), no stop (70.40). Marked at snapshot last 67.995 (bid 67.98/ask 68.01): +0.415/share (+0.209R). MFE 0.85/MAE -1.19 unchanged. Status open. | 12:20 ET 11/18 check: HOOD 1-min bars (actual, complete) since 11:15 range 67.87-69.17; no TP1 (66.50), no stop (70.40). Marked at snapshot last 69.0337 (bid 69.01/ask 69.06): -0.6237/share (-0.313R). MFE 0.85/MAE -1.19 unchanged. Status open."
+        "notes": "Entered: HOOD was already inside 68.40-69.00 at the 13:37:34 ET alert (price_at_alert 68.41), so the short filled at the alert price 68.41 at 13:38, not at the suggested paper entry 68.70. The 13:37 ET Webull 1-min RTH bar (actual) was O/H/L/C 68.374/68.43/68.3458/68.39; 68.41 sits in that bar. The 13:38 bar opened already slightly below the zone (O/H/L/C 68.36/68.38/68.27/68.2961); the fill is still the alert price per the in-zone-at-alert rule. R unit = stop 70.40 - entry 68.41 = 1.99. Exit rule is 75/25; TP3 61.20 is ignored. No commission is applied in this share log.  | 13:38-13:42 ET 11/17 check: Webull 1-min RTH bars (actual, 13:38 through the in-progress 13:42 bar) plus the 13:42:11 ET Webull snapshot. TP1 66.50 and TP2 64.00 have not been hit (post-entry low 68.085 at 13:41, O/H/L/C 68.151/68.1601/68.085/68.16). Stop 70.40 has not been hit (post-entry high 68.38 at 13:38). Open 100% marked at the 13:42:11 ET Webull snapshot last 68.16 (bid 68.16 / ask 68.18 / mid 68.17). P&L = 68.41-68.16 = +0.25/share (+0.126R). MFE +0.325 / MAE +0.03 vs entry, from post-entry 1-min lows/highs (price has not traded above the 68.41 fill since entry, so MAE is a small positive). Status open. first_hit blank. If still open at 15:59 ET, it stays open. Note: MSTR and HOOD were sent together and move together. | 10:20 ET 11/18 check: HOOD 1-min bars (actual) since 11/17 12:12 range 67.56-69.60; no TP1 (66.50), no stop (70.40). Marked at last 68.84: -0.43/share (-0.216R). MFE 0.85, MAE -1.19. Status open. | 11:21 ET 11/18 check: HOOD 1-min bars (actual, complete) since 10:20 range 68.05-69.11; no TP1 (66.50), no stop (70.40). Marked at snapshot last 67.995 (bid 67.98/ask 68.01): +0.415/share (+0.209R). MFE 0.85/MAE -1.19 unchanged. Status open. | 12:20 ET 11/18 check: HOOD 1-min bars (actual, complete) since 11:15 range 67.87-69.17; no TP1 (66.50), no stop (70.40). Marked at snapshot last 69.0337 (bid 69.01/ask 69.06): -0.6237/share (-0.313R). MFE 0.85/MAE -1.19 unchanged. Status open. | 16:20 ET check: HOOD 1-min bars (actual, complete) range 68.46-69.95 (high 12:31); no TP1 (66.50), no stop (70.40). Marked at 15:59 close 69.17: -0.76/share (-0.382R, 1R=1.99). MFE 0.85 unchanged; MAE extended to -1.54 (high 69.95 at 12:31). Status open."
       },
       {
         "alert_id": "SSS-005",
@@ -569,12 +569,12 @@
         "exit2_time": null,
         "exit2_px": null,
         "exit2_reason": null,
-        "r_result": 0.814,
-        "pnl_per_share": 2.93,
-        "mfe": 4.15,
+        "r_result": 1.122,
+        "pnl_per_share": 4.04,
+        "mfe": 4.6,
         "mae": -0.67,
         "first_hit": null,
-        "notes": "price_at_alert 154.37 at 9:49:00 ET was below the 155.00-156.00 entry zone, so the short needed a retest of 155.00 and was not filled at the alert. The alert's suggested paper entry was 155.50: coming from below, the first in-zone fill is 155.00 unless a later bar opens already inside the zone, in which case fill at that open. The 9:49 ET Webull 1-min RTH bar (actual) was O/H/L/C 154.2694/154.7850/154.0600/154.4906; 154.37 sits in that bar, and the high 154.7850 was still 0.215 short of 155.00. From 9:50 through the in-progress 9:52 bar, the post-alert high was only 154.59 at 9:50 (O/H/L/C 154.5100/154.5900/153.2600/153.5100) — 0.41 short of the zone — then 9:51 153.5100/153.9900/153.3000/153.8300, and 9:52 153.7480/154.3000/153.7480/154.2750. Last was 154.2301 at the 9:52:16 ET Webull snapshot (bid 154.2300 / ask 154.2600 / mid 154.245). NVDA had traded in the zone earlier in the session (last in-zone action on the 9:43-9:44 bars; 9:44 O/H/L/C 155.4190/155.4500/154.4200/154.4550 left the zone) but that was before the alert. The entry zone has not been traded after the alert through this 9:52 ET check, so status is pending entry. It becomes missed entry at the end of the alert day (15:59 ET 11/18) if the zone is never traded; do not chase. Exit rule 75/25 would apply if it fills (TP3 145.00 ignored). No P&L, R, or MFE/MAE is recorded because there was no entry. Note: NVDA has shown up on Randec's avoid list in scan output; this row is logged anyway for research. | 10:20 ET 11/18 check: entry filled. 9:53 bar (actual) O/H/L/C 154.775/155.0699/154.55/154.81 traded up to zone bottom 155.00; short filled at 155.00. Post-entry low 153.541, high 155.67; no TP1 150.33, no stop 158.60. Marked at last 154.40 (+0.60/share, +0.167R). Status open. | 11:21 ET 11/18 check: NVDA 1-min bars (actual, complete) since 10:20 range 151.60-154.91 (low 10:43); no TP1 (150.33), no stop (158.60). Marked at snapshot last 151.7679 (bid 151.75/ask 151.76): +3.2321/share (+0.898R). MFE 3.40 (snapshot day low 151.60), MAE -0.67 unchanged. Status open. | 12:20 ET 11/18 check: NVDA 1-min bars (actual, complete) since 11:15 range 150.85 (11:55)-152.73; no TP1 (150.33), no stop (158.60). Marked at snapshot last 152.07 (bid 152.07/ask 152.09): +2.93/share (+0.814R). MFE 4.15 (low 150.85), MAE -0.67 unchanged. Status open."
+        "notes": "price_at_alert 154.37 at 9:49:00 ET was below the 155.00-156.00 entry zone, so the short needed a retest of 155.00 and was not filled at the alert. The alert's suggested paper entry was 155.50: coming from below, the first in-zone fill is 155.00 unless a later bar opens already inside the zone, in which case fill at that open. The 9:49 ET Webull 1-min RTH bar (actual) was O/H/L/C 154.2694/154.7850/154.0600/154.4906; 154.37 sits in that bar, and the high 154.7850 was still 0.215 short of 155.00. From 9:50 through the in-progress 9:52 bar, the post-alert high was only 154.59 at 9:50 (O/H/L/C 154.5100/154.5900/153.2600/153.5100) — 0.41 short of the zone — then 9:51 153.5100/153.9900/153.3000/153.8300, and 9:52 153.7480/154.3000/153.7480/154.2750. Last was 154.2301 at the 9:52:16 ET Webull snapshot (bid 154.2300 / ask 154.2600 / mid 154.245). NVDA had traded in the zone earlier in the session (last in-zone action on the 9:43-9:44 bars; 9:44 O/H/L/C 155.4190/155.4500/154.4200/154.4550 left the zone) but that was before the alert. The entry zone has not been traded after the alert through this 9:52 ET check, so status is pending entry. It becomes missed entry at the end of the alert day (15:59 ET 11/18) if the zone is never traded; do not chase. Exit rule 75/25 would apply if it fills (TP3 145.00 ignored). No P&L, R, or MFE/MAE is recorded because there was no entry. Note: NVDA has shown up on Randec's avoid list in scan output; this row is logged anyway for research. | 10:20 ET 11/18 check: entry filled. 9:53 bar (actual) O/H/L/C 154.775/155.0699/154.55/154.81 traded up to zone bottom 155.00; short filled at 155.00. Post-entry low 153.541, high 155.67; no TP1 150.33, no stop 158.60. Marked at last 154.40 (+0.60/share, +0.167R). Status open. | 11:21 ET 11/18 check: NVDA 1-min bars (actual, complete) since 10:20 range 151.60-154.91 (low 10:43); no TP1 (150.33), no stop (158.60). Marked at snapshot last 151.7679 (bid 151.75/ask 151.76): +3.2321/share (+0.898R). MFE 3.40 (snapshot day low 151.60), MAE -0.67 unchanged. Status open. | 12:20 ET 11/18 check: NVDA 1-min bars (actual, complete) since 11:15 range 150.85 (11:55)-152.73; no TP1 (150.33), no stop (158.60). Marked at snapshot last 152.07 (bid 152.07/ask 152.09): +2.93/share (+0.814R). MFE 4.15 (low 150.85), MAE -0.67 unchanged. Status open. | 16:20 ET check: NVDA 1-min bars (actual, complete) range 150.40 (15:23)-153.25; TP1 150.33 NOT hit (low 150.40, 0.07 away), no stop (158.60). Marked at 15:59 close 150.96: +4.04/share (+1.122R, 1R=3.60). MFE extended to 4.60 (low 150.40); MAE -0.67 unchanged. Status open."
       },
       {
         "alert_id": "SSS-006",
@@ -600,12 +600,12 @@
         "exit2_time": null,
         "exit2_px": null,
         "exit2_reason": null,
-        "r_result": 1.322,
-        "pnl_per_share": 2.6438,
+        "r_result": 1.51,
+        "pnl_per_share": 3.02,
         "mfe": 3.8,
         "mae": -1.35,
         "first_hit": "TP1",
-        "notes": "price_at_alert 92.60 at 9:49:00 ET was below the 94.00-94.80 entry zone, so the short needed a retest of 94.00 and was not filled at the alert. The alert's suggested paper entry was 94.40 (pullback required): coming from below, the first in-zone fill is 94.00 unless a later bar opens already inside the zone, in which case fill at that open. The 9:49 ET Webull 1-min RTH bar (actual) was O/H/L/C 92.1801/92.8699/92.0700/92.8350; 92.60 sits in that bar, and the high 92.8699 was still 1.1301 short of 94.00. From 9:50 through the in-progress 9:52 bar, the post-alert high was only 92.9787 at 9:52 (O/H/L/C 92.3700/92.9787/92.3700/92.9300) — 1.0213 short of the zone — after 9:50 92.8700/92.9711/92.1101/92.3600 and 9:51 92.4000/92.7500/92.1800/92.3900. Last was 92.9400 at the 9:52:16 ET Webull snapshot (bid 92.9000 / ask 92.9600 / mid 92.9300). MSTR had traded in the zone earlier in the session (last in-zone action on the 9:32-9:33 bars; 9:33 O/H/L/C 94.5600/94.7100/93.7100/93.7300 left the zone) but that was before the alert. The entry zone has not been traded after the alert through this 9:52 ET check, so status is pending entry. It becomes missed entry at the end of the alert day (15:59 ET 11/18) if the zone is never traded; do not chase. Exit rule 75/25 would apply if it fills (TP3 88.50 ignored). No P&L, R, or MFE/MAE is recorded because there was no entry. Note: MSTR and COIN were sent together and move together. | 10:20 ET 11/18 check: entry filled. 9:58 bar (actual) O/H/L/C 93.935/94.57/93.935/94.47 traded through zone bottom 94.00; short filled at 94.00. Post-entry low 93.02, high 95.35; no TP1 91.20, no stop 96.00. Marked at last 93.625 (+0.375/share, +0.188R). Status open. | 11:21 ET 11/18 check: MSTR 1-min bars (actual, complete) since 10:20 range 91.35-94.01; no TP1 (91.20; snapshot day low 90.965 is a later in-progress print, low 90.965 < 91.20 NOT confirmed on 1-min bars - flag: TP1 91.20 may have traded in the current minute; re-check next run on the completed 11:21+ bars), no stop (96.00). Marked at snapshot last 91.185 (bid 91.16/ask 91.20): +2.815/share (+1.408R). MFE 3.035 (snapshot low), MAE -1.35 unchanged. Status open. | 12:20 ET 11/18 check: MSTR TP1 91.20 CONFIRMED on completed 1-min bars: 11:20 bar (actual) O/H/L/C 91.555/91.57/90.965/91.12 traded through 91.20 (this was the in-progress bar flagged at the 11:21 check; low 90.965); no earlier bar since 10:20 had low <= 91.20, and no stop in the same bar (high 91.57 vs stop 96.00). exit1 = 75% sold at 91.20 at 11:20 (+2.80/share on that slice). TP2 90.10 NOT hit (post-entry low 90.20 at 11:41), no stop (96.00). Remaining 25% marked at snapshot last 91.825 (bid 91.77/ask 91.89): weighted P&L = 0.75*2.80+0.25*(94.00-91.825)=+2.64375/share (+1.322R, 1R=2.00). MFE 3.80 (low 90.20), MAE -1.35 unchanged. first_hit TP1. Status partial."
+        "notes": "price_at_alert 92.60 at 9:49:00 ET was below the 94.00-94.80 entry zone, so the short needed a retest of 94.00 and was not filled at the alert. The alert's suggested paper entry was 94.40 (pullback required): coming from below, the first in-zone fill is 94.00 unless a later bar opens already inside the zone, in which case fill at that open. The 9:49 ET Webull 1-min RTH bar (actual) was O/H/L/C 92.1801/92.8699/92.0700/92.8350; 92.60 sits in that bar, and the high 92.8699 was still 1.1301 short of 94.00. From 9:50 through the in-progress 9:52 bar, the post-alert high was only 92.9787 at 9:52 (O/H/L/C 92.3700/92.9787/92.3700/92.9300) — 1.0213 short of the zone — after 9:50 92.8700/92.9711/92.1101/92.3600 and 9:51 92.4000/92.7500/92.1800/92.3900. Last was 92.9400 at the 9:52:16 ET Webull snapshot (bid 92.9000 / ask 92.9600 / mid 92.9300). MSTR had traded in the zone earlier in the session (last in-zone action on the 9:32-9:33 bars; 9:33 O/H/L/C 94.5600/94.7100/93.7100/93.7300 left the zone) but that was before the alert. The entry zone has not been traded after the alert through this 9:52 ET check, so status is pending entry. It becomes missed entry at the end of the alert day (15:59 ET 11/18) if the zone is never traded; do not chase. Exit rule 75/25 would apply if it fills (TP3 88.50 ignored). No P&L, R, or MFE/MAE is recorded because there was no entry. Note: MSTR and COIN were sent together and move together. | 10:20 ET 11/18 check: entry filled. 9:58 bar (actual) O/H/L/C 93.935/94.57/93.935/94.47 traded through zone bottom 94.00; short filled at 94.00. Post-entry low 93.02, high 95.35; no TP1 91.20, no stop 96.00. Marked at last 93.625 (+0.375/share, +0.188R). Status open. | 11:21 ET 11/18 check: MSTR 1-min bars (actual, complete) since 10:20 range 91.35-94.01; no TP1 (91.20; snapshot day low 90.965 is a later in-progress print, low 90.965 < 91.20 NOT confirmed on 1-min bars - flag: TP1 91.20 may have traded in the current minute; re-check next run on the completed 11:21+ bars), no stop (96.00). Marked at snapshot last 91.185 (bid 91.16/ask 91.20): +2.815/share (+1.408R). MFE 3.035 (snapshot low), MAE -1.35 unchanged. Status open. | 12:20 ET 11/18 check: MSTR TP1 91.20 CONFIRMED on completed 1-min bars: 11:20 bar (actual) O/H/L/C 91.555/91.57/90.965/91.12 traded through 91.20 (this was the in-progress bar flagged at the 11:21 check; low 90.965); no earlier bar since 10:20 had low <= 91.20, and no stop in the same bar (high 91.57 vs stop 96.00). exit1 = 75% sold at 91.20 at 11:20 (+2.80/share on that slice). TP2 90.10 NOT hit (post-entry low 90.20 at 11:41), no stop (96.00). Remaining 25% marked at snapshot last 91.825 (bid 91.77/ask 91.89): weighted P&L = 0.75*2.80+0.25*(94.00-91.825)=+2.64375/share (+1.322R, 1R=2.00). MFE 3.80 (low 90.20), MAE -1.35 unchanged. first_hit TP1. Status partial. | 16:20 ET check: MSTR 1-min bars (actual, complete) range 90.27 (15:59)-94.04; TP2 90.10 NOT hit (snapshot day low 90.20 = same as earlier MFE), no stop (96.00). Remaining 25% marked at 15:59 close 90.32: 0.75*2.80+0.25*(94.00-90.32)=+3.02/share (+1.510R, 1R=2.00). MFE 3.80/MAE -1.35 unchanged. Status partial."
       },
       {
         "alert_id": "SSS-007",
@@ -631,12 +631,12 @@
         "exit2_time": null,
         "exit2_px": null,
         "exit2_reason": null,
-        "r_result": 0.967,
-        "pnl_per_share": 2.4175,
+        "r_result": 1.109,
+        "pnl_per_share": 2.7725,
         "mfe": 3.56,
         "mae": -1.0,
         "first_hit": "TP1",
-        "notes": "price_at_alert 112.33 at 9:49:00 ET was below the 113.50-114.20 entry zone, so the short needed a retest of 113.50 and was not filled at the alert. The alert's suggested paper entry was 113.85 (pullback required): coming from below, the first in-zone fill is 113.50 unless a later bar opens already inside the zone, in which case fill at that open. The 9:49 ET Webull 1-min RTH bar (actual) was O/H/L/C 112.05/112.43/111.88/112.43; 112.33 sits in that bar, and the high 112.43 was still 1.07 short of 113.50. From 9:50 through the in-progress 9:52 bar, the post-alert high was only 112.55 at 9:50 (O/H/L/C 112.43/112.55/111.66/111.97) — 0.95 short of the zone — then 9:51 111.91/112.30/111.80/112.025, and 9:52 112.185/112.44/112.09/112.44. Last was 112.345 at the 9:52:16 ET Webull snapshot (bid 112.25 / ask 112.45 / mid 112.35). COIN had traded in the zone earlier in the session (last in-zone action on the 9:34-9:35 bars; 9:35 O/H/L/C 113.5385/113.825/112.81/112.875 left the zone) but that was before the alert. The entry zone has not been traded after the alert through this 9:52 ET check, so status is pending entry. It becomes missed entry at the end of the alert day (15:59 ET 11/18) if the zone is never traded; do not chase. Exit rule 75/25 would apply if it fills (TP3 105.00 ignored). No P&L, R, or MFE/MAE is recorded because there was no entry. Note: MSTR and COIN were sent together and move together. | 10:20 ET 11/18 check: entry filled. 9:56 bar (actual) O/H/L/C 113.05/113.60/112.98/113.10 traded up to zone bottom 113.50; short filled at 113.50. Post-entry low 112.27, high 114.50; no TP1 110.80, no stop 116.00. Marked at last 112.76 (+0.74/share, +0.296R). Status open. | 11:21 ET 11/18 check: COIN 1-min bars (actual, complete) since 10:20 range 111.07-113.14; no TP1 (110.80; snapshot day low 110.80 exactly = level, not through; re-check next run), no stop (116.00). Marked at snapshot last 110.91 (bid 110.86/ask 110.97): +2.59/share (+1.036R). MFE 2.70 (snapshot low), MAE -1.00 unchanged. Status open. | 12:20 ET 11/18 check: COIN TP1 110.80 CONFIRMED: first bar trading through 110.80 was 11:31 (actual) O/H/L/C 110.96/110.96/110.6246/110.80 (open 110.96 above TP1, low 110.6246; no stop in the same bar, stop 116.00). The earlier snapshot low exactly 110.80 was not through. exit1 = 75% sold at 110.80 at 11:31 (+2.70/share on that slice). TP2 109.00 NOT hit (post-entry low 109.94 at 11:55), no stop (116.00). Remaining 25% marked at snapshot last 111.93 (bid 111.83/ask 111.98): weighted P&L = 0.75*2.70+0.25*(113.50-111.93)=+2.4175/share (+0.967R, 1R=2.50). MFE 3.56 (low 109.94), MAE -1.00 unchanged. first_hit TP1. Status partial."
+        "notes": "price_at_alert 112.33 at 9:49:00 ET was below the 113.50-114.20 entry zone, so the short needed a retest of 113.50 and was not filled at the alert. The alert's suggested paper entry was 113.85 (pullback required): coming from below, the first in-zone fill is 113.50 unless a later bar opens already inside the zone, in which case fill at that open. The 9:49 ET Webull 1-min RTH bar (actual) was O/H/L/C 112.05/112.43/111.88/112.43; 112.33 sits in that bar, and the high 112.43 was still 1.07 short of 113.50. From 9:50 through the in-progress 9:52 bar, the post-alert high was only 112.55 at 9:50 (O/H/L/C 112.43/112.55/111.66/111.97) — 0.95 short of the zone — then 9:51 111.91/112.30/111.80/112.025, and 9:52 112.185/112.44/112.09/112.44. Last was 112.345 at the 9:52:16 ET Webull snapshot (bid 112.25 / ask 112.45 / mid 112.35). COIN had traded in the zone earlier in the session (last in-zone action on the 9:34-9:35 bars; 9:35 O/H/L/C 113.5385/113.825/112.81/112.875 left the zone) but that was before the alert. The entry zone has not been traded after the alert through this 9:52 ET check, so status is pending entry. It becomes missed entry at the end of the alert day (15:59 ET 11/18) if the zone is never traded; do not chase. Exit rule 75/25 would apply if it fills (TP3 105.00 ignored). No P&L, R, or MFE/MAE is recorded because there was no entry. Note: MSTR and COIN were sent together and move together. | 10:20 ET 11/18 check: entry filled. 9:56 bar (actual) O/H/L/C 113.05/113.60/112.98/113.10 traded up to zone bottom 113.50; short filled at 113.50. Post-entry low 112.27, high 114.50; no TP1 110.80, no stop 116.00. Marked at last 112.76 (+0.74/share, +0.296R). Status open. | 11:21 ET 11/18 check: COIN 1-min bars (actual, complete) since 10:20 range 111.07-113.14; no TP1 (110.80; snapshot day low 110.80 exactly = level, not through; re-check next run), no stop (116.00). Marked at snapshot last 110.91 (bid 110.86/ask 110.97): +2.59/share (+1.036R). MFE 2.70 (snapshot low), MAE -1.00 unchanged. Status open. | 12:20 ET 11/18 check: COIN TP1 110.80 CONFIRMED: first bar trading through 110.80 was 11:31 (actual) O/H/L/C 110.96/110.96/110.6246/110.80 (open 110.96 above TP1, low 110.6246; no stop in the same bar, stop 116.00). The earlier snapshot low exactly 110.80 was not through. exit1 = 75% sold at 110.80 at 11:31 (+2.70/share on that slice). TP2 109.00 NOT hit (post-entry low 109.94 at 11:55), no stop (116.00). Remaining 25% marked at snapshot last 111.93 (bid 111.83/ask 111.98): weighted P&L = 0.75*2.70+0.25*(113.50-111.93)=+2.4175/share (+0.967R, 1R=2.50). MFE 3.56 (low 109.94), MAE -1.00 unchanged. first_hit TP1. Status partial. | 16:20 ET check: COIN 1-min bars (actual, complete) range 110.34 (15:59)-114.37; TP2 109.00 NOT hit (day low 109.94 at 11:55), no stop (116.00). Remaining 25% marked at 15:59 close 110.51: 0.75*2.70+0.25*(113.50-110.51)=+2.7725/share (+1.109R, 1R=2.50). MFE 3.56/MAE -1.00 unchanged. Status partial."
       }
     ],
     "summary": {
@@ -653,9 +653,9 @@
       "closed": 0,
       "missedEntry": 2,
       "closedPnlPerShare": null,
-      "markPnlPerShare": 8.3701,
+      "markPnlPerShare": 9.8125,
       "closedR": null,
-      "markR": 3.116,
+      "markR": 3.599,
       "winRate": null,
       "winners": 0,
       "losers": 0,
@@ -672,13 +672,13 @@
           "closed": 0,
           "missedEntry": 0,
           "closedPnl": null,
-          "markPnl": 2.4175,
+          "markPnl": 2.7725,
           "winRate": null,
           "winners": 0,
           "losers": 0,
           "closedWithPnl": 0,
           "closedR": null,
-          "markR": 0.967
+          "markR": 1.109
         },
         {
           "ticker": "GOOGL",
@@ -688,13 +688,13 @@
           "closed": 0,
           "missedEntry": 0,
           "closedPnl": null,
-          "markPnl": 1.0025,
+          "markPnl": 0.74,
           "winRate": null,
           "winners": 0,
           "losers": 0,
           "closedWithPnl": 0,
           "closedR": null,
-          "markR": 0.326
+          "markR": 0.24
         },
         {
           "ticker": "HOOD",
@@ -704,13 +704,13 @@
           "closed": 0,
           "missedEntry": 0,
           "closedPnl": null,
-          "markPnl": -0.6237,
+          "markPnl": -0.76,
           "winRate": null,
           "winners": 0,
           "losers": 0,
           "closedWithPnl": 0,
           "closedR": null,
-          "markR": -0.313
+          "markR": -0.382
         },
         {
           "ticker": "MSFT",
@@ -736,13 +736,13 @@
           "closed": 0,
           "missedEntry": 1,
           "closedPnl": null,
-          "markPnl": 2.6438,
+          "markPnl": 3.02,
           "winRate": null,
           "winners": 0,
           "losers": 0,
           "closedWithPnl": 0,
           "closedR": null,
-          "markR": 1.322
+          "markR": 1.51
         },
         {
           "ticker": "NVDA",
@@ -752,52 +752,52 @@
           "closed": 0,
           "missedEntry": 0,
           "closedPnl": null,
-          "markPnl": 2.93,
+          "markPnl": 4.04,
           "winRate": null,
           "winners": 0,
           "losers": 0,
           "closedWithPnl": 0,
           "closedR": null,
-          "markR": 0.814
+          "markR": 1.122
         }
       ],
       "equity": [
         {
-          "timeET": "2026-11-18 14:20",
-          "pnl": 1.0025,
-          "cumulative": 1.0025,
+          "timeET": "2026-11-18 16:22",
+          "pnl": 0.74,
+          "cumulative": 0.74,
           "alertId": "SSS-001",
           "ticker": "GOOGL",
           "kind": "mark"
         },
         {
-          "timeET": "2026-11-18 14:20",
-          "pnl": -0.6237,
-          "cumulative": 0.3788,
+          "timeET": "2026-11-18 16:22",
+          "pnl": -0.76,
+          "cumulative": -0.02,
           "alertId": "SSS-004",
           "ticker": "HOOD",
           "kind": "mark"
         },
         {
-          "timeET": "2026-11-18 14:20",
-          "pnl": 2.93,
-          "cumulative": 3.3088,
+          "timeET": "2026-11-18 16:22",
+          "pnl": 4.04,
+          "cumulative": 4.02,
           "alertId": "SSS-005",
           "ticker": "NVDA",
           "kind": "mark"
         },
         {
-          "timeET": "2026-11-18 14:20",
-          "pnl": 2.6438,
-          "cumulative": 5.9526,
+          "timeET": "2026-11-18 16:22",
+          "pnl": 3.02,
+          "cumulative": 7.04,
           "alertId": "SSS-006",
           "ticker": "MSTR",
           "kind": "mark"
         },
         {
-          "timeET": "2026-11-18 14:20",
-          "pnl": 2.4175,
-          "cumulative": 8.3701,
+          "timeET": "2026-11-18 16:22",
+          "pnl": 2.7725,
+          "cumulative": 9.8125,
           "alertId": "SSS-007",
           "ticker": "COIN",
           "kind": "mark"
@@ -805,41 +805,41 @@
       ],
       "equityR": [
         {
-          "timeET": "2026-11-18 14:20",
-          "pnl": 0.326,
-          "cumulative": 0.326,
+          "timeET": "2026-11-18 16:22",
+          "pnl": 0.24,
+          "cumulative": 0.24,
           "alertId": "SSS-001",
           "ticker": "GOOGL",
           "kind": "mark"
         },
         {
-          "timeET": "2026-11-18 14:20",
-          "pnl": -0.313,
-          "cumulative": 0.013,
+          "timeET": "2026-11-18 16:22",
+          "pnl": -0.382,
+          "cumulative": -0.142,
           "alertId": "SSS-004",
           "ticker": "HOOD",
           "kind": "mark"
         },
         {
-          "timeET": "2026-11-18 14:20",
-          "pnl": 0.814,
-          "cumulative": 0.827,
+          "timeET": "2026-11-18 16:22",
+          "pnl": 1.122,
+          "cumulative": 0.98,
           "alertId": "SSS-005",
           "ticker": "NVDA",
           "kind": "mark"
         },
         {
-          "timeET": "2026-11-18 14:20",
-          "pnl": 1.322,
-          "cumulative": 2.149,
+          "timeET": "2026-11-18 16:22",
+          "pnl": 1.51,
+          "cumulative": 2.49,
           "alertId": "SSS-006",
           "ticker": "MSTR",
           "kind": "mark"
         },
         {
-          "timeET": "2026-11-18 14:20",
-          "pnl": 0.967,
-          "cumulative": 3.116,
+          "timeET": "2026-11-18 16:22",
+          "pnl": 1.109,
+          "cumulative": 3.599,
           "alertId": "SSS-007",
           "ticker": "COIN",
           "kind": "mark"
@@ -867,8 +867,8 @@
         "highSinceAlert": 6.5,
         "highSinceAlertTime": "2026-11-12 09:45",
         "highSinceAlertPct": 35.6994,
-        "lastPrice": 3.11,
-        "chgToLastPct": -35.0731,
+        "lastPrice": 3.06,
+        "chgToLastPct": -36.1169,
         "chartAvailable": true,
         "move_day": "Day 1",
         "move_day_basis": "Prior session Nov 11 was not a big move (+0%); no earlier alert in the prior 2 trading days."
@@ -891,8 +891,8 @@
         "highSinceAlert": 1.8794,
         "highSinceAlertTime": "2026-11-13 04:00",
         "highSinceAlertPct": 6.7841,
-        "lastPrice": 0.904,
-        "chgToLastPct": -48.6364,
+        "lastPrice": 0.88,
+        "chgToLastPct": -50.0,
         "chartAvailable": true,
         "move_day": "Day 1",
         "move_day_basis": "Prior session Nov 11 was not a big move (-7% on 0.9x volume); no earlier alert in the prior 2 trading days."
@@ -939,8 +939,8 @@
         "highSinceAlert": 3.62,
         "highSinceAlertTime": "2026-11-13 04:00",
         "highSinceAlertPct": 33.0882,
-        "lastPrice": 2.4,
-        "chgToLastPct": -11.7647,
+        "lastPrice": 2.31,
+        "chgToLastPct": -15.0735,
         "chartAvailable": true,
         "move_day": "Day 1",
         "move_day_basis": "Prior session Nov 11 was not a big move (+7% on 1.0x volume); no earlier alert in the prior 2 trading days."
@@ -987,8 +987,8 @@
         "highSinceAlert": 3.62,
         "highSinceAlertTime": "2026-11-13 04:00",
         "highSinceAlertPct": 27.9152,
-        "lastPrice": 2.4,
-        "chgToLastPct": -15.1943,
+        "lastPrice": 2.31,
+        "chgToLastPct": -18.3746,
         "chartAvailable": true,
         "move_day": "Day 1",
         "move_day_basis": "Prior session Nov 11 was not a big move (+7% on 1.0x volume); no earlier alert in the prior 2 trading days."
@@ -1011,8 +1011,8 @@
         "highSinceAlert": 2.96,
         "highSinceAlertTime": "2026-11-16 11:00",
         "highSinceAlertPct": 8.8235,
-        "lastPrice": 2.4,
-        "chgToLastPct": -11.7647,
+        "lastPrice": 2.31,
+        "chgToLastPct": -15.0735,
         "chartAvailable": true,
         "move_day": "Day 2",
         "move_day_basis": "1 trading day after Nov 12 -1% on 12x volume"
@@ -1035,8 +1035,8 @@
         "highSinceAlert": 1.97,
         "highSinceAlertTime": "2026-11-16 09:45",
         "highSinceAlertPct": 66.9492,
-        "lastPrice": 1.67,
-        "chgToLastPct": 41.5254,
+        "lastPrice": 1.64,
+        "chgToLastPct": 38.9831,
         "chartAvailable": true,
         "move_day": "Day 2",
         "move_day_basis": "1 trading day after Nov 12 +0% on 71x volume"
@@ -1083,8 +1083,8 @@
         "highSinceAlert": 1.97,
         "highSinceAlertTime": "2026-11-18 08:45",
         "highSinceAlertPct": 89.4231,
-        "lastPrice": 1.623,
-        "chgToLastPct": 56.0577,
+        "lastPrice": 1.61,
+        "chgToLastPct": 54.8077,
         "chartAvailable": true,
         "move_day": "Day 1",
         "move_day_basis": "Prior session Nov 13 was not a big move (-2% on 0.4x volume); no earlier alert in the prior 2 trading days."
@@ -1107,8 +1107,8 @@
         "highSinceAlert": 3.56,
         "highSinceAlertTime": "2026-11-17 07:30",
         "highSinceAlertPct": 145.5172,
-        "lastPrice": 2.55,
-        "chgToLastPct": 75.8621,
+        "lastPrice": 2.87,
+        "chgToLastPct": 97.931,
         "chartAvailable": true,
         "move_day": "Day 3",
         "move_day_basis": "2 trading days after Nov 12 +175% on 123x volume"
@@ -1131,8 +1131,8 @@
         "highSinceAlert": 1.465,
         "highSinceAlertTime": "2026-11-16 09:30",
         "highSinceAlertPct": 5.3957,
-        "lastPrice": 1.365,
-        "chgToLastPct": -1.7986,
+        "lastPrice": 1.21,
+        "chgToLastPct": -12.9496,
         "chartAvailable": true,
         "move_day": "Day 3",
         "move_day_basis": "2 trading days after Nov 12 +119% on 1,382x volume"
@@ -1155,8 +1155,8 @@
         "highSinceAlert": 3.5893,
         "highSinceAlertTime": "2026-11-17 04:00",
         "highSinceAlertPct": 28.1893,
-        "lastPrice": 2.975,
-        "chgToLastPct": 6.25,
+        "lastPrice": 2.91,
+        "chgToLastPct": 3.9286,
         "chartAvailable": true,
         "move_day": "Day 1",
         "move_day_basis": "Prior session Nov 13 was not a big move (-1% on 1.5x volume); no earlier alert in the prior 2 trading days."
@@ -1179,8 +1179,8 @@
         "highSinceAlert": 2.67,
         "highSinceAlertTime": "2026-11-17 09:15",
         "highSinceAlertPct": 1.5209,
-        "lastPrice": 2.655,
-        "chgToLastPct": 0.9506,
+        "lastPrice": 2.66,
+        "chgToLastPct": 1.1407,
         "chartAvailable": true,
         "move_day": "Day 1",
         "move_day_basis": "Prior session Nov 13 was not a big move (-1% on 0.7x volume); no earlier alert in the prior 2 trading days."
@@ -1203,8 +1203,8 @@
         "highSinceAlert": 2.63,
         "highSinceAlertTime": "2026-11-17 04:00",
         "highSinceAlertPct": 16.8889,
-        "lastPrice": 0.7201,
-        "chgToLastPct": -67.9956,
+        "lastPrice": 0.7419,
+        "chgToLastPct": -67.0267,
         "chartAvailable": true,
         "move_day": "Day 1",
         "move_day_basis": "Prior session Nov 13 was not a big move (-7% on 2.3x volume); no earlier alert in the prior 2 trading days."
@@ -1227,8 +1227,8 @@
         "highSinceAlert": 3.5893,
         "highSinceAlertTime": "2026-11-17 04:00",
         "highSinceAlertPct": 18.0691,
-        "lastPrice": 2.975,
-        "chgToLastPct": -2.1382,
+        "lastPrice": 2.91,
+        "chgToLastPct": -4.2763,
         "chartAvailable": true,
         "move_day": "Day 1",
         "move_day_basis": "Prior session Nov 13 was not a big move (-1% on 1.5x volume); no earlier alert in the prior 2 trading days."
@@ -1251,8 +1251,8 @@
         "highSinceAlert": 2.67,
         "highSinceAlertTime": "2026-11-17 09:15",
         "highSinceAlertPct": 0.7547,
-        "lastPrice": 2.655,
-        "chgToLastPct": 0.1887,
+        "lastPrice": 2.66,
+        "chgToLastPct": 0.3774,
         "chartAvailable": true,
         "move_day": "Day 2",
         "move_day_basis": "1 trading day after Nov 16 +2% on 57x volume"
@@ -1275,8 +1275,8 @@
         "highSinceAlert": 3.37,
         "highSinceAlertTime": "2026-11-17 09:30",
         "highSinceAlertPct": 13.468,
-        "lastPrice": 2.975,
-        "chgToLastPct": 0.1684,
+        "lastPrice": 2.91,
+        "chgToLastPct": -2.0202,
         "chartAvailable": true,
         "move_day": "Day 2",
         "move_day_basis": "1 trading day after Nov 16 -11% on 25x volume"
@@ -1299,8 +1299,8 @@
         "highSinceAlert": 3.4499,
         "highSinceAlertTime": "2026-11-18 07:00",
         "highSinceAlertPct": 14.6146,
-        "lastPrice": 2.55,
-        "chgToLastPct": -15.2824,
+        "lastPrice": 2.87,
+        "chgToLastPct": -4.6512,
         "chartAvailable": true,
         "move_day": "Day 4+",
         "move_day_basis": "3 trading days after Nov 12 +175% on 123x volume"
@@ -1323,8 +1323,8 @@
         "highSinceAlert": 4.48,
         "highSinceAlertTime": "2026-11-17 09:30",
         "highSinceAlertPct": 11.7207,
-        "lastPrice": 4.1,
-        "chgToLastPct": 2.2444,
+        "lastPrice": 4.02,
+        "chgToLastPct": 0.2494,
         "chartAvailable": true,
         "move_day": "Day 1",
         "move_day_basis": "Prior session Nov 16 was not a big move (-4% on 1.1x volume); no earlier alert in the prior 2 trading days."
@@ -1341,17 +1341,17 @@
         "news_headline": "B. Riley cuts price target to $25 from $83, keeps Buy rating.",
         "news_url": "https://www.marketscreener.com/news/b-riley-cuts-price-target-on-cue-biopharma-to-25-from-83-keeps-buy-rating-ce785edddb88f726",
         "catalyst_tag": "other",
-        "nextSessionClose": 4.31,
+        "nextSessionClose": 4.76,
         "nextSessionCloseDate": "2026-11-18",
-        "chgToNextClosePct": 31.8043,
-        "highSinceAlert": 4.47,
-        "highSinceAlertTime": "2026-11-18 12:00",
-        "highSinceAlertPct": 36.6972,
-        "lastPrice": 4.31,
-        "chgToLastPct": 31.8043,
+        "chgToNextClosePct": 45.5657,
+        "highSinceAlert": 4.89,
+        "highSinceAlertTime": "2026-11-18 16:00",
+        "highSinceAlertPct": 49.5413,
+        "lastPrice": 4.76,
+        "chgToLastPct": 45.5657,
         "chartAvailable": true,
         "move_day": "Day 2",
-        "move_day_basis": "1 trading day after Nov 17 -80% on 28x volume"
+        "move_day_basis": "1 trading day after Nov 17 -80% on 29x volume"
       },
       {
         "alert_id": "LF-022",
@@ -1365,14 +1365,14 @@
         "news_headline": "8-K/A: Adeptus won't serve as auditor and a search for a new one starts; class-action notice also out.",
         "news_url": "https://www.quantisnow.com/insight/amendment-netcapital-inc-filed-sec-form-8-k-changes-in-registrants-6797312",
         "catalyst_tag": "other",
-        "nextSessionClose": 3.145,
+        "nextSessionClose": 2.89,
         "nextSessionCloseDate": "2026-11-18",
-        "chgToNextClosePct": 18.6792,
-        "highSinceAlert": 3.2,
-        "highSinceAlertTime": "2026-11-18 13:15",
-        "highSinceAlertPct": 20.7547,
-        "lastPrice": 3.145,
-        "chgToLastPct": 18.6792,
+        "chgToNextClosePct": 9.0566,
+        "highSinceAlert": 3.21,
+        "highSinceAlertTime": "2026-11-18 14:30",
+        "highSinceAlertPct": 21.1321,
+        "lastPrice": 2.89,
+        "chgToLastPct": 9.0566,
         "chartAvailable": true,
         "move_day": "Day 3",
         "move_day_basis": "2 trading days after Nov 16 +21% on 0.3x volume"
@@ -1389,14 +1389,14 @@
         "news_headline": "Highway Holdings returns to strong revenue growth and operating profitability in Q2 FY2027; revenue up 107% to $2.44M.",
         "news_url": "https://www.prnewswire.com/news-releases/highway-holdings-returns-to-strong-revenue-growth-and-operating-profitability-in-second-quarter-fiscal-year-2027-302943712.html",
         "catalyst_tag": "earnings",
-        "nextSessionClose": 1.6228,
+        "nextSessionClose": 1.61,
         "nextSessionCloseDate": "2026-11-18",
-        "chgToNextClosePct": -12.2811,
+        "chgToNextClosePct": -12.973,
         "highSinceAlert": 1.91,
         "highSinceAlertTime": "2026-11-18 09:30",
         "highSinceAlertPct": 3.2432,
-        "lastPrice": 1.623,
-        "chgToLastPct": -12.2703,
+        "lastPrice": 1.61,
+        "chgToLastPct": -12.973,
         "chartAvailable": true,
         "move_day": "Day 3",
         "move_day_basis": "2 trading days after Nov 16 +52% on 3,193x volume"
@@ -1421,8 +1421,8 @@
       "withNextClose": 23,
       "nextCloseWinners": 15,
       "nextCloseWinRate": 0.6522,
-      "avgChgToNextClosePct": 1.6783,
-      "avgHighSinceAlertPct": 31.2768,
+      "avgChgToNextClosePct": 1.8281,
+      "avgHighSinceAlertPct": 31.8516,
       "byMoveDay": {
         "Day 1": 12,
         "Day 2": 6,
@@ -1440,14 +1440,14 @@
         "Day 2": {
           "alerts": 6,
           "withNextClose": 6,
-          "avgChgToNextClosePct": 14.2598,
-          "avgHighSinceAlertPct": 27.9157
+          "avgChgToNextClosePct": 16.5534,
+          "avgHighSinceAlertPct": 30.0564
         },
         "Day 3": {
           "alerts": 4,
           "withNextClose": 4,
-          "avgChgToNextClosePct": -3.5865,
-          "avgHighSinceAlertPct": 43.7277
+          "avgChgToNextClosePct": -6.1652,
+          "avgHighSinceAlertPct": 43.8221
         },
         "Day 4+": {
           "alerts": 1,
@@ -1494,12 +1494,12 @@
         "exit2_time": null,
         "exit2_px": null,
         "exit2_reason": null,
-        "r_result": 0.814,
-        "pnl_per_share": 2.93,
-        "mfe": 4.15,
+        "r_result": 1.122,
+        "pnl_per_share": 4.04,
+        "mfe": 4.6,
         "mae": -0.67,
         "first_hit": null,
-        "notes": "price_at_alert 154.37 at 9:49:00 ET was below the 155.00-156.00 entry zone, so the short needed a retest of 155.00 and was not filled at the alert. The alert's suggested paper entry was 155.50: coming from below, the first in-zone fill is 155.00 unless a later bar opens already inside the zone, in which case fill at that open. The 9:49 ET Webull 1-min RTH bar (actual) was O/H/L/C 154.2694/154.7850/154.0600/154.4906; 154.37 sits in that bar, and the high 154.7850 was still 0.215 short of 155.00. From 9:50 through the in-progress 9:52 bar, the post-alert high was only 154.59 at 9:50 (O/H/L/C 154.5100/154.5900/153.2600/153.5100) — 0.41 short of the zone — then 9:51 153.5100/153.9900/153.3000/153.8300, and 9:52 153.7480/154.3000/153.7480/154.2750. Last was 154.2301 at the 9:52:16 ET Webull snapshot (bid 154.2300 / ask 154.2600 / mid 154.245). NVDA had traded in the zone earlier in the session (last in-zone action on the 9:43-9:44 bars; 9:44 O/H/L/C 155.4190/155.4500/154.4200/154.4550 left the zone) but that was before the alert. The entry zone has not been traded after the alert through this 9:52 ET check, so status is pending entry. It becomes missed entry at the end of the alert day (15:59 ET 11/18) if the zone is never traded; do not chase. Exit rule 75/25 would apply if it fills (TP3 145.00 ignored). No P&L, R, or MFE/MAE is recorded because there was no entry. Note: NVDA has shown up on Randec's avoid list in scan output; this row is logged anyway for research. | 10:20 ET 11/18 check: entry filled. 9:53 bar (actual) O/H/L/C 154.775/155.0699/154.55/154.81 traded up to zone bottom 155.00; short filled at 155.00. Post-entry low 153.541, high 155.67; no TP1 150.33, no stop 158.60. Marked at last 154.40 (+0.60/share, +0.167R). Status open. | 11:21 ET 11/18 check: NVDA 1-min bars (actual, complete) since 10:20 range 151.60-154.91 (low 10:43); no TP1 (150.33), no stop (158.60). Marked at snapshot last 151.7679 (bid 151.75/ask 151.76): +3.2321/share (+0.898R). MFE 3.40 (snapshot day low 151.60), MAE -0.67 unchanged. Status open. | 12:20 ET 11/18 check: NVDA 1-min bars (actual, complete) since 11:15 range 150.85 (11:55)-152.73; no TP1 (150.33), no stop (158.60). Marked at snapshot last 152.07 (bid 152.07/ask 152.09): +2.93/share (+0.814R). MFE 4.15 (low 150.85), MAE -0.67 unchanged. Status open."
+        "notes": "price_at_alert 154.37 at 9:49:00 ET was below the 155.00-156.00 entry zone, so the short needed a retest of 155.00 and was not filled at the alert. The alert's suggested paper entry was 155.50: coming from below, the first in-zone fill is 155.00 unless a later bar opens already inside the zone, in which case fill at that open. The 9:49 ET Webull 1-min RTH bar (actual) was O/H/L/C 154.2694/154.7850/154.0600/154.4906; 154.37 sits in that bar, and the high 154.7850 was still 0.215 short of 155.00. From 9:50 through the in-progress 9:52 bar, the post-alert high was only 154.59 at 9:50 (O/H/L/C 154.5100/154.5900/153.2600/153.5100) — 0.41 short of the zone — then 9:51 153.5100/153.9900/153.3000/153.8300, and 9:52 153.7480/154.3000/153.7480/154.2750. Last was 154.2301 at the 9:52:16 ET Webull snapshot (bid 154.2300 / ask 154.2600 / mid 154.245). NVDA had traded in the zone earlier in the session (last in-zone action on the 9:43-9:44 bars; 9:44 O/H/L/C 155.4190/155.4500/154.4200/154.4550 left the zone) but that was before the alert. The entry zone has not been traded after the alert through this 9:52 ET check, so status is pending entry. It becomes missed entry at the end of the alert day (15:59 ET 11/18) if the zone is never traded; do not chase. Exit rule 75/25 would apply if it fills (TP3 145.00 ignored). No P&L, R, or MFE/MAE is recorded because there was no entry. Note: NVDA has shown up on Randec's avoid list in scan output; this row is logged anyway for research. | 10:20 ET 11/18 check: entry filled. 9:53 bar (actual) O/H/L/C 154.775/155.0699/154.55/154.81 traded up to zone bottom 155.00; short filled at 155.00. Post-entry low 153.541, high 155.67; no TP1 150.33, no stop 158.60. Marked at last 154.40 (+0.60/share, +0.167R). Status open. | 11:21 ET 11/18 check: NVDA 1-min bars (actual, complete) since 10:20 range 151.60-154.91 (low 10:43); no TP1 (150.33), no stop (158.60). Marked at snapshot last 151.7679 (bid 151.75/ask 151.76): +3.2321/share (+0.898R). MFE 3.40 (snapshot day low 151.60), MAE -0.67 unchanged. Status open. | 12:20 ET 11/18 check: NVDA 1-min bars (actual, complete) since 11:15 range 150.85 (11:55)-152.73; no TP1 (150.33), no stop (158.60). Marked at snapshot last 152.07 (bid 152.07/ask 152.09): +2.93/share (+0.814R). MFE 4.15 (low 150.85), MAE -0.67 unchanged. Status open. | 16:20 ET check: NVDA 1-min bars (actual, complete) range 150.40 (15:23)-153.25; TP1 150.33 NOT hit (low 150.40, 0.07 away), no stop (158.60). Marked at 15:59 close 150.96: +4.04/share (+1.122R, 1R=3.60). MFE extended to 4.60 (low 150.40); MAE -0.67 unchanged. Status open."
       },
       {
         "alert_id": "SSS-006",
@@ -1525,12 +1525,12 @@
         "exit2_time": null,
         "exit2_px": null,
         "exit2_reason": null,
-        "r_result": 1.322,
-        "pnl_per_share": 2.6438,
+        "r_result": 1.51,
+        "pnl_per_share": 3.02,
         "mfe": 3.8,
         "mae": -1.35,
         "first_hit": "TP1",
-        "notes": "price_at_alert 92.60 at 9:49:00 ET was below the 94.00-94.80 entry zone, so the short needed a retest of 94.00 and was not filled at the alert. The alert's suggested paper entry was 94.40 (pullback required): coming from below, the first in-zone fill is 94.00 unless a later bar opens already inside the zone, in which case fill at that open. The 9:49 ET Webull 1-min RTH bar (actual) was O/H/L/C 92.1801/92.8699/92.0700/92.8350; 92.60 sits in that bar, and the high 92.8699 was still 1.1301 short of 94.00. From 9:50 through the in-progress 9:52 bar, the post-alert high was only 92.9787 at 9:52 (O/H/L/C 92.3700/92.9787/92.3700/92.9300) — 1.0213 short of the zone — after 9:50 92.8700/92.9711/92.1101/92.3600 and 9:51 92.4000/92.7500/92.1800/92.3900. Last was 92.9400 at the 9:52:16 ET Webull snapshot (bid 92.9000 / ask 92.9600 / mid 92.9300). MSTR had traded in the zone earlier in the session (last in-zone action on the 9:32-9:33 bars; 9:33 O/H/L/C 94.5600/94.7100/93.7100/93.7300 left the zone) but that was before the alert. The entry zone has not been traded after the alert through this 9:52 ET check, so status is pending entry. It becomes missed entry at the end of the alert day (15:59 ET 11/18) if the zone is never traded; do not chase. Exit rule 75/25 would apply if it fills (TP3 88.50 ignored). No P&L, R, or MFE/MAE is recorded because there was no entry. Note: MSTR and COIN were sent together and move together. | 10:20 ET 11/18 check: entry filled. 9:58 bar (actual) O/H/L/C 93.935/94.57/93.935/94.47 traded through zone bottom 94.00; short filled at 94.00. Post-entry low 93.02, high 95.35; no TP1 91.20, no stop 96.00. Marked at last 93.625 (+0.375/share, +0.188R). Status open. | 11:21 ET 11/18 check: MSTR 1-min bars (actual, complete) since 10:20 range 91.35-94.01; no TP1 (91.20; snapshot day low 90.965 is a later in-progress print, low 90.965 < 91.20 NOT confirmed on 1-min bars - flag: TP1 91.20 may have traded in the current minute; re-check next run on the completed 11:21+ bars), no stop (96.00). Marked at snapshot last 91.185 (bid 91.16/ask 91.20): +2.815/share (+1.408R). MFE 3.035 (snapshot low), MAE -1.35 unchanged. Status open. | 12:20 ET 11/18 check: MSTR TP1 91.20 CONFIRMED on completed 1-min bars: 11:20 bar (actual) O/H/L/C 91.555/91.57/90.965/91.12 traded through 91.20 (this was the in-progress bar flagged at the 11:21 check; low 90.965); no earlier bar since 10:20 had low <= 91.20, and no stop in the same bar (high 91.57 vs stop 96.00). exit1 = 75% sold at 91.20 at 11:20 (+2.80/share on that slice). TP2 90.10 NOT hit (post-entry low 90.20 at 11:41), no stop (96.00). Remaining 25% marked at snapshot last 91.825 (bid 91.77/ask 91.89): weighted P&L = 0.75*2.80+0.25*(94.00-91.825)=+2.64375/share (+1.322R, 1R=2.00). MFE 3.80 (low 90.20), MAE -1.35 unchanged. first_hit TP1. Status partial."
+        "notes": "price_at_alert 92.60 at 9:49:00 ET was below the 94.00-94.80 entry zone, so the short needed a retest of 94.00 and was not filled at the alert. The alert's suggested paper entry was 94.40 (pullback required): coming from below, the first in-zone fill is 94.00 unless a later bar opens already inside the zone, in which case fill at that open. The 9:49 ET Webull 1-min RTH bar (actual) was O/H/L/C 92.1801/92.8699/92.0700/92.8350; 92.60 sits in that bar, and the high 92.8699 was still 1.1301 short of 94.00. From 9:50 through the in-progress 9:52 bar, the post-alert high was only 92.9787 at 9:52 (O/H/L/C 92.3700/92.9787/92.3700/92.9300) — 1.0213 short of the zone — after 9:50 92.8700/92.9711/92.1101/92.3600 and 9:51 92.4000/92.7500/92.1800/92.3900. Last was 92.9400 at the 9:52:16 ET Webull snapshot (bid 92.9000 / ask 92.9600 / mid 92.9300). MSTR had traded in the zone earlier in the session (last in-zone action on the 9:32-9:33 bars; 9:33 O/H/L/C 94.5600/94.7100/93.7100/93.7300 left the zone) but that was before the alert. The entry zone has not been traded after the alert through this 9:52 ET check, so status is pending entry. It becomes missed entry at the end of the alert day (15:59 ET 11/18) if the zone is never traded; do not chase. Exit rule 75/25 would apply if it fills (TP3 88.50 ignored). No P&L, R, or MFE/MAE is recorded because there was no entry. Note: MSTR and COIN were sent together and move together. | 10:20 ET 11/18 check: entry filled. 9:58 bar (actual) O/H/L/C 93.935/94.57/93.935/94.47 traded through zone bottom 94.00; short filled at 94.00. Post-entry low 93.02, high 95.35; no TP1 91.20, no stop 96.00. Marked at last 93.625 (+0.375/share, +0.188R). Status open. | 11:21 ET 11/18 check: MSTR 1-min bars (actual, complete) since 10:20 range 91.35-94.01; no TP1 (91.20; snapshot day low 90.965 is a later in-progress print, low 90.965 < 91.20 NOT confirmed on 1-min bars - flag: TP1 91.20 may have traded in the current minute; re-check next run on the completed 11:21+ bars), no stop (96.00). Marked at snapshot last 91.185 (bid 91.16/ask 91.20): +2.815/share (+1.408R). MFE 3.035 (snapshot low), MAE -1.35 unchanged. Status open. | 12:20 ET 11/18 check: MSTR TP1 91.20 CONFIRMED on completed 1-min bars: 11:20 bar (actual) O/H/L/C 91.555/91.57/90.965/91.12 traded through 91.20 (this was the in-progress bar flagged at the 11:21 check; low 90.965); no earlier bar since 10:20 had low <= 91.20, and no stop in the same bar (high 91.57 vs stop 96.00). exit1 = 75% sold at 91.20 at 11:20 (+2.80/share on that slice). TP2 90.10 NOT hit (post-entry low 90.20 at 11:41), no stop (96.00). Remaining 25% marked at snapshot last 91.825 (bid 91.77/ask 91.89): weighted P&L = 0.75*2.80+0.25*(94.00-91.825)=+2.64375/share (+1.322R, 1R=2.00). MFE 3.80 (low 90.20), MAE -1.35 unchanged. first_hit TP1. Status partial. | 16:20 ET check: MSTR 1-min bars (actual, complete) range 90.27 (15:59)-94.04; TP2 90.10 NOT hit (snapshot day low 90.20 = same as earlier MFE), no stop (96.00). Remaining 25% marked at 15:59 close 90.32: 0.75*2.80+0.25*(94.00-90.32)=+3.02/share (+1.510R, 1R=2.00). MFE 3.80/MAE -1.35 unchanged. Status partial."
       },
       {
         "alert_id": "SSS-007",
@@ -1556,12 +1556,12 @@
         "exit2_time": null,
         "exit2_px": null,
         "exit2_reason": null,
-        "r_result": 0.967,
-        "pnl_per_share": 2.4175,
+        "r_result": 1.109,
+        "pnl_per_share": 2.7725,
         "mfe": 3.56,
         "mae": -1.0,
         "first_hit": "TP1",
-        "notes": "price_at_alert 112.33 at 9:49:00 ET was below the 113.50-114.20 entry zone, so the short needed a retest of 113.50 and was not filled at the alert. The alert's suggested paper entry was 113.85 (pullback required): coming from below, the first in-zone fill is 113.50 unless a later bar opens already inside the zone, in which case fill at that open. The 9:49 ET Webull 1-min RTH bar (actual) was O/H/L/C 112.05/112.43/111.88/112.43; 112.33 sits in that bar, and the high 112.43 was still 1.07 short of 113.50. From 9:50 through the in-progress 9:52 bar, the post-alert high was only 112.55 at 9:50 (O/H/L/C 112.43/112.55/111.66/111.97) — 0.95 short of the zone — then 9:51 111.91/112.30/111.80/112.025, and 9:52 112.185/112.44/112.09/112.44. Last was 112.345 at the 9:52:16 ET Webull snapshot (bid 112.25 / ask 112.45 / mid 112.35). COIN had traded in the zone earlier in the session (last in-zone action on the 9:34-9:35 bars; 9:35 O/H/L/C 113.5385/113.825/112.81/112.875 left the zone) but that was before the alert. The entry zone has not been traded after the alert through this 9:52 ET check, so status is pending entry. It becomes missed entry at the end of the alert day (15:59 ET 11/18) if the zone is never traded; do not chase. Exit rule 75/25 would apply if it fills (TP3 105.00 ignored). No P&L, R, or MFE/MAE is recorded because there was no entry. Note: MSTR and COIN were sent together and move together. | 10:20 ET 11/18 check: entry filled. 9:56 bar (actual) O/H/L/C 113.05/113.60/112.98/113.10 traded up to zone bottom 113.50; short filled at 113.50. Post-entry low 112.27, high 114.50; no TP1 110.80, no stop 116.00. Marked at last 112.76 (+0.74/share, +0.296R). Status open. | 11:21 ET 11/18 check: COIN 1-min bars (actual, complete) since 10:20 range 111.07-113.14; no TP1 (110.80; snapshot day low 110.80 exactly = level, not through; re-check next run), no stop (116.00). Marked at snapshot last 110.91 (bid 110.86/ask 110.97): +2.59/share (+1.036R). MFE 2.70 (snapshot low), MAE -1.00 unchanged. Status open. | 12:20 ET 11/18 check: COIN TP1 110.80 CONFIRMED: first bar trading through 110.80 was 11:31 (actual) O/H/L/C 110.96/110.96/110.6246/110.80 (open 110.96 above TP1, low 110.6246; no stop in the same bar, stop 116.00). The earlier snapshot low exactly 110.80 was not through. exit1 = 75% sold at 110.80 at 11:31 (+2.70/share on that slice). TP2 109.00 NOT hit (post-entry low 109.94 at 11:55), no stop (116.00). Remaining 25% marked at snapshot last 111.93 (bid 111.83/ask 111.98): weighted P&L = 0.75*2.70+0.25*(113.50-111.93)=+2.4175/share (+0.967R, 1R=2.50). MFE 3.56 (low 109.94), MAE -1.00 unchanged. first_hit TP1. Status partial."
+        "notes": "price_at_alert 112.33 at 9:49:00 ET was below the 113.50-114.20 entry zone, so the short needed a retest of 113.50 and was not filled at the alert. The alert's suggested paper entry was 113.85 (pullback required): coming from below, the first in-zone fill is 113.50 unless a later bar opens already inside the zone, in which case fill at that open. The 9:49 ET Webull 1-min RTH bar (actual) was O/H/L/C 112.05/112.43/111.88/112.43; 112.33 sits in that bar, and the high 112.43 was still 1.07 short of 113.50. From 9:50 through the in-progress 9:52 bar, the post-alert high was only 112.55 at 9:50 (O/H/L/C 112.43/112.55/111.66/111.97) — 0.95 short of the zone — then 9:51 111.91/112.30/111.80/112.025, and 9:52 112.185/112.44/112.09/112.44. Last was 112.345 at the 9:52:16 ET Webull snapshot (bid 112.25 / ask 112.45 / mid 112.35). COIN had traded in the zone earlier in the session (last in-zone action on the 9:34-9:35 bars; 9:35 O/H/L/C 113.5385/113.825/112.81/112.875 left the zone) but that was before the alert. The entry zone has not been traded after the alert through this 9:52 ET check, so status is pending entry. It becomes missed entry at the end of the alert day (15:59 ET 11/18) if the zone is never traded; do not chase. Exit rule 75/25 would apply if it fills (TP3 105.00 ignored). No P&L, R, or MFE/MAE is recorded because there was no entry. Note: MSTR and COIN were sent together and move together. | 10:20 ET 11/18 check: entry filled. 9:56 bar (actual) O/H/L/C 113.05/113.60/112.98/113.10 traded up to zone bottom 113.50; short filled at 113.50. Post-entry low 112.27, high 114.50; no TP1 110.80, no stop 116.00. Marked at last 112.76 (+0.74/share, +0.296R). Status open. | 11:21 ET 11/18 check: COIN 1-min bars (actual, complete) since 10:20 range 111.07-113.14; no TP1 (110.80; snapshot day low 110.80 exactly = level, not through; re-check next run), no stop (116.00). Marked at snapshot last 110.91 (bid 110.86/ask 110.97): +2.59/share (+1.036R). MFE 2.70 (snapshot low), MAE -1.00 unchanged. Status open. | 12:20 ET 11/18 check: COIN TP1 110.80 CONFIRMED: first bar trading through 110.80 was 11:31 (actual) O/H/L/C 110.96/110.96/110.6246/110.80 (open 110.96 above TP1, low 110.6246; no stop in the same bar, stop 116.00). The earlier snapshot low exactly 110.80 was not through. exit1 = 75% sold at 110.80 at 11:31 (+2.70/share on that slice). TP2 109.00 NOT hit (post-entry low 109.94 at 11:55), no stop (116.00). Remaining 25% marked at snapshot last 111.93 (bid 111.83/ask 111.98): weighted P&L = 0.75*2.70+0.25*(113.50-111.93)=+2.4175/share (+0.967R, 1R=2.50). MFE 3.56 (low 109.94), MAE -1.00 unchanged. first_hit TP1. Status partial. | 16:20 ET check: COIN 1-min bars (actual, complete) range 110.34 (15:59)-114.37; TP2 109.00 NOT hit (day low 109.94 at 11:55), no stop (116.00). Remaining 25% marked at 15:59 close 110.51: 0.75*2.70+0.25*(113.50-110.51)=+2.7725/share (+1.109R, 1R=2.50). MFE 3.56/MAE -1.00 unchanged. Status partial."
       }
     ],
     "lowfloat": [
@@ -1577,17 +1577,17 @@
         "news_headline": "B. Riley cuts price target to $25 from $83, keeps Buy rating.",
         "news_url": "https://www.marketscreener.com/news/b-riley-cuts-price-target-on-cue-biopharma-to-25-from-83-keeps-buy-rating-ce785edddb88f726",
         "catalyst_tag": "other",
-        "nextSessionClose": 4.31,
+        "nextSessionClose": 4.76,
         "nextSessionCloseDate": "2026-11-18",
-        "chgToNextClosePct": 31.8043,
-        "highSinceAlert": 4.47,
-        "highSinceAlertTime": "2026-11-18 12:00",
-        "highSinceAlertPct": 36.6972,
-        "lastPrice": 4.31,
-        "chgToLastPct": 31.8043,
+        "chgToNextClosePct": 45.5657,
+        "highSinceAlert": 4.89,
+        "highSinceAlertTime": "2026-11-18 16:00",
+        "highSinceAlertPct": 49.5413,
+        "lastPrice": 4.76,
+        "chgToLastPct": 45.5657,
         "chartAvailable": true,
         "move_day": "Day 2",
-        "move_day_basis": "1 trading day after Nov 17 -80% on 28x volume"
+        "move_day_basis": "1 trading day after Nov 17 -80% on 29x volume"
       },
       {
         "alert_id": "LF-022",
@@ -1601,14 +1601,14 @@
         "news_headline": "8-K/A: Adeptus won't serve as auditor and a search for a new one starts; class-action notice also out.",
         "news_url": "https://www.quantisnow.com/insight/amendment-netcapital-inc-filed-sec-form-8-k-changes-in-registrants-6797312",
         "catalyst_tag": "other",
-        "nextSessionClose": 3.145,
+        "nextSessionClose": 2.89,
         "nextSessionCloseDate": "2026-11-18",
-        "chgToNextClosePct": 18.6792,
-        "highSinceAlert": 3.2,
-        "highSinceAlertTime": "2026-11-18 13:15",
-        "highSinceAlertPct": 20.7547,
-        "lastPrice": 3.145,
-        "chgToLastPct": 18.6792,
+        "chgToNextClosePct": 9.0566,
+        "highSinceAlert": 3.21,
+        "highSinceAlertTime": "2026-11-18 14:30",
+        "highSinceAlertPct": 21.1321,
+        "lastPrice": 2.89,
+        "chgToLastPct": 9.0566,
         "chartAvailable": true,
         "move_day": "Day 3",
         "move_day_basis": "2 trading days after Nov 16 +21% on 0.3x volume"
@@ -1625,14 +1625,14 @@
         "news_headline": "Highway Holdings returns to strong revenue growth and operating profitability in Q2 FY2027; revenue up 107% to $2.44M.",
         "news_url": "https://www.prnewswire.com/news-releases/highway-holdings-returns-to-strong-revenue-growth-and-operating-profitability-in-second-quarter-fiscal-year-2027-302943712.html",
         "catalyst_tag": "earnings",
-        "nextSessionClose": 1.6228,
+        "nextSessionClose": 1.61,
         "nextSessionCloseDate": "2026-11-18",
-        "chgToNextClosePct": -12.2811,
+        "chgToNextClosePct": -12.973,
         "highSinceAlert": 1.91,
         "highSinceAlertTime": "2026-11-18 09:30",
         "highSinceAlertPct": 3.2432,
-        "lastPrice": 1.623,
-        "chgToLastPct": -12.2703,
+        "lastPrice": 1.61,
+        "chgToLastPct": -12.973,
         "chartAvailable": true,
         "move_day": "Day 3",
         "move_day_basis": "2 trading days after Nov 16 +52% on 3,193x volume"
@@ -1641,61 +1641,61 @@
   },
   "chartTickers": {
     "TSLA": {
-      "last": 383.2,
+      "last": 383.72,
       "hasDaily": true,
       "hasIntraday": true,
       "errors": []
     },
     "MSTR": {
-      "last": 91.67,
+      "last": 90.32,
       "hasDaily": true,
       "hasIntraday": true,
       "errors": []
     },
     "GOOGL": {
-      "last": 283.55,
+      "last": 282.44,
       "hasDaily": true,
       "hasIntraday": true,
       "errors": []
     },
     "META": {
-      "last": 615.1,
+      "last": 616.38,
       "hasDaily": true,
       "hasIntraday": true,
       "errors": []
     },
     "MSFT": {
-      "last": 507.695,
+      "last": 508.29,
       "hasDaily": true,
       "hasIntraday": true,
       "errors": []
     },
     "HOOD": {
-      "last": 68.92,
+      "last": 69.17,
       "hasDaily": true,
       "hasIntraday": true,
       "errors": []
     },
     "NVDA": {
-      "last": 151.615,
+      "last": 150.96,
       "hasDaily": true,
       "hasIntraday": true,
       "errors": []
     },
     "COIN": {
-      "last": 111.98,
+      "last": 110.51,
       "hasDaily": true,
       "hasIntraday": true,
       "errors": []
     },
     "ADXN": {
-      "last": 3.11,
+      "last": 3.06,
       "hasDaily": true,
       "hasIntraday": true,
       "errors": []
     },
     "CRMN": {
-      "last": 0.904,
+      "last": 0.88,
       "hasDaily": true,
       "hasIntraday": true,
       "errors": []
@@ -1707,67 +1707,67 @@
       "errors": []
     },
     "SNAL": {
-      "last": 2.4,
+      "last": 2.31,
       "hasDaily": true,
       "hasIntraday": true,
       "errors": []
     },
     "SLSN": {
-      "last": 1.67,
+      "last": 1.64,
       "hasDaily": true,
       "hasIntraday": true,
       "errors": []
     },
     "HIHO": {
-      "last": 1.623,
+      "last": 1.61,
       "hasDaily": true,
       "hasIntraday": true,
       "errors": []
     },
     "GP": {
-      "last": 2.55,
+      "last": 2.87,
       "hasDaily": true,
       "hasIntraday": true,
       "errors": []
     },
     "AIMD": {
-      "last": 1.365,
+      "last": 1.21,
       "hasDaily": true,
       "hasIntraday": true,
       "errors": []
     },
     "SPAI": {
-      "last": 2.975,
+      "last": 2.91,
       "hasDaily": true,
       "hasIntraday": true,
       "errors": []
     },
     "AYTU": {
-      "last": 2.655,
+      "last": 2.66,
       "hasDaily": true,
       "hasIntraday": true,
       "errors": []
     },
     "CSAI": {
-      "last": 0.7201,
+      "last": 0.7419,
       "hasDaily": true,
       "hasIntraday": true,
       "errors": []
     },
     "LUCK": {
-      "last": 4.1,
+      "last": 4.02,
       "hasDaily": true,
       "hasIntraday": true,
       "errors": []
     },
     "CUE": {
-      "last": 4.31,
+      "last": 4.76,
       "hasDaily": true,
       "hasIntraday": true,
       "errors": []
     },
     "NCPL": {
-      "last": 3.145,
+      "last": 2.89,
       "hasDaily": true,
       "hasIntraday": true,
       "errors": []
