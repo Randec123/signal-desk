@@ -1,6 +1,6 @@
 {
-  "asOfET": "4:22 PM ET, Nov 18, 2026",
-  "asOfISO": "2026-11-18T16:22:26.711714-05:00",
+  "asOfET": "6:19 PM ET, Nov 18, 2026",
+  "asOfISO": "2026-11-18T18:19:46.064260-05:00",
   "todayET": "2026-11-18",
   "disclaimer": "Paper trades only. No real orders, and no Webull or TradingView paper orders, are placed from these alerts. Low Float News Scout rows are news alerts, not paper trades.",
   "chartSource": "Yahoo Finance chart API, fetched at build time. A missing ticker or failed request is omitted; the rest of the desk still builds.",
@@ -17,8 +17,8 @@
     },
     "lowfloat": {
       "file": "lowfloat_alerts_log.csv",
-      "logMtimeET": "9:28 AM ET, Nov 18, 2026",
-      "rows": 23
+      "logMtimeET": "6:12 PM ET, Nov 18, 2026",
+      "rows": 25
     }
   },
   "options": {
@@ -375,7 +375,7 @@
           "kind": "closed"
         },
         {
-          "timeET": "2026-11-18 16:22",
+          "timeET": "2026-11-18 18:19",
           "pnl": 111.7,
           "cumulative": 473.13,
           "alertId": "OSS-004",
@@ -383,7 +383,7 @@
           "kind": "mark"
         },
         {
-          "timeET": "2026-11-18 16:22",
+          "timeET": "2026-11-18 18:19",
           "pnl": 242.08,
           "cumulative": 715.21,
           "alertId": "OSS-005",
@@ -763,7 +763,7 @@
       ],
       "equity": [
         {
-          "timeET": "2026-11-18 16:22",
+          "timeET": "2026-11-18 18:19",
           "pnl": 0.74,
           "cumulative": 0.74,
           "alertId": "SSS-001",
@@ -771,7 +771,7 @@
           "kind": "mark"
         },
         {
-          "timeET": "2026-11-18 16:22",
+          "timeET": "2026-11-18 18:19",
           "pnl": -0.76,
           "cumulative": -0.02,
           "alertId": "SSS-004",
@@ -779,7 +779,7 @@
           "kind": "mark"
         },
         {
-          "timeET": "2026-11-18 16:22",
+          "timeET": "2026-11-18 18:19",
           "pnl": 4.04,
           "cumulative": 4.02,
           "alertId": "SSS-005",
@@ -787,7 +787,7 @@
           "kind": "mark"
         },
         {
-          "timeET": "2026-11-18 16:22",
+          "timeET": "2026-11-18 18:19",
           "pnl": 3.02,
           "cumulative": 7.04,
           "alertId": "SSS-006",
@@ -795,7 +795,7 @@
           "kind": "mark"
         },
         {
-          "timeET": "2026-11-18 16:22",
+          "timeET": "2026-11-18 18:19",
           "pnl": 2.7725,
           "cumulative": 9.8125,
           "alertId": "SSS-007",
@@ -805,7 +805,7 @@
       ],
       "equityR": [
         {
-          "timeET": "2026-11-18 16:22",
+          "timeET": "2026-11-18 18:19",
           "pnl": 0.24,
           "cumulative": 0.24,
           "alertId": "SSS-001",
@@ -813,7 +813,7 @@
           "kind": "mark"
         },
         {
-          "timeET": "2026-11-18 16:22",
+          "timeET": "2026-11-18 18:19",
           "pnl": -0.382,
           "cumulative": -0.142,
           "alertId": "SSS-004",
@@ -821,7 +821,7 @@
           "kind": "mark"
         },
         {
-          "timeET": "2026-11-18 16:22",
+          "timeET": "2026-11-18 18:19",
           "pnl": 1.122,
           "cumulative": 0.98,
           "alertId": "SSS-005",
@@ -829,7 +829,7 @@
           "kind": "mark"
         },
         {
-          "timeET": "2026-11-18 16:22",
+          "timeET": "2026-11-18 18:19",
           "pnl": 1.51,
           "cumulative": 2.49,
           "alertId": "SSS-006",
@@ -837,7 +837,7 @@
           "kind": "mark"
         },
         {
-          "timeET": "2026-11-18 16:22",
+          "timeET": "2026-11-18 18:19",
           "pnl": 1.109,
           "cumulative": 3.599,
           "alertId": "SSS-007",
@@ -1344,9 +1344,9 @@
         "nextSessionClose": 4.76,
         "nextSessionCloseDate": "2026-11-18",
         "chgToNextClosePct": 45.5657,
-        "highSinceAlert": 4.89,
-        "highSinceAlertTime": "2026-11-18 16:00",
-        "highSinceAlertPct": 49.5413,
+        "highSinceAlert": 5.49,
+        "highSinceAlertTime": "2026-11-18 16:30",
+        "highSinceAlertPct": 67.8899,
         "lastPrice": 4.76,
         "chgToLastPct": 45.5657,
         "chartAvailable": true,
@@ -1400,31 +1400,79 @@
         "chartAvailable": true,
         "move_day": "Day 3",
         "move_day_basis": "2 trading days after Nov 16 +52% on 3,193x volume"
+      },
+      {
+        "alert_id": "LF-024",
+        "date_et": "2026-11-18",
+        "time_et": "16:30",
+        "session": "afterhours",
+        "ticker": "INHD",
+        "price_at_alert": 3.14,
+        "float_m": 2.49,
+        "rel_vol": 1700,
+        "news_headline": "8-K: merger agreement with EverCircle Holdings (own BVI subsidiary; redomicile from Texas to BVI with new 20-vote Class B shares).",
+        "news_url": "https://www.sec.gov/Archives/edgar/data/1961847/000149315226053065/form8-k.htm",
+        "catalyst_tag": "m&a",
+        "nextSessionClose": null,
+        "nextSessionCloseDate": null,
+        "chgToNextClosePct": null,
+        "highSinceAlert": 4.08,
+        "highSinceAlertTime": "2026-11-18 17:00",
+        "highSinceAlertPct": 29.9363,
+        "lastPrice": 2.3,
+        "chgToLastPct": -26.7516,
+        "chartAvailable": true,
+        "move_day": "Day 1",
+        "move_day_basis": "Prior session Nov 17 was not a big move (-2% on 1.3x volume); no earlier alert in the prior 2 trading days."
+      },
+      {
+        "alert_id": "LF-025",
+        "date_et": "2026-11-18",
+        "time_et": "18:10",
+        "session": "afterhours",
+        "ticker": "INHD",
+        "price_at_alert": 3.75,
+        "float_m": 2.49,
+        "rel_vol": 1000,
+        "news_headline": "New AH high $4.08 on the 4:10 PM 8-K merger agreement with EverCircle Holdings (own BVI subsidiary; redomicile).",
+        "news_url": "https://www.sec.gov/Archives/edgar/data/1961847/000149315226053065/form8-k.htm",
+        "catalyst_tag": "m&a",
+        "nextSessionClose": null,
+        "nextSessionCloseDate": null,
+        "chgToNextClosePct": null,
+        "highSinceAlert": 3.82,
+        "highSinceAlertTime": "2026-11-18 18:15",
+        "highSinceAlertPct": 1.8667,
+        "lastPrice": 2.3,
+        "chgToLastPct": -38.6667,
+        "chartAvailable": true,
+        "move_day": "Day 1",
+        "move_day_basis": "Prior session Nov 17 was not a big move (-2% on 1.3x volume); no earlier alert in the prior 2 trading days."
       }
     ],
     "summary": {
       "bot": "Low Float News Scout",
       "botId": "lowfloat",
-      "alerts": 23,
+      "alerts": 25,
       "bySession": {
         "premarket": 15,
-        "afterhours": 8
+        "afterhours": 10
       },
       "byCatalyst": {
         "earnings": 15,
-        "m&a": 4,
+        "m&a": 6,
         "other": 2,
         "dilution": 1,
         "dividend": 1
       },
-      "tickers": 14,
+      "tickers": 15,
       "withNextClose": 23,
       "nextCloseWinners": 15,
       "nextCloseWinRate": 0.6522,
       "avgChgToNextClosePct": 1.8281,
-      "avgHighSinceAlertPct": 31.8516,
+      "avgHighSinceAlertPct": 31.3096,
       "byMoveDay": {
-        "Day 1": 12,
+        "Day 1": 14,
         "Day 2": 6,
         "Day 3": 4,
         "Day 4+": 1,
@@ -1432,16 +1480,16 @@
       },
       "moveDayStats": {
         "Day 1": {
-          "alerts": 12,
+          "alerts": 14,
           "withNextClose": 12,
           "avgChgToNextClosePct": -1.638,
-          "avgHighSinceAlertPct": 30.1956
+          "avgHighSinceAlertPct": 28.1535
         },
         "Day 2": {
           "alerts": 6,
           "withNextClose": 6,
           "avgChgToNextClosePct": 16.5534,
-          "avgHighSinceAlertPct": 30.0564
+          "avgHighSinceAlertPct": 33.1145
         },
         "Day 3": {
           "alerts": 4,
@@ -1580,9 +1628,9 @@
         "nextSessionClose": 4.76,
         "nextSessionCloseDate": "2026-11-18",
         "chgToNextClosePct": 45.5657,
-        "highSinceAlert": 4.89,
-        "highSinceAlertTime": "2026-11-18 16:00",
-        "highSinceAlertPct": 49.5413,
+        "highSinceAlert": 5.49,
+        "highSinceAlertTime": "2026-11-18 16:30",
+        "highSinceAlertPct": 67.8899,
         "lastPrice": 4.76,
         "chgToLastPct": 45.5657,
         "chartAvailable": true,
@@ -1636,6 +1684,54 @@
         "chartAvailable": true,
         "move_day": "Day 3",
         "move_day_basis": "2 trading days after Nov 16 +52% on 3,193x volume"
+      },
+      {
+        "alert_id": "LF-024",
+        "date_et": "2026-11-18",
+        "time_et": "16:30",
+        "session": "afterhours",
+        "ticker": "INHD",
+        "price_at_alert": 3.14,
+        "float_m": 2.49,
+        "rel_vol": 1700,
+        "news_headline": "8-K: merger agreement with EverCircle Holdings (own BVI subsidiary; redomicile from Texas to BVI with new 20-vote Class B shares).",
+        "news_url": "https://www.sec.gov/Archives/edgar/data/1961847/000149315226053065/form8-k.htm",
+        "catalyst_tag": "m&a",
+        "nextSessionClose": null,
+        "nextSessionCloseDate": null,
+        "chgToNextClosePct": null,
+        "highSinceAlert": 4.08,
+        "highSinceAlertTime": "2026-11-18 17:00",
+        "highSinceAlertPct": 29.9363,
+        "lastPrice": 2.3,
+        "chgToLastPct": -26.7516,
+        "chartAvailable": true,
+        "move_day": "Day 1",
+        "move_day_basis": "Prior session Nov 17 was not a big move (-2% on 1.3x volume); no earlier alert in the prior 2 trading days."
+      },
+      {
+        "alert_id": "LF-025",
+        "date_et": "2026-11-18",
+        "time_et": "18:10",
+        "session": "afterhours",
+        "ticker": "INHD",
+        "price_at_alert": 3.75,
+        "float_m": 2.49,
+        "rel_vol": 1000,
+        "news_headline": "New AH high $4.08 on the 4:10 PM 8-K merger agreement with EverCircle Holdings (own BVI subsidiary; redomicile).",
+        "news_url": "https://www.sec.gov/Archives/edgar/data/1961847/000149315226053065/form8-k.htm",
+        "catalyst_tag": "m&a",
+        "nextSessionClose": null,
+        "nextSessionCloseDate": null,
+        "chgToNextClosePct": null,
+        "highSinceAlert": 3.82,
+        "highSinceAlertTime": "2026-11-18 18:15",
+        "highSinceAlertPct": 1.8667,
+        "lastPrice": 2.3,
+        "chgToLastPct": -38.6667,
+        "chartAvailable": true,
+        "move_day": "Day 1",
+        "move_day_basis": "Prior session Nov 17 was not a big move (-2% on 1.3x volume); no earlier alert in the prior 2 trading days."
       }
     ]
   },
@@ -1768,6 +1864,12 @@
     },
     "NCPL": {
       "last": 2.89,
+      "hasDaily": true,
+      "hasIntraday": true,
+      "errors": []
+    },
+    "INHD": {
+      "last": 2.3,
       "hasDaily": true,
       "hasIntraday": true,
       "errors": []
