@@ -1,6 +1,6 @@
 {
-  "asOfET": "4:21 PM ET, Nov 19, 2026",
-  "asOfISO": "2026-11-19T16:21:00.935233-05:00",
+  "asOfET": "6:25 PM ET, Nov 19, 2026",
+  "asOfISO": "2026-11-19T18:25:01.264379-05:00",
   "todayET": "2026-11-19",
   "disclaimer": "Paper trades only. No real orders, and no Webull or TradingView paper orders, are placed from these alerts. Low Float News Scout rows are news alerts, not paper trades.",
   "chartSource": "Yahoo Finance chart API, fetched at build time. A missing ticker or failed request is omitted; the rest of the desk still builds.",
@@ -17,8 +17,8 @@
     },
     "lowfloat": {
       "file": "lowfloat_alerts_log.csv",
-      "logMtimeET": "10:01 AM ET, Nov 19, 2026",
-      "rows": 29
+      "logMtimeET": "6:08 PM ET, Nov 19, 2026",
+      "rows": 30
     }
   },
   "options": {
@@ -437,7 +437,7 @@
           "kind": "closed"
         },
         {
-          "timeET": "2026-11-19 16:21",
+          "timeET": "2026-11-19 18:25",
           "pnl": 290.7,
           "cumulative": 1313.03,
           "alertId": "OSS-006",
@@ -952,7 +952,7 @@
           "kind": "closed"
         },
         {
-          "timeET": "2026-11-19 16:21",
+          "timeET": "2026-11-19 18:25",
           "pnl": 8.38,
           "cumulative": 12.845,
           "alertId": "SSS-008",
@@ -960,7 +960,7 @@
           "kind": "mark"
         },
         {
-          "timeET": "2026-11-19 16:21",
+          "timeET": "2026-11-19 18:25",
           "pnl": 2.545,
           "cumulative": 15.39,
           "alertId": "SSS-009",
@@ -1010,7 +1010,7 @@
           "kind": "closed"
         },
         {
-          "timeET": "2026-11-19 16:21",
+          "timeET": "2026-11-19 18:25",
           "pnl": 1.132,
           "cumulative": 2.327,
           "alertId": "SSS-008",
@@ -1018,7 +1018,7 @@
           "kind": "mark"
         },
         {
-          "timeET": "2026-11-19 16:21",
+          "timeET": "2026-11-19 18:25",
           "pnl": 1.332,
           "cumulative": 3.659,
           "alertId": "SSS-009",
@@ -1725,31 +1725,55 @@
         "chartAvailable": true,
         "move_day": "Day 1",
         "move_day_basis": "Prior session Nov 18 was not a big move (+2% on 0.7x volume); no earlier alert in the prior 2 trading days."
+      },
+      {
+        "alert_id": "LF-030",
+        "date_et": "2026-11-19",
+        "time_et": "18:07",
+        "session": "afterhours",
+        "ticker": "MEDS",
+        "price_at_alert": 1.15,
+        "float_m": 1.05,
+        "rel_vol": 1145,
+        "news_headline": "DataMEDS AI agrees to acquire TBIA cancer AI blood-test platform from Todos Medical bankruptcy estate.",
+        "news_url": "https://www.accessnewswire.com/newsroom/en/healthcare-and-pharmaceutical/datameds-ai-agrees-to-acquire-tbia-cancer-ai-blood-test-platform-from-1254394",
+        "catalyst_tag": "m&a",
+        "nextSessionClose": null,
+        "nextSessionCloseDate": null,
+        "chgToNextClosePct": null,
+        "highSinceAlert": 1.2,
+        "highSinceAlertTime": "2026-11-19 18:15",
+        "highSinceAlertPct": 4.3478,
+        "lastPrice": 0.728,
+        "chgToLastPct": -36.6957,
+        "chartAvailable": true,
+        "move_day": "Day 1",
+        "move_day_basis": "Prior session Nov 18 was not a big move (+15% on 3.9x volume); no earlier alert in the prior 2 trading days."
       }
     ],
     "summary": {
       "bot": "Low Float News Scout",
       "botId": "lowfloat",
-      "alerts": 29,
+      "alerts": 30,
       "bySession": {
         "premarket": 19,
-        "afterhours": 10
+        "afterhours": 11
       },
       "byCatalyst": {
         "earnings": 15,
-        "m&a": 7,
+        "m&a": 8,
         "dilution": 3,
         "other": 3,
         "dividend": 1
       },
-      "tickers": 17,
+      "tickers": 18,
       "withNextClose": 29,
       "nextCloseWinners": 16,
       "nextCloseWinRate": 0.5517,
       "avgChgToNextClosePct": -0.0726,
-      "avgHighSinceAlertPct": 33.3263,
+      "avgHighSinceAlertPct": 32.3604,
       "byMoveDay": {
-        "Day 1": 17,
+        "Day 1": 18,
         "Day 2": 7,
         "Day 3": 4,
         "Day 4+": 1,
@@ -1757,10 +1781,10 @@
       },
       "moveDayStats": {
         "Day 1": {
-          "alerts": 17,
+          "alerts": 18,
           "withNextClose": 17,
           "avgChgToNextClosePct": -3.0712,
-          "avgHighSinceAlertPct": 31.2971
+          "avgHighSinceAlertPct": 29.7999
         },
         "Day 2": {
           "alerts": 7,
@@ -2002,6 +2026,30 @@
         "chartAvailable": true,
         "move_day": "Day 1",
         "move_day_basis": "Prior session Nov 18 was not a big move (+2% on 0.7x volume); no earlier alert in the prior 2 trading days."
+      },
+      {
+        "alert_id": "LF-030",
+        "date_et": "2026-11-19",
+        "time_et": "18:07",
+        "session": "afterhours",
+        "ticker": "MEDS",
+        "price_at_alert": 1.15,
+        "float_m": 1.05,
+        "rel_vol": 1145,
+        "news_headline": "DataMEDS AI agrees to acquire TBIA cancer AI blood-test platform from Todos Medical bankruptcy estate.",
+        "news_url": "https://www.accessnewswire.com/newsroom/en/healthcare-and-pharmaceutical/datameds-ai-agrees-to-acquire-tbia-cancer-ai-blood-test-platform-from-1254394",
+        "catalyst_tag": "m&a",
+        "nextSessionClose": null,
+        "nextSessionCloseDate": null,
+        "chgToNextClosePct": null,
+        "highSinceAlert": 1.2,
+        "highSinceAlertTime": "2026-11-19 18:15",
+        "highSinceAlertPct": 4.3478,
+        "lastPrice": 0.728,
+        "chgToLastPct": -36.6957,
+        "chartAvailable": true,
+        "move_day": "Day 1",
+        "move_day_basis": "Prior session Nov 18 was not a big move (+15% on 3.9x volume); no earlier alert in the prior 2 trading days."
       }
     ]
   },
@@ -2152,6 +2200,12 @@
     },
     "MRKR": {
       "last": 1.32,
+      "hasDaily": true,
+      "hasIntraday": true,
+      "errors": []
+    },
+    "MEDS": {
+      "last": 0.728,
       "hasDaily": true,
       "hasIntraday": true,
       "errors": []
