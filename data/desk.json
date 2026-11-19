@@ -1,6 +1,6 @@
 {
-  "asOfET": "6:19 PM ET, Nov 18, 2026",
-  "asOfISO": "2026-11-18T18:19:46.064260-05:00",
+  "asOfET": "8:27 PM ET, Nov 18, 2026",
+  "asOfISO": "2026-11-18T20:27:43.266172-05:00",
   "todayET": "2026-11-18",
   "disclaimer": "Paper trades only. No real orders, and no Webull or TradingView paper orders, are placed from these alerts. Low Float News Scout rows are news alerts, not paper trades.",
   "chartSource": "Yahoo Finance chart API, fetched at build time. A missing ticker or failed request is omitted; the rest of the desk still builds.",
@@ -375,7 +375,7 @@
           "kind": "closed"
         },
         {
-          "timeET": "2026-11-18 18:19",
+          "timeET": "2026-11-18 20:27",
           "pnl": 111.7,
           "cumulative": 473.13,
           "alertId": "OSS-004",
@@ -383,7 +383,7 @@
           "kind": "mark"
         },
         {
-          "timeET": "2026-11-18 18:19",
+          "timeET": "2026-11-18 20:27",
           "pnl": 242.08,
           "cumulative": 715.21,
           "alertId": "OSS-005",
@@ -763,7 +763,7 @@
       ],
       "equity": [
         {
-          "timeET": "2026-11-18 18:19",
+          "timeET": "2026-11-18 20:27",
           "pnl": 0.74,
           "cumulative": 0.74,
           "alertId": "SSS-001",
@@ -771,7 +771,7 @@
           "kind": "mark"
         },
         {
-          "timeET": "2026-11-18 18:19",
+          "timeET": "2026-11-18 20:27",
           "pnl": -0.76,
           "cumulative": -0.02,
           "alertId": "SSS-004",
@@ -779,7 +779,7 @@
           "kind": "mark"
         },
         {
-          "timeET": "2026-11-18 18:19",
+          "timeET": "2026-11-18 20:27",
           "pnl": 4.04,
           "cumulative": 4.02,
           "alertId": "SSS-005",
@@ -787,7 +787,7 @@
           "kind": "mark"
         },
         {
-          "timeET": "2026-11-18 18:19",
+          "timeET": "2026-11-18 20:27",
           "pnl": 3.02,
           "cumulative": 7.04,
           "alertId": "SSS-006",
@@ -795,7 +795,7 @@
           "kind": "mark"
         },
         {
-          "timeET": "2026-11-18 18:19",
+          "timeET": "2026-11-18 20:27",
           "pnl": 2.7725,
           "cumulative": 9.8125,
           "alertId": "SSS-007",
@@ -805,7 +805,7 @@
       ],
       "equityR": [
         {
-          "timeET": "2026-11-18 18:19",
+          "timeET": "2026-11-18 20:27",
           "pnl": 0.24,
           "cumulative": 0.24,
           "alertId": "SSS-001",
@@ -813,7 +813,7 @@
           "kind": "mark"
         },
         {
-          "timeET": "2026-11-18 18:19",
+          "timeET": "2026-11-18 20:27",
           "pnl": -0.382,
           "cumulative": -0.142,
           "alertId": "SSS-004",
@@ -821,7 +821,7 @@
           "kind": "mark"
         },
         {
-          "timeET": "2026-11-18 18:19",
+          "timeET": "2026-11-18 20:27",
           "pnl": 1.122,
           "cumulative": 0.98,
           "alertId": "SSS-005",
@@ -829,7 +829,7 @@
           "kind": "mark"
         },
         {
-          "timeET": "2026-11-18 18:19",
+          "timeET": "2026-11-18 20:27",
           "pnl": 1.51,
           "cumulative": 2.49,
           "alertId": "SSS-006",
@@ -837,7 +837,7 @@
           "kind": "mark"
         },
         {
-          "timeET": "2026-11-18 18:19",
+          "timeET": "2026-11-18 20:27",
           "pnl": 1.109,
           "cumulative": 3.599,
           "alertId": "SSS-007",
@@ -1341,9 +1341,9 @@
         "news_headline": "B. Riley cuts price target to $25 from $83, keeps Buy rating.",
         "news_url": "https://www.marketscreener.com/news/b-riley-cuts-price-target-on-cue-biopharma-to-25-from-83-keeps-buy-rating-ce785edddb88f726",
         "catalyst_tag": "other",
-        "nextSessionClose": 4.76,
-        "nextSessionCloseDate": "2026-11-18",
-        "chgToNextClosePct": 45.5657,
+        "nextSessionClose": null,
+        "nextSessionCloseDate": null,
+        "chgToNextClosePct": null,
         "highSinceAlert": 5.49,
         "highSinceAlertTime": "2026-11-18 16:30",
         "highSinceAlertPct": 67.8899,
@@ -1365,9 +1365,9 @@
         "news_headline": "8-K/A: Adeptus won't serve as auditor and a search for a new one starts; class-action notice also out.",
         "news_url": "https://www.quantisnow.com/insight/amendment-netcapital-inc-filed-sec-form-8-k-changes-in-registrants-6797312",
         "catalyst_tag": "other",
-        "nextSessionClose": 2.89,
-        "nextSessionCloseDate": "2026-11-18",
-        "chgToNextClosePct": 9.0566,
+        "nextSessionClose": null,
+        "nextSessionCloseDate": null,
+        "chgToNextClosePct": null,
         "highSinceAlert": 3.21,
         "highSinceAlertTime": "2026-11-18 14:30",
         "highSinceAlertPct": 21.1321,
@@ -1389,9 +1389,9 @@
         "news_headline": "Highway Holdings returns to strong revenue growth and operating profitability in Q2 FY2027; revenue up 107% to $2.44M.",
         "news_url": "https://www.prnewswire.com/news-releases/highway-holdings-returns-to-strong-revenue-growth-and-operating-profitability-in-second-quarter-fiscal-year-2027-302943712.html",
         "catalyst_tag": "earnings",
-        "nextSessionClose": 1.61,
-        "nextSessionCloseDate": "2026-11-18",
-        "chgToNextClosePct": -12.973,
+        "nextSessionClose": null,
+        "nextSessionCloseDate": null,
+        "chgToNextClosePct": null,
         "highSinceAlert": 1.91,
         "highSinceAlertTime": "2026-11-18 09:30",
         "highSinceAlertPct": 3.2432,
@@ -1440,9 +1440,9 @@
         "nextSessionClose": null,
         "nextSessionCloseDate": null,
         "chgToNextClosePct": null,
-        "highSinceAlert": 3.82,
-        "highSinceAlertTime": "2026-11-18 18:15",
-        "highSinceAlertPct": 1.8667,
+        "highSinceAlert": 4.08,
+        "highSinceAlertTime": "2026-11-18 19:00",
+        "highSinceAlertPct": 8.8,
         "lastPrice": 2.3,
         "chgToLastPct": -38.6667,
         "chartAvailable": true,
@@ -1466,11 +1466,11 @@
         "dividend": 1
       },
       "tickers": 15,
-      "withNextClose": 23,
-      "nextCloseWinners": 15,
-      "nextCloseWinRate": 0.6522,
-      "avgChgToNextClosePct": 1.8281,
-      "avgHighSinceAlertPct": 31.3096,
+      "withNextClose": 20,
+      "nextCloseWinners": 13,
+      "nextCloseWinRate": 0.65,
+      "avgChgToNextClosePct": 0.0199,
+      "avgHighSinceAlertPct": 31.5869,
       "byMoveDay": {
         "Day 1": 14,
         "Day 2": 6,
@@ -1483,18 +1483,18 @@
           "alerts": 14,
           "withNextClose": 12,
           "avgChgToNextClosePct": -1.638,
-          "avgHighSinceAlertPct": 28.1535
+          "avgHighSinceAlertPct": 28.6488
         },
         "Day 2": {
           "alerts": 6,
-          "withNextClose": 6,
-          "avgChgToNextClosePct": 16.5534,
+          "withNextClose": 5,
+          "avgChgToNextClosePct": 10.7509,
           "avgHighSinceAlertPct": 33.1145
         },
         "Day 3": {
           "alerts": 4,
-          "withNextClose": 4,
-          "avgChgToNextClosePct": -6.1652,
+          "withNextClose": 2,
+          "avgChgToNextClosePct": -10.3721,
           "avgHighSinceAlertPct": 43.8221
         },
         "Day 4+": {
@@ -1625,9 +1625,9 @@
         "news_headline": "B. Riley cuts price target to $25 from $83, keeps Buy rating.",
         "news_url": "https://www.marketscreener.com/news/b-riley-cuts-price-target-on-cue-biopharma-to-25-from-83-keeps-buy-rating-ce785edddb88f726",
         "catalyst_tag": "other",
-        "nextSessionClose": 4.76,
-        "nextSessionCloseDate": "2026-11-18",
-        "chgToNextClosePct": 45.5657,
+        "nextSessionClose": null,
+        "nextSessionCloseDate": null,
+        "chgToNextClosePct": null,
         "highSinceAlert": 5.49,
         "highSinceAlertTime": "2026-11-18 16:30",
         "highSinceAlertPct": 67.8899,
@@ -1649,9 +1649,9 @@
         "news_headline": "8-K/A: Adeptus won't serve as auditor and a search for a new one starts; class-action notice also out.",
         "news_url": "https://www.quantisnow.com/insight/amendment-netcapital-inc-filed-sec-form-8-k-changes-in-registrants-6797312",
         "catalyst_tag": "other",
-        "nextSessionClose": 2.89,
-        "nextSessionCloseDate": "2026-11-18",
-        "chgToNextClosePct": 9.0566,
+        "nextSessionClose": null,
+        "nextSessionCloseDate": null,
+        "chgToNextClosePct": null,
         "highSinceAlert": 3.21,
         "highSinceAlertTime": "2026-11-18 14:30",
         "highSinceAlertPct": 21.1321,
@@ -1673,9 +1673,9 @@
         "news_headline": "Highway Holdings returns to strong revenue growth and operating profitability in Q2 FY2027; revenue up 107% to $2.44M.",
         "news_url": "https://www.prnewswire.com/news-releases/highway-holdings-returns-to-strong-revenue-growth-and-operating-profitability-in-second-quarter-fiscal-year-2027-302943712.html",
         "catalyst_tag": "earnings",
-        "nextSessionClose": 1.61,
-        "nextSessionCloseDate": "2026-11-18",
-        "chgToNextClosePct": -12.973,
+        "nextSessionClose": null,
+        "nextSessionCloseDate": null,
+        "chgToNextClosePct": null,
         "highSinceAlert": 1.91,
         "highSinceAlertTime": "2026-11-18 09:30",
         "highSinceAlertPct": 3.2432,
@@ -1724,9 +1724,9 @@
         "nextSessionClose": null,
         "nextSessionCloseDate": null,
         "chgToNextClosePct": null,
-        "highSinceAlert": 3.82,
-        "highSinceAlertTime": "2026-11-18 18:15",
-        "highSinceAlertPct": 1.8667,
+        "highSinceAlert": 4.08,
+        "highSinceAlertTime": "2026-11-18 19:00",
+        "highSinceAlertPct": 8.8,
         "lastPrice": 2.3,
         "chgToLastPct": -38.6667,
         "chartAvailable": true,
