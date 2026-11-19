@@ -1,18 +1,18 @@
 {
-  "asOfET": "2:24 PM ET, Nov 19, 2026",
-  "asOfISO": "2026-11-19T14:24:29.490364-05:00",
+  "asOfET": "4:21 PM ET, Nov 19, 2026",
+  "asOfISO": "2026-11-19T16:21:00.935233-05:00",
   "todayET": "2026-11-19",
   "disclaimer": "Paper trades only. No real orders, and no Webull or TradingView paper orders, are placed from these alerts. Low Float News Scout rows are news alerts, not paper trades.",
   "chartSource": "Yahoo Finance chart API, fetched at build time. A missing ticker or failed request is omitted; the rest of the desk still builds.",
   "sources": {
     "oss": {
       "file": "oss_alerts_log.csv",
-      "logMtimeET": "1:50 PM ET, Nov 19, 2026",
+      "logMtimeET": "4:12 PM ET, Nov 19, 2026",
       "rows": 6
     },
     "sss": {
       "file": "sss_alerts_log.csv",
-      "logMtimeET": "2:11 PM ET, Nov 19, 2026",
+      "logMtimeET": "4:12 PM ET, Nov 19, 2026",
       "rows": 9
     },
     "lowfloat": {
@@ -290,20 +290,20 @@
         "exit3_time": null,
         "exit3_px": null,
         "exit3_reason": null,
-        "pnl_usd": null,
-        "pnl_pct": null,
-        "r_underlying": null,
-        "mfe_opt": null,
-        "mae_opt": null,
-        "mfe_und": null,
-        "mae_und": null,
+        "pnl_usd": 290.7,
+        "pnl_pct": 16.97,
+        "r_underlying": 0.7,
+        "mfe_opt": 2.92,
+        "mae_opt": 0,
+        "mfe_und": 6.51,
+        "mae_und": -3.7,
         "first_hit": null,
         "exit_rule": "75/25",
         "alt_rule": "thirds",
         "alt_pnl_usd": null,
         "alt_pnl_pct": null,
         "alt_r_underlying": null,
-        "notes": "Logged on arrival. Underlying about 602.3 (OSS, 1:49 PM ET Webull quote) is inside the 601-605 zone, so entered at the alert mid of 17.13 (bid 16.75 / ask 17.50). New trade after OSS-004 closed, not a repeat. Stop: hourly close above 611 (clock-hour closes per README). R unit = 611-602.3 = 8.7. Time exit is the 11/24 close (same as OSS-004 for the 11/27 expiry). TP3 564 ignored under 75/25. Alternatives (600P, 12/4 600P) not traded."
+        "notes": "Logged on arrival. Underlying about 602.3 (OSS, 1:49 PM ET Webull quote) is inside the 601-605 zone, so entered at the alert mid of 17.13 (bid 16.75 / ask 17.50). New trade after OSS-004 closed, not a repeat. Stop: hourly close above 611 (clock-hour closes per README). R unit = 611-602.3 = 8.7. Time exit is the 11/24 close (same as OSS-004 for the 11/27 expiry). TP3 564 ignored under 75/25. Alternatives (600P, 12/4 600P) not traded. | 11/19 15:11 ET check: META 13:50-15:11 range 597.12-606.00 (actual 1-min stock bars); no TP1 593, no hourly close above 611. Option snapshot bid 19.00/ask 20.15/mid 19.575 (snapshot): mark +2.445/contract=+244.50 less 1.30 comms = +243.20 (+14.20%). R und +0.59. MFE opt 2.44, und 5.18; MAE und -3.70 (high 606). Status open. | 11/19 16:12 ET check: META 15:11-16:00 range 595.79-600.04, close 596.22 (actual bars); no TP1 593, no hourly close above 611. Option snapshot bid 19.35/ask 20.75/mid 20.05 (snapshot): mark +2.92=+292.00 less 1.30 = +290.70 (+16.97%). R und +0.70. Status open."
       }
     ],
     "summary": {
@@ -319,9 +319,9 @@
       "closed": 5,
       "missedEntry": 0,
       "closedPnlUsd": 1022.33,
-      "markPnlUsd": 1022.33,
+      "markPnlUsd": 1313.03,
       "closedR": 6.97,
-      "markR": 6.97,
+      "markR": 7.67,
       "winRate": 0.8,
       "winners": 4,
       "losers": 1,
@@ -354,13 +354,13 @@
           "closed": 1,
           "missedEntry": 0,
           "closedPnl": 525.7,
-          "markPnl": 525.7,
+          "markPnl": 816.4,
           "winRate": 1.0,
           "winners": 1,
           "losers": 0,
           "closedWithPnl": 1,
           "closedR": 2.32,
-          "markR": 2.32
+          "markR": 3.02
         },
         {
           "ticker": "MSTR",
@@ -435,6 +435,14 @@
           "alertId": "OSS-004",
           "ticker": "META",
           "kind": "closed"
+        },
+        {
+          "timeET": "2026-11-19 16:21",
+          "pnl": 290.7,
+          "cumulative": 1313.03,
+          "alertId": "OSS-006",
+          "ticker": "META",
+          "kind": "mark"
         }
       ],
       "altEquityClosed": [
@@ -684,21 +692,21 @@
         "tp3": 105.0,
         "stop": 116.0,
         "exit_rule": "75/25",
-        "status": "partial",
+        "status": "closed",
         "entry_time": "2026-11-18 09:56",
         "entry_px": 113.5,
         "exit1_time": "2026-11-18 11:31",
         "exit1_px": 110.8,
         "exit1_reason": "TP1 (COIN traded through 110.80 at 11:31; 1-min O/H/L/C 110.96/110.96/110.6246/110.80; 75% sold at 110.80)",
-        "exit2_time": null,
-        "exit2_px": null,
-        "exit2_reason": null,
-        "r_result": 1.116,
-        "pnl_per_share": 2.79,
-        "mfe": 4.0,
+        "exit2_time": "2026-11-19 15:57",
+        "exit2_px": 109.0,
+        "exit2_reason": "TP2 (COIN traded through 109.00 at 15:57; 1-min O/H/L/C 109.08/109.08/108.915/108.965; 25% sold at 109.00)",
+        "r_result": 1.26,
+        "pnl_per_share": 3.15,
+        "mfe": 4.7,
         "mae": -2.04,
         "first_hit": "TP1",
-        "notes": "price_at_alert 112.33 at 9:49:00 ET was below the 113.50-114.20 entry zone, so the short needed a retest of 113.50 and was not filled at the alert. The alert's suggested paper entry was 113.85 (pullback required): coming from below, the first in-zone fill is 113.50 unless a later bar opens already inside the zone, in which case fill at that open. The 9:49 ET Webull 1-min RTH bar (actual) was O/H/L/C 112.05/112.43/111.88/112.43; 112.33 sits in that bar, and the high 112.43 was still 1.07 short of 113.50. From 9:50 through the in-progress 9:52 bar, the post-alert high was only 112.55 at 9:50 (O/H/L/C 112.43/112.55/111.66/111.97) — 0.95 short of the zone — then 9:51 111.91/112.30/111.80/112.025, and 9:52 112.185/112.44/112.09/112.44. Last was 112.345 at the 9:52:16 ET Webull snapshot (bid 112.25 / ask 112.45 / mid 112.35). COIN had traded in the zone earlier in the session (last in-zone action on the 9:34-9:35 bars; 9:35 O/H/L/C 113.5385/113.825/112.81/112.875 left the zone) but that was before the alert. The entry zone has not been traded after the alert through this 9:52 ET check, so status is pending entry. It becomes missed entry at the end of the alert day (15:59 ET 11/18) if the zone is never traded; do not chase. Exit rule 75/25 would apply if it fills (TP3 105.00 ignored). No P&L, R, or MFE/MAE is recorded because there was no entry. Note: MSTR and COIN were sent together and move together. | 10:20 ET 11/18 check: entry filled. 9:56 bar (actual) O/H/L/C 113.05/113.60/112.98/113.10 traded up to zone bottom 113.50; short filled at 113.50. Post-entry low 112.27, high 114.50; no TP1 110.80, no stop 116.00. Marked at last 112.76 (+0.74/share, +0.296R). Status open. | 11:21 ET 11/18 check: COIN 1-min bars (actual, complete) since 10:20 range 111.07-113.14; no TP1 (110.80; snapshot day low 110.80 exactly = level, not through; re-check next run), no stop (116.00). Marked at snapshot last 110.91 (bid 110.86/ask 110.97): +2.59/share (+1.036R). MFE 2.70 (snapshot low), MAE -1.00 unchanged. Status open. | 12:20 ET 11/18 check: COIN TP1 110.80 CONFIRMED: first bar trading through 110.80 was 11:31 (actual) O/H/L/C 110.96/110.96/110.6246/110.80 (open 110.96 above TP1, low 110.6246; no stop in the same bar, stop 116.00). The earlier snapshot low exactly 110.80 was not through. exit1 = 75% sold at 110.80 at 11:31 (+2.70/share on that slice). TP2 109.00 NOT hit (post-entry low 109.94 at 11:55), no stop (116.00). Remaining 25% marked at snapshot last 111.93 (bid 111.83/ask 111.98): weighted P&L = 0.75*2.70+0.25*(113.50-111.93)=+2.4175/share (+0.967R, 1R=2.50). MFE 3.56 (low 109.94), MAE -1.00 unchanged. first_hit TP1. Status partial. | 16:20 ET check: COIN 1-min bars (actual, complete) range 110.34 (15:59)-114.37; TP2 109.00 NOT hit (day low 109.94 at 11:55), no stop (116.00). Remaining 25% marked at 15:59 close 110.51: 0.75*2.70+0.25*(113.50-110.51)=+2.7725/share (+1.109R, 1R=2.50). MFE 3.56/MAE -1.00 unchanged. Status partial. | 11/19 10:16 ET check: COIN range 112.62-115.54; no TP2 109.00, no stop 116.00. Remaining 25% marked at last 112.95: 0.75*2.70+0.25*(113.50-112.95)=+2.1625/share (+0.865R). MAE -2.04. Status partial. | 11/19 11:11 ET check: COIN 10:16-11:10 range 110.725-113.17; no TP2 109.00, no stop 116.00. Remaining 25% marked at last 112.04: 0.75*2.70+0.25*(113.50-112.04)=+2.39/share (+0.956R). Status partial. | 11/19 12:15 ET check: COIN 11:08-12:15 range 109.50-113.00; no TP2 109.00 (low 109.50), no stop 116.00. Remaining 25% marked at snapshot last 110.44 (bid 110.34/ask 110.50): 0.75*2.70+0.25*(113.50-110.44)=+2.79/share (+1.116R). MFE 4.00. Status partial. | 11/19 14:11 ET check: COIN 12:15-14:11 range 110.29-113.69; no TP2 109.00, no stop 116.00. Remaining 25% marked at last 110.50: 0.75*2.70+0.25*(113.50-110.50)=+2.775/share (+1.11R). Status partial."
+        "notes": "price_at_alert 112.33 at 9:49:00 ET was below the 113.50-114.20 entry zone, so the short needed a retest of 113.50 and was not filled at the alert. The alert's suggested paper entry was 113.85 (pullback required): coming from below, the first in-zone fill is 113.50 unless a later bar opens already inside the zone, in which case fill at that open. The 9:49 ET Webull 1-min RTH bar (actual) was O/H/L/C 112.05/112.43/111.88/112.43; 112.33 sits in that bar, and the high 112.43 was still 1.07 short of 113.50. From 9:50 through the in-progress 9:52 bar, the post-alert high was only 112.55 at 9:50 (O/H/L/C 112.43/112.55/111.66/111.97) — 0.95 short of the zone — then 9:51 111.91/112.30/111.80/112.025, and 9:52 112.185/112.44/112.09/112.44. Last was 112.345 at the 9:52:16 ET Webull snapshot (bid 112.25 / ask 112.45 / mid 112.35). COIN had traded in the zone earlier in the session (last in-zone action on the 9:34-9:35 bars; 9:35 O/H/L/C 113.5385/113.825/112.81/112.875 left the zone) but that was before the alert. The entry zone has not been traded after the alert through this 9:52 ET check, so status is pending entry. It becomes missed entry at the end of the alert day (15:59 ET 11/18) if the zone is never traded; do not chase. Exit rule 75/25 would apply if it fills (TP3 105.00 ignored). No P&L, R, or MFE/MAE is recorded because there was no entry. Note: MSTR and COIN were sent together and move together. | 10:20 ET 11/18 check: entry filled. 9:56 bar (actual) O/H/L/C 113.05/113.60/112.98/113.10 traded up to zone bottom 113.50; short filled at 113.50. Post-entry low 112.27, high 114.50; no TP1 110.80, no stop 116.00. Marked at last 112.76 (+0.74/share, +0.296R). Status open. | 11:21 ET 11/18 check: COIN 1-min bars (actual, complete) since 10:20 range 111.07-113.14; no TP1 (110.80; snapshot day low 110.80 exactly = level, not through; re-check next run), no stop (116.00). Marked at snapshot last 110.91 (bid 110.86/ask 110.97): +2.59/share (+1.036R). MFE 2.70 (snapshot low), MAE -1.00 unchanged. Status open. | 12:20 ET 11/18 check: COIN TP1 110.80 CONFIRMED: first bar trading through 110.80 was 11:31 (actual) O/H/L/C 110.96/110.96/110.6246/110.80 (open 110.96 above TP1, low 110.6246; no stop in the same bar, stop 116.00). The earlier snapshot low exactly 110.80 was not through. exit1 = 75% sold at 110.80 at 11:31 (+2.70/share on that slice). TP2 109.00 NOT hit (post-entry low 109.94 at 11:55), no stop (116.00). Remaining 25% marked at snapshot last 111.93 (bid 111.83/ask 111.98): weighted P&L = 0.75*2.70+0.25*(113.50-111.93)=+2.4175/share (+0.967R, 1R=2.50). MFE 3.56 (low 109.94), MAE -1.00 unchanged. first_hit TP1. Status partial. | 16:20 ET check: COIN 1-min bars (actual, complete) range 110.34 (15:59)-114.37; TP2 109.00 NOT hit (day low 109.94 at 11:55), no stop (116.00). Remaining 25% marked at 15:59 close 110.51: 0.75*2.70+0.25*(113.50-110.51)=+2.7725/share (+1.109R, 1R=2.50). MFE 3.56/MAE -1.00 unchanged. Status partial. | 11/19 10:16 ET check: COIN range 112.62-115.54; no TP2 109.00, no stop 116.00. Remaining 25% marked at last 112.95: 0.75*2.70+0.25*(113.50-112.95)=+2.1625/share (+0.865R). MAE -2.04. Status partial. | 11/19 11:11 ET check: COIN 10:16-11:10 range 110.725-113.17; no TP2 109.00, no stop 116.00. Remaining 25% marked at last 112.04: 0.75*2.70+0.25*(113.50-112.04)=+2.39/share (+0.956R). Status partial. | 11/19 12:15 ET check: COIN 11:08-12:15 range 109.50-113.00; no TP2 109.00 (low 109.50), no stop 116.00. Remaining 25% marked at snapshot last 110.44 (bid 110.34/ask 110.50): 0.75*2.70+0.25*(113.50-110.44)=+2.79/share (+1.116R). MFE 4.00. Status partial. | 11/19 14:11 ET check: COIN 12:15-14:11 range 110.29-113.69; no TP2 109.00, no stop 116.00. Remaining 25% marked at last 110.50: 0.75*2.70+0.25*(113.50-110.50)=+2.775/share (+1.11R). Status partial. | 11/19 15:11 ET check: COIN 14:11-15:11 range 109.74-110.83; no TP2 109.00, no stop 116.00. Remaining 25% marked at last 109.78: 0.75*2.70+0.25*(113.50-109.78)=+2.955/share (+1.182R). Status partial. | 11/19 16:12 ET check: TP2 hit 15:57 ET (actual bars). Total 0.75*2.70+0.25*4.50=+3.15/share (+1.26R, 1R=2.50). MFE 4.70 (low 108.80). CLOSED."
       },
       {
         "alert_id": "SSS-008",
@@ -724,12 +732,12 @@
         "exit2_time": null,
         "exit2_px": null,
         "exit2_reason": null,
-        "r_result": null,
-        "pnl_per_share": null,
-        "mfe": 6.56,
-        "mae": -0.37,
+        "r_result": 1.132,
+        "pnl_per_share": 8.38,
+        "mfe": 8.81,
+        "mae": -1.4,
         "first_hit": null,
-        "notes": "Alert price 604.60 (Webull 1:37 PM ET) inside the 603.50-605.50 zone, so filled at the alert price. 1R = 7.40. TP3 ignored under 75/25. Logged on arrival. | 11/19 14:11 ET check: META 13:37-14:11 range 598.04-604.97; no TP1 595.00, no stop 612.00. Last 599.27 (+5.33/share, +0.72R). Open."
+        "notes": "Alert price 604.60 (Webull 1:37 PM ET) inside the 603.50-605.50 zone, so filled at the alert price. 1R = 7.40. TP3 ignored under 75/25. Logged on arrival. | 11/19 14:11 ET check: META 13:37-14:11 range 598.04-604.97; no TP1 595.00, no stop 612.00. Last 599.27 (+5.33/share, +0.72R). Open. | 11/19 15:11 ET check: META range 597.12-606.00; no TP1 595.00, no stop 612.00. Last 597.14 (+7.46/share, +1.008R). MFE 7.48, MAE -1.40. Open. | 11/19 16:12 ET check: META 15:11-16:00 range 595.79-600.04; no TP1 595.00 hit (low 595.79 -> actually not reached), no stop 612.00. Last close 596.22 (+8.38/share, +1.132R). Open."
       },
       {
         "alert_id": "SSS-009",
@@ -746,21 +754,21 @@
         "tp3": 140.5,
         "stop": 151.2,
         "exit_rule": "75/25",
-        "status": "open",
+        "status": "partial",
         "entry_time": "2026-11-19 13:37",
         "entry_px": 149.29,
-        "exit1_time": null,
-        "exit1_px": null,
-        "exit1_reason": null,
+        "exit1_time": "2026-11-19 15:00",
+        "exit1_px": 147.0,
+        "exit1_reason": "TP1 (75%; first 1-min bar low 146.72 at 15:00 ET, actual bars)",
         "exit2_time": null,
         "exit2_px": null,
         "exit2_reason": null,
-        "r_result": null,
-        "pnl_per_share": null,
-        "mfe": 1.38,
+        "r_result": 1.332,
+        "pnl_per_share": 2.545,
+        "mfe": 3.58,
         "mae": -0.15,
-        "first_hit": null,
-        "notes": "Alert price 149.29 (Webull 1:37 PM ET) inside the 149.00-149.60 zone, so filled at the alert price. 1R = 1.91. TP3 ignored under 75/25. NVDA is on Randec's avoid list; logged anyway for research. Logged on arrival. | 11/19 14:11 ET check: NVDA range 147.91-149.44; no TP1 147.00, no stop 151.20. Last 148.28 (+1.01/share, +0.53R). Open."
+        "first_hit": "TP1",
+        "notes": "Alert price 149.29 (Webull 1:37 PM ET) inside the 149.00-149.60 zone, so filled at the alert price. 1R = 1.91. TP3 ignored under 75/25. NVDA is on Randec's avoid list; logged anyway for research. Logged on arrival. | 11/19 14:11 ET check: NVDA range 147.91-149.44; no TP1 147.00, no stop 151.20. Last 148.28 (+1.01/share, +0.53R). Open. | 11/19 15:11 ET check: TP1 147.00 hit at 15:00 ET; 75% filled at 147.00 (+2.29/share). Range 146.67-149.09; TP2 145.00 not hit, no stop 151.20. Remaining 25% marked at last 146.863: 0.75*2.29+0.25*(149.29-146.863)=+2.324/share (+1.217R, 1R=1.91). MFE 2.62. Status partial. | 11/19 16:12 ET check: NVDA range 145.71-147.78; TP2 145.00 not hit, no stop 151.20. Remaining 25% marked at close 145.98: 0.75*2.29+0.25*(149.29-145.98)=+2.545/share (+1.332R). Status partial."
       }
     ],
     "summary": {
@@ -768,23 +776,23 @@
       "botId": "sss",
       "alerts": 9,
       "byStatus": {
-        "closed": 4,
+        "closed": 5,
         "missed entry": 2,
-        "open": 2,
+        "open": 1,
         "partial": 1
       },
-      "open": 2,
+      "open": 1,
       "partial": 1,
-      "closed": 4,
+      "closed": 5,
       "missedEntry": 2,
-      "closedPnlPerShare": 1.315,
-      "markPnlPerShare": 4.105,
-      "closedR": -0.065,
-      "markR": 1.051,
-      "winRate": 0.5,
-      "winners": 2,
+      "closedPnlPerShare": 4.465,
+      "markPnlPerShare": 15.39,
+      "closedR": 1.195,
+      "markR": 3.659,
+      "winRate": 0.6,
+      "winners": 3,
       "losers": 2,
-      "closedWithPnl": 4,
+      "closedWithPnl": 5,
       "pnlUnit": "dollars per share (no commission, 1 unit of risk)",
       "rUnit": "R vs the fill-to-stop distance",
       "winRateNote": "Closed paper trades with pnl_per_share > 0, divided by closed trades that have a P&L. Open, partial, and missed entries are excluded.",
@@ -793,17 +801,17 @@
           "ticker": "COIN",
           "alerts": 1,
           "open": 0,
-          "partial": 1,
-          "closed": 0,
+          "partial": 0,
+          "closed": 1,
           "missedEntry": 0,
-          "closedPnl": null,
-          "markPnl": 2.79,
-          "winRate": null,
-          "winners": 0,
+          "closedPnl": 3.15,
+          "markPnl": 3.15,
+          "winRate": 1.0,
+          "winners": 1,
           "losers": 0,
-          "closedWithPnl": 0,
-          "closedR": null,
-          "markR": 1.116
+          "closedWithPnl": 1,
+          "closedR": 1.26,
+          "markR": 1.26
         },
         {
           "ticker": "GOOGL",
@@ -845,13 +853,13 @@
           "closed": 0,
           "missedEntry": 0,
           "closedPnl": null,
-          "markPnl": null,
+          "markPnl": 8.38,
           "winRate": null,
           "winners": 0,
           "losers": 0,
           "closedWithPnl": 0,
           "closedR": null,
-          "markR": null
+          "markR": 1.132
         },
         {
           "ticker": "MSFT",
@@ -888,18 +896,18 @@
         {
           "ticker": "NVDA",
           "alerts": 2,
-          "open": 1,
-          "partial": 0,
+          "open": 0,
+          "partial": 1,
           "closed": 1,
           "missedEntry": 0,
           "closedPnl": 5.0525,
-          "markPnl": 5.0525,
+          "markPnl": 7.5975,
           "winRate": 1.0,
           "winners": 1,
           "losers": 0,
           "closedWithPnl": 1,
           "closedR": 1.4035,
-          "markR": 1.4035
+          "markR": 2.7355
         }
       ],
       "equity": [
@@ -936,11 +944,27 @@
           "kind": "closed"
         },
         {
-          "timeET": "2026-11-19 14:24",
-          "pnl": 2.79,
-          "cumulative": 4.105,
+          "timeET": "2026-11-19 15:57",
+          "pnl": 3.15,
+          "cumulative": 4.465,
           "alertId": "SSS-007",
           "ticker": "COIN",
+          "kind": "closed"
+        },
+        {
+          "timeET": "2026-11-19 16:21",
+          "pnl": 8.38,
+          "cumulative": 12.845,
+          "alertId": "SSS-008",
+          "ticker": "META",
+          "kind": "mark"
+        },
+        {
+          "timeET": "2026-11-19 16:21",
+          "pnl": 2.545,
+          "cumulative": 15.39,
+          "alertId": "SSS-009",
+          "ticker": "NVDA",
           "kind": "mark"
         }
       ],
@@ -978,11 +1002,27 @@
           "kind": "closed"
         },
         {
-          "timeET": "2026-11-19 14:24",
-          "pnl": 1.116,
-          "cumulative": 1.051,
+          "timeET": "2026-11-19 15:57",
+          "pnl": 1.26,
+          "cumulative": 1.195,
           "alertId": "SSS-007",
           "ticker": "COIN",
+          "kind": "closed"
+        },
+        {
+          "timeET": "2026-11-19 16:21",
+          "pnl": 1.132,
+          "cumulative": 2.327,
+          "alertId": "SSS-008",
+          "ticker": "META",
+          "kind": "mark"
+        },
+        {
+          "timeET": "2026-11-19 16:21",
+          "pnl": 1.332,
+          "cumulative": 3.659,
+          "alertId": "SSS-009",
+          "ticker": "NVDA",
           "kind": "mark"
         }
       ]
@@ -1008,8 +1048,8 @@
         "highSinceAlert": 6.5,
         "highSinceAlertTime": "2026-11-12 09:45",
         "highSinceAlertPct": 35.6994,
-        "lastPrice": 3.37,
-        "chgToLastPct": -29.6451,
+        "lastPrice": 3.4,
+        "chgToLastPct": -29.0188,
         "chartAvailable": true,
         "move_day": "Day 1",
         "move_day_basis": "Prior session Nov 11 was not a big move (+0%); no earlier alert in the prior 2 trading days."
@@ -1032,8 +1072,8 @@
         "highSinceAlert": 1.8794,
         "highSinceAlertTime": "2026-11-13 04:00",
         "highSinceAlertPct": 6.7841,
-        "lastPrice": 0.86,
-        "chgToLastPct": -51.1364,
+        "lastPrice": 0.804,
+        "chgToLastPct": -54.3182,
         "chartAvailable": true,
         "move_day": "Day 1",
         "move_day_basis": "Prior session Nov 11 was not a big move (-7% on 0.9x volume); no earlier alert in the prior 2 trading days."
@@ -1056,8 +1096,8 @@
         "highSinceAlert": 4.8999,
         "highSinceAlertTime": "2026-11-16 10:30",
         "highSinceAlertPct": 48.9331,
-        "lastPrice": 4.29,
-        "chgToLastPct": 30.3951,
+        "lastPrice": 4.35,
+        "chgToLastPct": 32.2188,
         "chartAvailable": true,
         "move_day": "Day 1",
         "move_day_basis": "Prior session Nov 11 was not a big move (-1% on 1.1x volume); no earlier alert in the prior 2 trading days."
@@ -1080,8 +1120,8 @@
         "highSinceAlert": 3.62,
         "highSinceAlertTime": "2026-11-13 04:00",
         "highSinceAlertPct": 33.0882,
-        "lastPrice": 2.29,
-        "chgToLastPct": -15.8088,
+        "lastPrice": 2.3,
+        "chgToLastPct": -15.4412,
         "chartAvailable": true,
         "move_day": "Day 1",
         "move_day_basis": "Prior session Nov 11 was not a big move (+7% on 1.0x volume); no earlier alert in the prior 2 trading days."
@@ -1104,8 +1144,8 @@
         "highSinceAlert": 4.8999,
         "highSinceAlertTime": "2026-11-16 10:30",
         "highSinceAlertPct": 44.1147,
-        "lastPrice": 4.29,
-        "chgToLastPct": 26.1765,
+        "lastPrice": 4.35,
+        "chgToLastPct": 27.9412,
         "chartAvailable": true,
         "move_day": "Day 1",
         "move_day_basis": "Prior session Nov 11 was not a big move (-1% on 1.1x volume); no earlier alert in the prior 2 trading days."
@@ -1128,8 +1168,8 @@
         "highSinceAlert": 3.62,
         "highSinceAlertTime": "2026-11-13 04:00",
         "highSinceAlertPct": 27.9152,
-        "lastPrice": 2.29,
-        "chgToLastPct": -19.0813,
+        "lastPrice": 2.3,
+        "chgToLastPct": -18.7279,
         "chartAvailable": true,
         "move_day": "Day 1",
         "move_day_basis": "Prior session Nov 11 was not a big move (+7% on 1.0x volume); no earlier alert in the prior 2 trading days."
@@ -1152,8 +1192,8 @@
         "highSinceAlert": 2.96,
         "highSinceAlertTime": "2026-11-16 11:00",
         "highSinceAlertPct": 8.8235,
-        "lastPrice": 2.29,
-        "chgToLastPct": -15.8088,
+        "lastPrice": 2.3,
+        "chgToLastPct": -15.4412,
         "chartAvailable": true,
         "move_day": "Day 2",
         "move_day_basis": "1 trading day after Nov 12 -1% on 12x volume"
@@ -1176,8 +1216,8 @@
         "highSinceAlert": 1.97,
         "highSinceAlertTime": "2026-11-16 09:45",
         "highSinceAlertPct": 66.9492,
-        "lastPrice": 1.505,
-        "chgToLastPct": 27.5424,
+        "lastPrice": 1.48,
+        "chgToLastPct": 25.4237,
         "chartAvailable": true,
         "move_day": "Day 2",
         "move_day_basis": "1 trading day after Nov 12 +0% on 71x volume"
@@ -1200,8 +1240,8 @@
         "highSinceAlert": 4.8999,
         "highSinceAlertTime": "2026-11-16 10:30",
         "highSinceAlertPct": 40.8017,
-        "lastPrice": 4.29,
-        "chgToLastPct": 23.2759,
+        "lastPrice": 4.35,
+        "chgToLastPct": 25.0,
         "chartAvailable": true,
         "move_day": "Day 2",
         "move_day_basis": "1 trading day after Nov 12 +6% on 147x volume"
@@ -1224,8 +1264,8 @@
         "highSinceAlert": 1.97,
         "highSinceAlertTime": "2026-11-18 08:45",
         "highSinceAlertPct": 89.4231,
-        "lastPrice": 1.69,
-        "chgToLastPct": 62.5,
+        "lastPrice": 1.74,
+        "chgToLastPct": 67.3077,
         "chartAvailable": true,
         "move_day": "Day 1",
         "move_day_basis": "Prior session Nov 13 was not a big move (-2% on 0.4x volume); no earlier alert in the prior 2 trading days."
@@ -1248,8 +1288,8 @@
         "highSinceAlert": 3.56,
         "highSinceAlertTime": "2026-11-17 07:30",
         "highSinceAlertPct": 145.5172,
-        "lastPrice": 3.0,
-        "chgToLastPct": 106.8966,
+        "lastPrice": 2.95,
+        "chgToLastPct": 103.4483,
         "chartAvailable": true,
         "move_day": "Day 3",
         "move_day_basis": "2 trading days after Nov 12 +175% on 123x volume"
@@ -1272,8 +1312,8 @@
         "highSinceAlert": 1.465,
         "highSinceAlertTime": "2026-11-16 09:30",
         "highSinceAlertPct": 5.3957,
-        "lastPrice": 1.12,
-        "chgToLastPct": -19.4245,
+        "lastPrice": 1.11,
+        "chgToLastPct": -20.1439,
         "chartAvailable": true,
         "move_day": "Day 3",
         "move_day_basis": "2 trading days after Nov 12 +119% on 1,382x volume"
@@ -1296,8 +1336,8 @@
         "highSinceAlert": 3.5893,
         "highSinceAlertTime": "2026-11-17 04:00",
         "highSinceAlertPct": 28.1893,
-        "lastPrice": 2.585,
-        "chgToLastPct": -7.6786,
+        "lastPrice": 2.52,
+        "chgToLastPct": -10.0,
         "chartAvailable": true,
         "move_day": "Day 1",
         "move_day_basis": "Prior session Nov 13 was not a big move (-1% on 1.5x volume); no earlier alert in the prior 2 trading days."
@@ -1320,8 +1360,8 @@
         "highSinceAlert": 2.67,
         "highSinceAlertTime": "2026-11-17 09:15",
         "highSinceAlertPct": 1.5209,
-        "lastPrice": 2.65,
-        "chgToLastPct": 0.7605,
+        "lastPrice": 2.66,
+        "chgToLastPct": 1.1407,
         "chartAvailable": true,
         "move_day": "Day 1",
         "move_day_basis": "Prior session Nov 13 was not a big move (-1% on 0.7x volume); no earlier alert in the prior 2 trading days."
@@ -1344,8 +1384,8 @@
         "highSinceAlert": 2.63,
         "highSinceAlertTime": "2026-11-17 04:00",
         "highSinceAlertPct": 16.8889,
-        "lastPrice": 0.6601,
-        "chgToLastPct": -70.6622,
+        "lastPrice": 0.6326,
+        "chgToLastPct": -71.8844,
         "chartAvailable": true,
         "move_day": "Day 1",
         "move_day_basis": "Prior session Nov 13 was not a big move (-7% on 2.3x volume); no earlier alert in the prior 2 trading days."
@@ -1368,8 +1408,8 @@
         "highSinceAlert": 3.5893,
         "highSinceAlertTime": "2026-11-17 04:00",
         "highSinceAlertPct": 18.0691,
-        "lastPrice": 2.585,
-        "chgToLastPct": -14.9671,
+        "lastPrice": 2.52,
+        "chgToLastPct": -17.1053,
         "chartAvailable": true,
         "move_day": "Day 1",
         "move_day_basis": "Prior session Nov 13 was not a big move (-1% on 1.5x volume); no earlier alert in the prior 2 trading days."
@@ -1392,8 +1432,8 @@
         "highSinceAlert": 2.67,
         "highSinceAlertTime": "2026-11-17 09:15",
         "highSinceAlertPct": 0.7547,
-        "lastPrice": 2.65,
-        "chgToLastPct": 0.0,
+        "lastPrice": 2.66,
+        "chgToLastPct": 0.3774,
         "chartAvailable": true,
         "move_day": "Day 2",
         "move_day_basis": "1 trading day after Nov 16 +2% on 57x volume"
@@ -1416,8 +1456,8 @@
         "highSinceAlert": 3.37,
         "highSinceAlertTime": "2026-11-17 09:30",
         "highSinceAlertPct": 13.468,
-        "lastPrice": 2.585,
-        "chgToLastPct": -12.963,
+        "lastPrice": 2.52,
+        "chgToLastPct": -15.1515,
         "chartAvailable": true,
         "move_day": "Day 2",
         "move_day_basis": "1 trading day after Nov 16 -11% on 25x volume"
@@ -1440,8 +1480,8 @@
         "highSinceAlert": 3.4499,
         "highSinceAlertTime": "2026-11-18 07:00",
         "highSinceAlertPct": 14.6146,
-        "lastPrice": 3.0,
-        "chgToLastPct": -0.3322,
+        "lastPrice": 2.95,
+        "chgToLastPct": -1.9934,
         "chartAvailable": true,
         "move_day": "Day 4+",
         "move_day_basis": "3 trading days after Nov 12 +175% on 123x volume"
@@ -1464,8 +1504,8 @@
         "highSinceAlert": 4.48,
         "highSinceAlertTime": "2026-11-17 09:30",
         "highSinceAlertPct": 11.7207,
-        "lastPrice": 3.93,
-        "chgToLastPct": -1.995,
+        "lastPrice": 3.91,
+        "chgToLastPct": -2.4938,
         "chartAvailable": true,
         "move_day": "Day 1",
         "move_day_basis": "Prior session Nov 16 was not a big move (-4% on 1.1x volume); no earlier alert in the prior 2 trading days."
@@ -1488,8 +1528,8 @@
         "highSinceAlert": 5.49,
         "highSinceAlertTime": "2026-11-18 16:30",
         "highSinceAlertPct": 67.8899,
-        "lastPrice": 4.31,
-        "chgToLastPct": 31.8043,
+        "lastPrice": 4.5,
+        "chgToLastPct": 37.6147,
         "chartAvailable": true,
         "move_day": "Day 2",
         "move_day_basis": "1 trading day after Nov 17 -80% on 29x volume"
@@ -1512,8 +1552,8 @@
         "highSinceAlert": 4.2,
         "highSinceAlertTime": "2026-11-19 10:45",
         "highSinceAlertPct": 58.4906,
-        "lastPrice": 3.8,
-        "chgToLastPct": 43.3962,
+        "lastPrice": 3.33,
+        "chgToLastPct": 25.6604,
         "chartAvailable": true,
         "move_day": "Day 3",
         "move_day_basis": "2 trading days after Nov 16 +21% on 0.3x volume"
@@ -1536,8 +1576,8 @@
         "highSinceAlert": 1.91,
         "highSinceAlertTime": "2026-11-18 09:30",
         "highSinceAlertPct": 3.2432,
-        "lastPrice": 1.69,
-        "chgToLastPct": -8.6486,
+        "lastPrice": 1.74,
+        "chgToLastPct": -5.9459,
         "chartAvailable": true,
         "move_day": "Day 3",
         "move_day_basis": "2 trading days after Nov 16 +52% on 3,193x volume"
@@ -1554,14 +1594,14 @@
         "news_headline": "8-K: merger agreement with EverCircle Holdings (own BVI subsidiary; redomicile from Texas to BVI with new 20-vote Class B shares).",
         "news_url": "https://www.sec.gov/Archives/edgar/data/1961847/000149315226053065/form8-k.htm",
         "catalyst_tag": "m&a",
-        "nextSessionClose": 3.14,
+        "nextSessionClose": 2.82,
         "nextSessionCloseDate": "2026-11-19",
-        "chgToNextClosePct": 0.0,
+        "chgToNextClosePct": -10.1911,
         "highSinceAlert": 4.74,
         "highSinceAlertTime": "2026-11-19 04:00",
         "highSinceAlertPct": 50.9554,
-        "lastPrice": 3.14,
-        "chgToLastPct": 0.0,
+        "lastPrice": 2.82,
+        "chgToLastPct": -10.1911,
         "chartAvailable": true,
         "move_day": "Day 1",
         "move_day_basis": "Prior session Nov 17 was not a big move (-2% on 1.3x volume); no earlier alert in the prior 2 trading days."
@@ -1578,14 +1618,14 @@
         "news_headline": "New AH high $4.08 on the 4:10 PM 8-K merger agreement with EverCircle Holdings (own BVI subsidiary; redomicile).",
         "news_url": "https://www.sec.gov/Archives/edgar/data/1961847/000149315226053065/form8-k.htm",
         "catalyst_tag": "m&a",
-        "nextSessionClose": 3.14,
+        "nextSessionClose": 2.82,
         "nextSessionCloseDate": "2026-11-19",
-        "chgToNextClosePct": -16.2667,
+        "chgToNextClosePct": -24.8,
         "highSinceAlert": 4.74,
         "highSinceAlertTime": "2026-11-19 04:00",
         "highSinceAlertPct": 26.4,
-        "lastPrice": 3.14,
-        "chgToLastPct": -16.2667,
+        "lastPrice": 2.82,
+        "chgToLastPct": -24.8,
         "chartAvailable": true,
         "move_day": "Day 1",
         "move_day_basis": "Prior session Nov 17 was not a big move (-2% on 1.3x volume); no earlier alert in the prior 2 trading days."
@@ -1602,14 +1642,14 @@
         "news_headline": "Vivid Seats recapitalization deal with lenders cuts net debt by $232M, extends maturities to 2032; ~$273M debt converts to ~45.8M new shares.",
         "news_url": "https://vividseats.gcs-web.com/news-releases/news-release-details/vivid-seats-enters-transaction-support-agreement-comprehensive",
         "catalyst_tag": "dilution",
-        "nextSessionClose": 1.9799,
+        "nextSessionClose": 2.09,
         "nextSessionCloseDate": "2026-11-19",
-        "chgToNextClosePct": -6.1659,
+        "chgToNextClosePct": -0.9479,
         "highSinceAlert": 2.85,
         "highSinceAlertTime": "2026-11-19 09:00",
         "highSinceAlertPct": 35.0711,
-        "lastPrice": 1.98,
-        "chgToLastPct": -6.1611,
+        "lastPrice": 2.09,
+        "chgToLastPct": -0.9479,
         "chartAvailable": true,
         "move_day": "Day 1",
         "move_day_basis": "Prior session Nov 18 was not a big move (+2% on 0.7x volume); no earlier alert in the prior 2 trading days."
@@ -1626,14 +1666,14 @@
         "news_headline": "8-K: merger with own BVI subsidiary EverCircle Holdings to redomicile; new PM high $4.39.",
         "news_url": "https://www.sec.gov/Archives/edgar/data/1961847/000149315226053065/form8-k.htm",
         "catalyst_tag": "m&a",
-        "nextSessionClose": 3.14,
+        "nextSessionClose": 2.82,
         "nextSessionCloseDate": "2026-11-19",
-        "chgToNextClosePct": -1.5674,
+        "chgToNextClosePct": -11.5987,
         "highSinceAlert": 3.46,
         "highSinceAlertTime": "2026-11-19 09:45",
         "highSinceAlertPct": 8.4639,
-        "lastPrice": 3.14,
-        "chgToLastPct": -1.5674,
+        "lastPrice": 2.82,
+        "chgToLastPct": -11.5987,
         "chartAvailable": true,
         "move_day": "Day 2",
         "move_day_basis": "1 trading day after Nov 18 -2% on 269x volume"
@@ -1650,14 +1690,14 @@
         "news_headline": "Marker Therapeutics awarded $16.2M non-dilutive CPRIT grant to advance MT-601 in Phase 2 APOLLO study.",
         "news_url": "https://www.globenewswire.com/news-release/2026/11/19/3406436/0/en/marker-therapeutics-awarded-16-2-million-cprit-grant-to-advance-mt-601-in-phase-2-apollo-study.html",
         "catalyst_tag": "other",
-        "nextSessionClose": 1.595,
+        "nextSessionClose": 1.32,
         "nextSessionCloseDate": "2026-11-19",
-        "chgToNextClosePct": 46.3303,
+        "chgToNextClosePct": 21.1009,
         "highSinceAlert": 1.68,
         "highSinceAlertTime": "2026-11-19 13:30",
         "highSinceAlertPct": 54.1284,
-        "lastPrice": 1.595,
-        "chgToLastPct": 46.3303,
+        "lastPrice": 1.32,
+        "chgToLastPct": 21.1009,
         "chartAvailable": true,
         "move_day": "Day 1",
         "move_day_basis": "Prior session Nov 18 was not a big move (+1% on 0.9x volume); no earlier alert in the prior 2 trading days."
@@ -1674,14 +1714,14 @@
         "news_headline": "New PM high $2.85; no new news (7:47 AM recapitalization deal; ~45.8M new shares to lenders).",
         "news_url": "https://vividseats.gcs-web.com/news-releases/news-release-details/vivid-seats-enters-transaction-support-agreement-comprehensive",
         "catalyst_tag": "dilution",
-        "nextSessionClose": 1.9799,
+        "nextSessionClose": 2.09,
         "nextSessionCloseDate": "2026-11-19",
-        "chgToNextClosePct": -22.0512,
+        "chgToNextClosePct": -17.7165,
         "highSinceAlert": 2.62,
         "highSinceAlertTime": "2026-11-19 09:30",
         "highSinceAlertPct": 3.1496,
-        "lastPrice": 1.98,
-        "chgToLastPct": -22.0472,
+        "lastPrice": 2.09,
+        "chgToLastPct": -17.7165,
         "chartAvailable": true,
         "move_day": "Day 1",
         "move_day_basis": "Prior session Nov 18 was not a big move (+2% on 0.7x volume); no earlier alert in the prior 2 trading days."
@@ -1706,7 +1746,7 @@
       "withNextClose": 29,
       "nextCloseWinners": 16,
       "nextCloseWinRate": 0.5517,
-      "avgChgToNextClosePct": 1.4595,
+      "avgChgToNextClosePct": -0.0726,
       "avgHighSinceAlertPct": 33.3263,
       "byMoveDay": {
         "Day 1": 17,
@@ -1719,13 +1759,13 @@
         "Day 1": {
           "alerts": 17,
           "withNextClose": 17,
-          "avgChgToNextClosePct": -1.0476,
+          "avgChgToNextClosePct": -3.0712,
           "avgHighSinceAlertPct": 31.2971
         },
         "Day 2": {
           "alerts": 7,
           "withNextClose": 7,
-          "avgChgToNextClosePct": 13.9647,
+          "avgChgToNextClosePct": 12.5317,
           "avgHighSinceAlertPct": 29.593
         },
         "Day 3": {
@@ -1786,20 +1826,20 @@
         "exit3_time": null,
         "exit3_px": null,
         "exit3_reason": null,
-        "pnl_usd": null,
-        "pnl_pct": null,
-        "r_underlying": null,
-        "mfe_opt": null,
-        "mae_opt": null,
-        "mfe_und": null,
-        "mae_und": null,
+        "pnl_usd": 290.7,
+        "pnl_pct": 16.97,
+        "r_underlying": 0.7,
+        "mfe_opt": 2.92,
+        "mae_opt": 0,
+        "mfe_und": 6.51,
+        "mae_und": -3.7,
         "first_hit": null,
         "exit_rule": "75/25",
         "alt_rule": "thirds",
         "alt_pnl_usd": null,
         "alt_pnl_pct": null,
         "alt_r_underlying": null,
-        "notes": "Logged on arrival. Underlying about 602.3 (OSS, 1:49 PM ET Webull quote) is inside the 601-605 zone, so entered at the alert mid of 17.13 (bid 16.75 / ask 17.50). New trade after OSS-004 closed, not a repeat. Stop: hourly close above 611 (clock-hour closes per README). R unit = 611-602.3 = 8.7. Time exit is the 11/24 close (same as OSS-004 for the 11/27 expiry). TP3 564 ignored under 75/25. Alternatives (600P, 12/4 600P) not traded."
+        "notes": "Logged on arrival. Underlying about 602.3 (OSS, 1:49 PM ET Webull quote) is inside the 601-605 zone, so entered at the alert mid of 17.13 (bid 16.75 / ask 17.50). New trade after OSS-004 closed, not a repeat. Stop: hourly close above 611 (clock-hour closes per README). R unit = 611-602.3 = 8.7. Time exit is the 11/24 close (same as OSS-004 for the 11/27 expiry). TP3 564 ignored under 75/25. Alternatives (600P, 12/4 600P) not traded. | 11/19 15:11 ET check: META 13:50-15:11 range 597.12-606.00 (actual 1-min stock bars); no TP1 593, no hourly close above 611. Option snapshot bid 19.00/ask 20.15/mid 19.575 (snapshot): mark +2.445/contract=+244.50 less 1.30 comms = +243.20 (+14.20%). R und +0.59. MFE opt 2.44, und 5.18; MAE und -3.70 (high 606). Status open. | 11/19 16:12 ET check: META 15:11-16:00 range 595.79-600.04, close 596.22 (actual bars); no TP1 593, no hourly close above 611. Option snapshot bid 19.35/ask 20.75/mid 20.05 (snapshot): mark +2.92=+292.00 less 1.30 = +290.70 (+16.97%). R und +0.70. Status open."
       }
     ],
     "stocks": [
@@ -1827,12 +1867,12 @@
         "exit2_time": null,
         "exit2_px": null,
         "exit2_reason": null,
-        "r_result": null,
-        "pnl_per_share": null,
-        "mfe": 6.56,
-        "mae": -0.37,
+        "r_result": 1.132,
+        "pnl_per_share": 8.38,
+        "mfe": 8.81,
+        "mae": -1.4,
         "first_hit": null,
-        "notes": "Alert price 604.60 (Webull 1:37 PM ET) inside the 603.50-605.50 zone, so filled at the alert price. 1R = 7.40. TP3 ignored under 75/25. Logged on arrival. | 11/19 14:11 ET check: META 13:37-14:11 range 598.04-604.97; no TP1 595.00, no stop 612.00. Last 599.27 (+5.33/share, +0.72R). Open."
+        "notes": "Alert price 604.60 (Webull 1:37 PM ET) inside the 603.50-605.50 zone, so filled at the alert price. 1R = 7.40. TP3 ignored under 75/25. Logged on arrival. | 11/19 14:11 ET check: META 13:37-14:11 range 598.04-604.97; no TP1 595.00, no stop 612.00. Last 599.27 (+5.33/share, +0.72R). Open. | 11/19 15:11 ET check: META range 597.12-606.00; no TP1 595.00, no stop 612.00. Last 597.14 (+7.46/share, +1.008R). MFE 7.48, MAE -1.40. Open. | 11/19 16:12 ET check: META 15:11-16:00 range 595.79-600.04; no TP1 595.00 hit (low 595.79 -> actually not reached), no stop 612.00. Last close 596.22 (+8.38/share, +1.132R). Open."
       },
       {
         "alert_id": "SSS-009",
@@ -1849,21 +1889,21 @@
         "tp3": 140.5,
         "stop": 151.2,
         "exit_rule": "75/25",
-        "status": "open",
+        "status": "partial",
         "entry_time": "2026-11-19 13:37",
         "entry_px": 149.29,
-        "exit1_time": null,
-        "exit1_px": null,
-        "exit1_reason": null,
+        "exit1_time": "2026-11-19 15:00",
+        "exit1_px": 147.0,
+        "exit1_reason": "TP1 (75%; first 1-min bar low 146.72 at 15:00 ET, actual bars)",
         "exit2_time": null,
         "exit2_px": null,
         "exit2_reason": null,
-        "r_result": null,
-        "pnl_per_share": null,
-        "mfe": 1.38,
+        "r_result": 1.332,
+        "pnl_per_share": 2.545,
+        "mfe": 3.58,
         "mae": -0.15,
-        "first_hit": null,
-        "notes": "Alert price 149.29 (Webull 1:37 PM ET) inside the 149.00-149.60 zone, so filled at the alert price. 1R = 1.91. TP3 ignored under 75/25. NVDA is on Randec's avoid list; logged anyway for research. Logged on arrival. | 11/19 14:11 ET check: NVDA range 147.91-149.44; no TP1 147.00, no stop 151.20. Last 148.28 (+1.01/share, +0.53R). Open."
+        "first_hit": "TP1",
+        "notes": "Alert price 149.29 (Webull 1:37 PM ET) inside the 149.00-149.60 zone, so filled at the alert price. 1R = 1.91. TP3 ignored under 75/25. NVDA is on Randec's avoid list; logged anyway for research. Logged on arrival. | 11/19 14:11 ET check: NVDA range 147.91-149.44; no TP1 147.00, no stop 151.20. Last 148.28 (+1.01/share, +0.53R). Open. | 11/19 15:11 ET check: TP1 147.00 hit at 15:00 ET; 75% filled at 147.00 (+2.29/share). Range 146.67-149.09; TP2 145.00 not hit, no stop 151.20. Remaining 25% marked at last 146.863: 0.75*2.29+0.25*(149.29-146.863)=+2.324/share (+1.217R, 1R=1.91). MFE 2.62. Status partial. | 11/19 16:12 ET check: NVDA range 145.71-147.78; TP2 145.00 not hit, no stop 151.20. Remaining 25% marked at close 145.98: 0.75*2.29+0.25*(149.29-145.98)=+2.545/share (+1.332R). Status partial."
       }
     ],
     "lowfloat": [
@@ -1879,14 +1919,14 @@
         "news_headline": "Vivid Seats recapitalization deal with lenders cuts net debt by $232M, extends maturities to 2032; ~$273M debt converts to ~45.8M new shares.",
         "news_url": "https://vividseats.gcs-web.com/news-releases/news-release-details/vivid-seats-enters-transaction-support-agreement-comprehensive",
         "catalyst_tag": "dilution",
-        "nextSessionClose": 1.9799,
+        "nextSessionClose": 2.09,
         "nextSessionCloseDate": "2026-11-19",
-        "chgToNextClosePct": -6.1659,
+        "chgToNextClosePct": -0.9479,
         "highSinceAlert": 2.85,
         "highSinceAlertTime": "2026-11-19 09:00",
         "highSinceAlertPct": 35.0711,
-        "lastPrice": 1.98,
-        "chgToLastPct": -6.1611,
+        "lastPrice": 2.09,
+        "chgToLastPct": -0.9479,
         "chartAvailable": true,
         "move_day": "Day 1",
         "move_day_basis": "Prior session Nov 18 was not a big move (+2% on 0.7x volume); no earlier alert in the prior 2 trading days."
@@ -1903,14 +1943,14 @@
         "news_headline": "8-K: merger with own BVI subsidiary EverCircle Holdings to redomicile; new PM high $4.39.",
         "news_url": "https://www.sec.gov/Archives/edgar/data/1961847/000149315226053065/form8-k.htm",
         "catalyst_tag": "m&a",
-        "nextSessionClose": 3.14,
+        "nextSessionClose": 2.82,
         "nextSessionCloseDate": "2026-11-19",
-        "chgToNextClosePct": -1.5674,
+        "chgToNextClosePct": -11.5987,
         "highSinceAlert": 3.46,
         "highSinceAlertTime": "2026-11-19 09:45",
         "highSinceAlertPct": 8.4639,
-        "lastPrice": 3.14,
-        "chgToLastPct": -1.5674,
+        "lastPrice": 2.82,
+        "chgToLastPct": -11.5987,
         "chartAvailable": true,
         "move_day": "Day 2",
         "move_day_basis": "1 trading day after Nov 18 -2% on 269x volume"
@@ -1927,14 +1967,14 @@
         "news_headline": "Marker Therapeutics awarded $16.2M non-dilutive CPRIT grant to advance MT-601 in Phase 2 APOLLO study.",
         "news_url": "https://www.globenewswire.com/news-release/2026/11/19/3406436/0/en/marker-therapeutics-awarded-16-2-million-cprit-grant-to-advance-mt-601-in-phase-2-apollo-study.html",
         "catalyst_tag": "other",
-        "nextSessionClose": 1.595,
+        "nextSessionClose": 1.32,
         "nextSessionCloseDate": "2026-11-19",
-        "chgToNextClosePct": 46.3303,
+        "chgToNextClosePct": 21.1009,
         "highSinceAlert": 1.68,
         "highSinceAlertTime": "2026-11-19 13:30",
         "highSinceAlertPct": 54.1284,
-        "lastPrice": 1.595,
-        "chgToLastPct": 46.3303,
+        "lastPrice": 1.32,
+        "chgToLastPct": 21.1009,
         "chartAvailable": true,
         "move_day": "Day 1",
         "move_day_basis": "Prior session Nov 18 was not a big move (+1% on 0.9x volume); no earlier alert in the prior 2 trading days."
@@ -1951,14 +1991,14 @@
         "news_headline": "New PM high $2.85; no new news (7:47 AM recapitalization deal; ~45.8M new shares to lenders).",
         "news_url": "https://vividseats.gcs-web.com/news-releases/news-release-details/vivid-seats-enters-transaction-support-agreement-comprehensive",
         "catalyst_tag": "dilution",
-        "nextSessionClose": 1.9799,
+        "nextSessionClose": 2.09,
         "nextSessionCloseDate": "2026-11-19",
-        "chgToNextClosePct": -22.0512,
+        "chgToNextClosePct": -17.7165,
         "highSinceAlert": 2.62,
         "highSinceAlertTime": "2026-11-19 09:30",
         "highSinceAlertPct": 3.1496,
-        "lastPrice": 1.98,
-        "chgToLastPct": -22.0472,
+        "lastPrice": 2.09,
+        "chgToLastPct": -17.7165,
         "chartAvailable": true,
         "move_day": "Day 1",
         "move_day_basis": "Prior session Nov 18 was not a big move (+2% on 0.7x volume); no earlier alert in the prior 2 trading days."
@@ -1967,151 +2007,151 @@
   },
   "chartTickers": {
     "TSLA": {
-      "last": 376.37,
+      "last": 374.41,
       "hasDaily": true,
       "hasIntraday": true,
       "errors": []
     },
     "MSTR": {
-      "last": 87.69,
+      "last": 86.13,
       "hasDaily": true,
       "hasIntraday": true,
       "errors": []
     },
     "GOOGL": {
-      "last": 278.335,
+      "last": 272.66,
       "hasDaily": true,
       "hasIntraday": true,
       "errors": []
     },
     "META": {
-      "last": 600.53,
+      "last": 596.22,
       "hasDaily": true,
       "hasIntraday": true,
       "errors": []
     },
     "MSFT": {
-      "last": 502.265,
+      "last": 498.3,
       "hasDaily": true,
       "hasIntraday": true,
       "errors": []
     },
     "HOOD": {
-      "last": 69.77,
+      "last": 68.65,
       "hasDaily": true,
       "hasIntraday": true,
       "errors": []
     },
     "NVDA": {
-      "last": 148.42,
+      "last": 145.98,
       "hasDaily": true,
       "hasIntraday": true,
       "errors": []
     },
     "COIN": {
-      "last": 110.195,
+      "last": 108.87,
       "hasDaily": true,
       "hasIntraday": true,
       "errors": []
     },
     "ADXN": {
-      "last": 3.37,
+      "last": 3.4,
       "hasDaily": true,
       "hasIntraday": true,
       "errors": []
     },
     "CRMN": {
-      "last": 0.86,
+      "last": 0.804,
       "hasDaily": true,
       "hasIntraday": true,
       "errors": []
     },
     "VTSI": {
-      "last": 4.29,
+      "last": 4.35,
       "hasDaily": true,
       "hasIntraday": true,
       "errors": []
     },
     "SNAL": {
-      "last": 2.29,
+      "last": 2.3,
       "hasDaily": true,
       "hasIntraday": true,
       "errors": []
     },
     "SLSN": {
-      "last": 1.505,
+      "last": 1.48,
       "hasDaily": true,
       "hasIntraday": true,
       "errors": []
     },
     "HIHO": {
-      "last": 1.69,
+      "last": 1.74,
       "hasDaily": true,
       "hasIntraday": true,
       "errors": []
     },
     "GP": {
-      "last": 3.0,
+      "last": 2.95,
       "hasDaily": true,
       "hasIntraday": true,
       "errors": []
     },
     "AIMD": {
-      "last": 1.12,
+      "last": 1.11,
       "hasDaily": true,
       "hasIntraday": true,
       "errors": []
     },
     "SPAI": {
-      "last": 2.585,
+      "last": 2.52,
       "hasDaily": true,
       "hasIntraday": true,
       "errors": []
     },
     "AYTU": {
-      "last": 2.65,
+      "last": 2.66,
       "hasDaily": true,
       "hasIntraday": true,
       "errors": []
     },
     "CSAI": {
-      "last": 0.6601,
+      "last": 0.6326,
       "hasDaily": true,
       "hasIntraday": true,
       "errors": []
     },
     "LUCK": {
-      "last": 3.93,
+      "last": 3.91,
       "hasDaily": true,
       "hasIntraday": true,
       "errors": []
     },
     "CUE": {
-      "last": 4.31,
+      "last": 4.5,
       "hasDaily": true,
       "hasIntraday": true,
       "errors": []
     },
     "NCPL": {
-      "last": 3.8,
+      "last": 3.33,
       "hasDaily": true,
       "hasIntraday": true,
       "errors": []
     },
     "INHD": {
-      "last": 3.14,
+      "last": 2.82,
       "hasDaily": true,
       "hasIntraday": true,
       "errors": []
     },
     "SEAT": {
-      "last": 1.98,
+      "last": 2.09,
       "hasDaily": true,
       "hasIntraday": true,
       "errors": []
     },
     "MRKR": {
-      "last": 1.595,
+      "last": 1.32,
       "hasDaily": true,
       "hasIntraday": true,
       "errors": []
