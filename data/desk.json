@@ -1,6 +1,6 @@
 {
-  "asOfET": "4:24 PM ET, Nov 20, 2026",
-  "asOfISO": "2026-11-20T16:24:46.133172-05:00",
+  "asOfET": "6:19 PM ET, Nov 20, 2026",
+  "asOfISO": "2026-11-20T18:19:34.422658-05:00",
   "todayET": "2026-11-20",
   "disclaimer": "Paper trades only. No real orders, and no Webull or TradingView paper orders, are placed from these alerts. Low Float News Scout rows are news alerts, not paper trades.",
   "chartSource": "Yahoo Finance chart API, fetched at build time. A missing ticker or failed request is omitted; the rest of the desk still builds.",
@@ -1148,7 +1148,7 @@
           "kind": "closed"
         },
         {
-          "timeET": "2026-11-20 16:24",
+          "timeET": "2026-11-20 18:19",
           "pnl": 4.6612,
           "cumulative": 33.9462,
           "alertId": "SSS-010",
@@ -1214,7 +1214,7 @@
           "kind": "closed"
         },
         {
-          "timeET": "2026-11-20 16:24",
+          "timeET": "2026-11-20 18:19",
           "pnl": 0.961,
           "cumulative": 6.736,
           "alertId": "SSS-010",
@@ -1937,9 +1937,9 @@
         "nextSessionClose": 1.34,
         "nextSessionCloseDate": "2026-11-20",
         "chgToNextClosePct": 16.5217,
-        "highSinceAlert": 1.57,
-        "highSinceAlertTime": "2026-11-20 16:15",
-        "highSinceAlertPct": 36.5217,
+        "highSinceAlert": 1.93,
+        "highSinceAlertTime": "2026-11-20 17:30",
+        "highSinceAlertPct": 67.8261,
         "lastPrice": 1.34,
         "chgToLastPct": 16.5217,
         "chartAvailable": true,
@@ -1985,9 +1985,9 @@
         "nextSessionClose": 1.34,
         "nextSessionCloseDate": "2026-11-20",
         "chgToNextClosePct": 30.0971,
-        "highSinceAlert": 1.57,
-        "highSinceAlertTime": "2026-11-20 16:15",
-        "highSinceAlertPct": 52.4272,
+        "highSinceAlert": 1.93,
+        "highSinceAlertTime": "2026-11-20 17:30",
+        "highSinceAlertPct": 87.3786,
         "lastPrice": 1.34,
         "chgToLastPct": 30.0971,
         "chartAvailable": true,
@@ -2039,7 +2039,7 @@
       "nextCloseWinners": 18,
       "nextCloseWinRate": 0.5455,
       "avgChgToNextClosePct": -1.3525,
-      "avgHighSinceAlertPct": 32.6713,
+      "avgHighSinceAlertPct": 34.679,
       "byMoveDay": {
         "Day 1": 19,
         "Day 2": 8,
@@ -2052,13 +2052,13 @@
           "alerts": 19,
           "withNextClose": 19,
           "avgChgToNextClosePct": -2.1483,
-          "avgHighSinceAlertPct": 30.0598
+          "avgHighSinceAlertPct": 31.7074
         },
         "Day 2": {
           "alerts": 8,
           "withNextClose": 8,
           "avgChgToNextClosePct": 14.7273,
-          "avgHighSinceAlertPct": 32.4473
+          "avgHighSinceAlertPct": 36.8162
         },
         "Day 3": {
           "alerts": 4,
@@ -2269,9 +2269,9 @@
         "nextSessionClose": 1.34,
         "nextSessionCloseDate": "2026-11-20",
         "chgToNextClosePct": 30.0971,
-        "highSinceAlert": 1.57,
-        "highSinceAlertTime": "2026-11-20 16:15",
-        "highSinceAlertPct": 52.4272,
+        "highSinceAlert": 1.93,
+        "highSinceAlertTime": "2026-11-20 17:30",
+        "highSinceAlertPct": 87.3786,
         "lastPrice": 1.34,
         "chgToLastPct": 30.0971,
         "chartAvailable": true,
@@ -2360,7 +2360,7 @@
       "errors": []
     },
     "CRCL": {
-      "last": 47.545,
+      "last": 47.51,
       "hasDaily": true,
       "hasIntraday": true,
       "errors": []
