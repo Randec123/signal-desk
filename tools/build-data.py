@@ -7,6 +7,9 @@ import csv
 import json
 import os
 import re
+import subprocess
+import sys
+import tempfile
 import time
 import urllib.error
 import urllib.parse
@@ -20,6 +23,10 @@ ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_LOG_DIR = Path("/workspace/trading-log")
 OUT = ROOT / "data" / "desk.json"
 CHARTS_OUT = ROOT / "data" / "charts.json"
+ALERT_CHART_DIR = ROOT / "data" / "alert-charts"
+ALERT_CHART_RENDERER = Path(os.environ.get("SSS_CHART_RENDERER", "/workspace/stock-signal-scout/chart_alert.py"))
+ALERT_CHART_PYTHON = Path(os.environ.get("SSS_CHART_PYTHON", "/workspace/stock-signal-scout/.venv/bin/python"))
+ALERT_CHART_COLORS = 160  # palette size for PNG quantization (keeps committed files small)
 
 NUMERIC_RE = re.compile(r"^-?\d+(\.\d+)?$")
 YAHOO_UA = "Mozilla/5.0 (compatible; WickHoundSignals/1.0; +https://randec123.github.io/signal-desk/)"
@@ -750,6 +757,163 @@ def summarize_lowfloat(alerts: list[dict]) -> dict:
     }
 
 
+# ---------------------------------------------------------------------------
+# Stock Signal Scout alert-time chart images (data/alert-charts/*.png)
+# ---------------------------------------------------------------------------
+
+
+def alert_chart_name(alert: dict) -> str | None:
+    dt = parse_dt(alert.get("alert_time_et"))
+    ticker = str(alert.get("ticker") or "").upper().strip()
+    if not dt or not ticker or not re.fullmatch(r"[A-Z0-9.\-]+", ticker):
+        return None
+    return f"SSS_{ticker}_{dt.strftime('%Y%m%d_%H%M')}.png"
+
+
+def fetch_hourly_rth_before(ticker: str, alert_dt: datetime) -> list[dict]:
+    """Yahoo hourly regular-session bars that had fully closed by alert_dt (ET naive)."""
+    start = (alert_dt - timedelta(days=45)).replace(tzinfo=ET)
+    end = (alert_dt + timedelta(days=1)).replace(tzinfo=ET)
+    params = urllib.parse.urlencode(
+        {"period1": int(start.timestamp()), "period2": int(end.timestamp()), "interval": "1h", "events": "div,split"}
+    )
+    url = f"{YAHOO_CHART.format(ticker=urllib.parse.quote(ticker))}?{params}"
+    req = urllib.request.Request(url, headers={"User-Agent": YAHOO_UA, "Accept": "application/json"})
+    payload = None
+    for attempt in range(2):
+        try:
+            with urllib.request.urlopen(req, timeout=15) as resp:
+                payload = json.loads(resp.read().decode("utf-8"))
+            break
+        except (urllib.error.URLError, urllib.error.HTTPError, TimeoutError, json.JSONDecodeError, OSError):
+            time.sleep(0.5 * (attempt + 1))
+    result = ((payload or {}).get("chart") or {}).get("result") or []
+    if not result:
+        return []
+    node = result[0]
+    quote = ((node.get("indicators") or {}).get("quote") or [{}])[0]
+    bars = []
+    for i, ts in enumerate(node.get("timestamp") or []):
+        bar = compact_bar(ts, quote, i)
+        if not bar or None in (bar["o"], bar["h"], bar["l"], bar["c"]):
+            continue
+        t = ts_to_et_naive(ts)
+        minutes = t.hour * 60 + t.minute
+        if t.weekday() >= 5 or minutes < 9 * 60 + 30 or minutes >= 16 * 60:
+            continue  # regular session only
+        bar_end = min(t + timedelta(hours=1), t.replace(hour=16, minute=0))
+        if bar_end > alert_dt:
+            continue  # bar still forming (or after) at the alert: no later price action
+        bars.append({**bar, "_dt": t})
+    return bars
+
+
+def prior_day_levels(bars: list[dict], alert_dt: datetime) -> dict:
+    days = sorted({b["_dt"].date() for b in bars if b["_dt"].date() < alert_dt.date()})
+    if not days:
+        return {}
+    prev = [b for b in bars if b["_dt"].date() == days[-1]]
+    return {"pdh": max(b["h"] for b in prev), "pdl": min(b["l"] for b in prev)}
+
+
+def compress_png(path: Path) -> None:
+    try:
+        from PIL import Image  # type: ignore
+    except ImportError:
+        return
+    try:
+        with Image.open(path) as img:
+            q = img.convert("RGB").quantize(colors=ALERT_CHART_COLORS, method=Image.Quantize.MEDIANCUT, dither=Image.Dither.NONE)
+            tmp = path.with_suffix(".q.png")
+            q.save(tmp, optimize=True)
+        if tmp.stat().st_size < path.stat().st_size:
+            tmp.replace(path)
+        else:
+            tmp.unlink()
+    except Exception:  # noqa: BLE001 - compression is best effort
+        pass
+
+
+def render_sss_alert_chart(alert: dict, out_path: Path) -> str | None:
+    """Render one alert chart. Returns an error string, or None on success."""
+    alert_dt = parse_dt(alert.get("alert_time_et"))
+    if not alert_dt:
+        return "bad alert time"
+    if not ALERT_CHART_RENDERER.is_file() or not ALERT_CHART_PYTHON.is_file():
+        return "renderer not available"
+    ticker = str(alert["ticker"]).upper()
+    bars = fetch_hourly_rth_before(ticker, alert_dt)
+    if len(bars) < 20:
+        return f"only {len(bars)} hourly bars"
+    data = {
+        "ticker": ticker,
+        "side": str(alert.get("side") or "").upper(),
+        "rating": alert.get("rating"),
+        "entry_low": alert.get("entry_zone_lo"),
+        "entry_high": alert.get("entry_zone_hi"),
+        "stop": alert.get("stop"),
+        "tp1": alert.get("tp1"),
+        "tp2": alert.get("tp2"),
+        "tp3": alert.get("tp3"),
+        "alert_time": alert_dt.strftime("%Y-%m-%dT%H:%M:%S"),  # naive = ET for the renderer
+        **prior_day_levels(bars, alert_dt),
+        "bars": [
+            {
+                "time": b["_dt"].replace(tzinfo=ET).isoformat(),
+                "open": b["o"],
+                "high": b["h"],
+                "low": b["l"],
+                "close": b["c"],
+                "volume": b["v"] or 0,
+            }
+            for b in bars
+        ],
+    }
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    with tempfile.TemporaryDirectory() as tmpdir:
+        in_json = Path(tmpdir) / "alert.json"
+        tmp_png = Path(tmpdir) / out_path.name
+        in_json.write_text(json.dumps(data), encoding="utf-8")
+        try:
+            proc = subprocess.run(
+                [str(ALERT_CHART_PYTHON), str(ALERT_CHART_RENDERER), str(in_json), "-o", str(tmp_png)],
+                capture_output=True,
+                text=True,
+                timeout=120,
+            )
+        except (OSError, subprocess.TimeoutExpired) as exc:
+            return f"renderer failed: {exc}"
+        if proc.returncode != 0 or not tmp_png.is_file():
+            tail = (proc.stderr or proc.stdout or "").strip().splitlines()[-1:] or ["unknown error"]
+            return f"renderer failed: {tail[0][:200]}"
+        compress_png(tmp_png)
+        tmp_png.replace(out_path)
+    return None
+
+
+def attach_sss_alert_charts(alerts: list[dict], allow_render: bool) -> dict[str, str]:
+    """Ensure each stock alert has data/alert-charts/SSS_*.png; record the path on the alert."""
+    errors: dict[str, str] = {}
+    force = os.environ.get("SIGNAL_DESK_RERENDER_ALERT_CHARTS", "").strip() in {"1", "true", "yes"}
+    for alert in alerts:
+        alert["alert_chart"] = None
+        name = alert_chart_name(alert)
+        if not name:
+            continue
+        path = ALERT_CHART_DIR / name
+        if (force or not path.is_file()) and allow_render:
+            err = render_sss_alert_chart(alert, path)
+            if err:
+                errors[str(alert.get("alert_id"))] = err
+                print(f"alert chart skipped for {alert.get('alert_id')} {alert.get('ticker')}: {err}", file=sys.stderr)
+            else:
+                print(f"alert chart rendered: {path.relative_to(ROOT)}", file=sys.stderr)
+            time.sleep(0.12)
+        if path.is_file():
+            alert["alert_chart"] = str(path.relative_to(ROOT))
+    return errors
+
+
 def write_json(path: Path, payload) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     tmp = path.with_suffix(path.suffix + ".tmp")
@@ -797,6 +961,7 @@ def main() -> None:
                 chart_errors[ticker] = pack["errors"]
     elif existing_charts:
         charts = existing_charts
+    alert_chart_errors = attach_sss_alert_charts(sss, allow_render=not skip_charts)
     attach_lowfloat_performance(lowfloat, charts)
     attach_lowfloat_move_days(lowfloat, charts)
 
@@ -851,6 +1016,7 @@ def main() -> None:
             for ticker, pack in charts.items()
         },
         "chartErrors": chart_errors,
+        "alertChartErrors": alert_chart_errors,
     }
 
     write_json(OUT, payload)

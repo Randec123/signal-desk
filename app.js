@@ -439,6 +439,7 @@
       </div>
       <div class="section-label">Setup</div>
       <p style="margin:0 0 12px;font-size:13px;color:var(--text)">${escapeHtml(dash(alert.setup_type))}</p>
+      ${kind === "stocks" ? alertChartImage(alert) : ""}
       <div class="section-label">Price</div>
       ${renderPriceChart(alert, kind)}
       <div class="section-label">Levels</div>
@@ -452,6 +453,81 @@
     root.addEventListener("click", (event) => {
       if (event.target === root) closeDrawer();
     });
+    bindAlertChartImage(root);
+  }
+
+  function alertChartSrc(alert) {
+    const path = alert && alert.alert_chart;
+    if (isBlank(path) || !/^data\/alert-charts\/[A-Za-z0-9_.\-]+\.png$/.test(String(path))) return null;
+    return String(path);
+  }
+
+  function alertChartImage(alert) {
+    const src = alertChartSrc(alert);
+    if (!src) return "";
+    const label = `${dash(alert.ticker)} ${dash(alert.side)} chart at alert, ${etStamp(alert.alert_time_et)}`;
+    return `<div class="section-label">Chart at alert</div>
+      <figure class="alert-shot">
+        <a class="alert-shot-link" href="${escapeHtml(src)}" target="_blank" rel="noopener" data-alert-shot="${escapeHtml(src)}" aria-label="Open full size: ${escapeHtml(label)}">
+          <img src="${escapeHtml(src)}" alt="${escapeHtml(label)}" loading="lazy" decoding="async" width="1400" height="800">
+          <span class="alert-shot-zoom" aria-hidden="true">Tap to enlarge</span>
+        </a>
+        <figcaption>Hourly candles and 8/20/50 EMAs up to the alert time, as sent with the alert. No later price action.</figcaption>
+      </figure>`;
+  }
+
+  function bindAlertChartImage(root) {
+    root.querySelectorAll("[data-alert-shot]").forEach((link) => {
+      const img = link.querySelector("img");
+      if (img) {
+        img.addEventListener("error", () => {
+          const fig = link.closest(".alert-shot");
+          if (fig) fig.innerHTML = `<div class="chart-empty">Chart image could not be loaded.</div>`;
+        });
+      }
+      link.addEventListener("click", (event) => {
+        if (event.metaKey || event.ctrlKey || event.shiftKey || event.button === 1) return;
+        event.preventDefault();
+        openLightbox(link.getAttribute("data-alert-shot"), img ? img.alt : "Chart at alert");
+      });
+    });
+  }
+
+  function lightbox() {
+    let el = document.getElementById("lightbox");
+    if (!el) {
+      el = document.createElement("div");
+      el.id = "lightbox";
+      el.className = "lightbox";
+      el.hidden = true;
+      el.setAttribute("role", "dialog");
+      el.setAttribute("aria-modal", "true");
+      document.body.appendChild(el);
+      el.addEventListener("click", (event) => {
+        if (event.target.closest("a.lightbox-open")) return;
+        closeLightbox();
+      });
+    }
+    return el;
+  }
+
+  function openLightbox(src, alt) {
+    const el = lightbox();
+    el.setAttribute("aria-label", alt || "Chart at alert");
+    el.innerHTML = `<button type="button" class="lightbox-close" aria-label="Close">×</button>
+      <div class="lightbox-scroll"><img src="${escapeHtml(src)}" alt="${escapeHtml(alt || "")}"></div>
+      <a class="lightbox-open" href="${escapeHtml(src)}" target="_blank" rel="noopener">Open image in new tab</a>`;
+    el.hidden = false;
+    document.body.classList.add("lightbox-on");
+  }
+
+  function closeLightbox() {
+    const el = document.getElementById("lightbox");
+    if (!el || el.hidden) return false;
+    el.hidden = true;
+    el.innerHTML = "";
+    document.body.classList.remove("lightbox-on");
+    return true;
   }
 
   function bindDrawerClose(root) {
@@ -1450,7 +1526,9 @@
   }
 
   document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape" && !drawer().hidden) closeDrawer();
+    if (event.key !== "Escape") return;
+    if (closeLightbox()) return;
+    if (!drawer().hidden) closeDrawer();
   });
 
   window.addEventListener("hashchange", () => render());
