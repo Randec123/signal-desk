@@ -61,42 +61,57 @@
     return isBlank(value) ? "—" : String(value);
   }
 
+  // Missing values: null, undefined, or blank strings are "no value" (Number(null) is 0, which is wrong here).
+  function toNum(value) {
+    if (value === null || value === undefined) return NaN;
+    if (typeof value === "string" && value.trim() === "") return NaN;
+    if (typeof value === "boolean") return NaN;
+    const n = Number(value);
+    return Number.isFinite(n) ? n : NaN;
+  }
+
+  // A chart price level: must be a real positive number. Missing, blank, or 0 means "no level".
+  function toPrice(value) {
+    const n = toNum(value);
+    return n > 0 ? n : NaN;
+  }
+
   function formatNumber(value, digits = 2) {
-    if (!Number.isFinite(Number(value))) return "—";
-    return Number(value).toLocaleString("en-US", {
+    if (!Number.isFinite(toNum(value))) return "—";
+    return toNum(value).toLocaleString("en-US", {
       minimumFractionDigits: digits,
       maximumFractionDigits: digits,
     });
   }
 
   function formatUsd(value) {
-    if (!Number.isFinite(Number(value))) return "—";
-    const n = Number(value);
+    if (!Number.isFinite(toNum(value))) return "—";
+    const n = toNum(value);
     const sign = n < 0 ? "-" : n > 0 ? "+" : "";
     return `${sign}$${formatNumber(Math.abs(n), 2)}`;
   }
 
   function formatSigned(value, digits = 2, suffix = "") {
-    if (!Number.isFinite(Number(value))) return "—";
-    const n = Number(value);
+    if (!Number.isFinite(toNum(value))) return "—";
+    const n = toNum(value);
     const sign = n < 0 ? "-" : n > 0 ? "+" : "";
     return `${sign}${formatNumber(Math.abs(n), digits)}${suffix}`;
   }
 
   function formatPct(value) {
-    if (!Number.isFinite(Number(value))) return "—";
+    if (!Number.isFinite(toNum(value))) return "—";
     return formatSigned(value, 2, "%");
   }
 
   function formatWinRate(rate, winners, closed) {
-    if (!Number.isFinite(Number(rate)) || !closed) return "—";
-    return `${formatNumber(Number(rate) * 100, 1)}% (${winners}/${closed})`;
+    if (!Number.isFinite(toNum(rate)) || !closed) return "—";
+    return `${formatNumber(toNum(rate) * 100, 1)}% (${winners}/${closed})`;
   }
 
   function pnlClass(value) {
-    if (!Number.isFinite(Number(value))) return "";
-    if (Number(value) > 0) return "up";
-    if (Number(value) < 0) return "down";
+    if (!Number.isFinite(toNum(value))) return "";
+    if (toNum(value) > 0) return "up";
+    if (toNum(value) < 0) return "down";
     return "";
   }
 
@@ -646,7 +661,7 @@
       { name: "TP1", px: a.tp1 },
       { name: "TP2", px: a.tp2 },
       { name: "TP3", px: a.tp3 },
-    ].filter((r) => Number.isFinite(Number(r.px)));
+    ].filter((r) => Number.isFinite(toPrice(r.px)));
     return levelRows(rows, a.exit_rule);
   }
 
@@ -660,7 +675,7 @@
       { name: "TP1", px: a.tp1 },
       { name: "TP2", px: a.tp2 },
       { name: "TP3", px: a.tp3 },
-    ].filter((r) => Number.isFinite(Number(r.px)));
+    ].filter((r) => Number.isFinite(toPrice(r.px)));
     return levelRows(rows, a.exit_rule);
   }
 
@@ -878,7 +893,7 @@
   }
 
   function renderSparkline(bars, w = 132, h = 36) {
-    const pts = (bars || []).filter((b) => Number.isFinite(Number(b.c)));
+    const pts = (bars || []).filter((b) => Number.isFinite(toPrice(b.c)));
     if (pts.length < 2) return `<div class="spark empty">No chart</div>`;
     const ys = pts.map((b) => Number(b.c));
     let min = Math.min(...ys);
@@ -936,8 +951,8 @@
     const h = 250;
     const pad = { l: 50, r: 62, t: 16, b: 28 };
     const xs = bars.map((_, i) => i);
-    const highs = bars.map((b) => Number(b.h ?? b.c)).filter(Number.isFinite);
-    const lows = bars.map((b) => Number(b.l ?? b.c)).filter(Number.isFinite);
+    const highs = bars.map((b) => toPrice(b.h ?? b.c)).filter(Number.isFinite);
+    const lows = bars.map((b) => toPrice(b.l ?? b.c)).filter(Number.isFinite);
     const levels = priceLevels(alert, kind);
     const levelVals = levels.map((lv) => lv.px).filter(Number.isFinite);
     let min = Math.min(...lows, ...levelVals);
@@ -957,10 +972,10 @@
     const y = (v) => pad.t + (1 - (v - min) / (max - min)) * innerH;
     const bodyW = Math.max(1.2, Math.min(7, slot * 0.7));
     const candles = bars.map((b, i) => {
-      const o = Number(b.o ?? b.c);
-      const c = Number(b.c ?? b.o);
-      const hi = Number(b.h ?? Math.max(o, c));
-      const lo = Number(b.l ?? Math.min(o, c));
+      const o = toPrice(b.o ?? b.c);
+      const c = toPrice(b.c ?? b.o);
+      const hi = toPrice(b.h ?? Math.max(o, c));
+      const lo = toPrice(b.l ?? Math.min(o, c));
       if (![o, c, hi, lo].every(Number.isFinite)) return "";
       const up = c >= o;
       const color = up ? CANDLE_UP : CANDLE_DOWN;
@@ -1015,7 +1030,7 @@
         ${candles}
         <text x="${pad.l}" y="${h - 8}" fill="var(--text-mute)" font-size="9" font-family="var(--mono)">${escapeHtml(firstT)}</text>
         <text x="${w - pad.r}" y="${h - 8}" text-anchor="end" fill="var(--text-mute)" font-size="9" font-family="var(--mono)">${escapeHtml(lastT)}</text>
-        <text x="${w - pad.r}" y="${Math.max(14, y(Number(lastC)) - 8)}" text-anchor="end" fill="${Number(lastC) >= Number(bars[0].c) ? CANDLE_UP : CANDLE_DOWN}" font-size="11" font-family="var(--mono)">${escapeHtml(formatNumber(lastC, 2))}</text>
+        ${Number.isFinite(toPrice(lastC)) ? `<text x="${w - pad.r}" y="${Math.max(14, y(toPrice(lastC)) - 8)}" text-anchor="end" fill="${toPrice(lastC) >= toNum(bars[0].c) ? CANDLE_UP : CANDLE_DOWN}" font-size="11" font-family="var(--mono)">${escapeHtml(formatNumber(lastC, 2))}</text>` : ""}
       </svg>
       <div class="chart-legend">
         <span><i class="swatch candle-up"></i> Up</span>
@@ -1027,41 +1042,41 @@
 
   function priceLevels(alert, kind) {
     if (kind === "lowfloat") {
-      const rows = [{ name: "Alert", px: Number(alert.price_at_alert), color: "var(--amber)", dash: "4 3" }];
-      if (Number.isFinite(Number(alert.nextSessionClose))) {
-        rows.push({ name: "Next close", px: Number(alert.nextSessionClose), color: CANDLE_UP });
+      const rows = [{ name: "Alert", px: toPrice(alert.price_at_alert), color: "var(--amber)", dash: "4 3" }];
+      if (Number.isFinite(toPrice(alert.nextSessionClose))) {
+        rows.push({ name: "Next close", px: toPrice(alert.nextSessionClose), color: CANDLE_UP });
       }
-      if (Number.isFinite(Number(alert.highSinceAlert))) {
-        rows.push({ name: "High since", px: Number(alert.highSinceAlert), color: "var(--accent)" });
+      if (Number.isFinite(toPrice(alert.highSinceAlert))) {
+        rows.push({ name: "High since", px: toPrice(alert.highSinceAlert), color: "var(--accent)" });
       }
-      if (Number.isFinite(Number(alert.lastPrice))) {
-        rows.push({ name: "Last", px: Number(alert.lastPrice), color: CANDLE_DOWN, dash: "2 2" });
+      if (Number.isFinite(toPrice(alert.lastPrice))) {
+        rows.push({ name: "Last", px: toPrice(alert.lastPrice), color: CANDLE_DOWN, dash: "2 2" });
       }
       return rows.filter((r) => Number.isFinite(r.px));
     }
     if (kind === "options") {
       return [
-        { name: "Stop", px: Number(alert.stop_level), color: CANDLE_DOWN, dash: "4 3" },
-        { name: "Zone lo", px: Number(alert.entry_zone_lo), color: "var(--amber)", dash: "2 2" },
-        { name: "Zone hi", px: Number(alert.entry_zone_hi), color: "var(--amber)", dash: "2 2" },
-        { name: "Alert", px: Number(alert.underlying_at_alert), color: "var(--accent)" },
-        { name: "TP1", px: Number(alert.tp1), color: CANDLE_UP },
-        { name: "TP2", px: Number(alert.tp2), color: CANDLE_UP, dash: "4 2" },
-        { name: "TP3", px: Number(alert.tp3), color: CANDLE_UP, dash: "1 3" },
+        { name: "Stop", px: toPrice(alert.stop_level), color: CANDLE_DOWN, dash: "4 3" },
+        { name: "Zone lo", px: toPrice(alert.entry_zone_lo), color: "var(--amber)", dash: "2 2" },
+        { name: "Zone hi", px: toPrice(alert.entry_zone_hi), color: "var(--amber)", dash: "2 2" },
+        { name: "Alert", px: toPrice(alert.underlying_at_alert), color: "var(--accent)" },
+        { name: "TP1", px: toPrice(alert.tp1), color: CANDLE_UP },
+        { name: "TP2", px: toPrice(alert.tp2), color: CANDLE_UP, dash: "4 2" },
+        { name: "TP3", px: toPrice(alert.tp3), color: CANDLE_UP, dash: "1 3" },
       ].filter((r) => Number.isFinite(r.px));
     }
     const rows = [
-      { name: "Stop", px: Number(alert.stop), color: CANDLE_DOWN, dash: "4 3" },
-      { name: "Zone lo", px: Number(alert.entry_zone_lo), color: "var(--amber)", dash: "2 2" },
-      { name: "Zone hi", px: Number(alert.entry_zone_hi), color: "var(--amber)", dash: "2 2" },
-      { name: "Alert", px: Number(alert.price_at_alert), color: "var(--accent)" },
-      { name: "Entry", px: Number(alert.entry_px), color: "var(--amber)" },
-      { name: "TP1", px: Number(alert.tp1), color: CANDLE_UP },
-      { name: "TP2", px: Number(alert.tp2), color: CANDLE_UP, dash: "4 2" },
-      { name: "TP3", px: Number(alert.tp3), color: CANDLE_UP, dash: "1 3" },
+      { name: "Stop", px: toPrice(alert.stop), color: CANDLE_DOWN, dash: "4 3" },
+      { name: "Zone lo", px: toPrice(alert.entry_zone_lo), color: "var(--amber)", dash: "2 2" },
+      { name: "Zone hi", px: toPrice(alert.entry_zone_hi), color: "var(--amber)", dash: "2 2" },
+      { name: "Alert", px: toPrice(alert.price_at_alert), color: "var(--accent)" },
+      { name: "Entry", px: toPrice(alert.entry_px), color: "var(--amber)" },
+      { name: "TP1", px: toPrice(alert.tp1), color: CANDLE_UP },
+      { name: "TP2", px: toPrice(alert.tp2), color: CANDLE_UP, dash: "4 2" },
+      { name: "TP3", px: toPrice(alert.tp3), color: CANDLE_UP, dash: "1 3" },
     ];
-    if (Number.isFinite(Number(alert.exit1_px))) rows.push({ name: "Exit 1", px: Number(alert.exit1_px), color: CANDLE_DOWN, dash: "2 2" });
-    if (Number.isFinite(Number(alert.exit2_px))) rows.push({ name: "Exit 2", px: Number(alert.exit2_px), color: CANDLE_DOWN, dash: "2 2" });
+    if (Number.isFinite(toPrice(alert.exit1_px))) rows.push({ name: "Exit 1", px: toPrice(alert.exit1_px), color: CANDLE_DOWN, dash: "2 2" });
+    if (Number.isFinite(toPrice(alert.exit2_px))) rows.push({ name: "Exit 2", px: toPrice(alert.exit2_px), color: CANDLE_DOWN, dash: "2 2" });
     return rows.filter((r) => Number.isFinite(r.px));
   }
 
