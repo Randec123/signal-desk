@@ -1,6 +1,6 @@
 {
-  "asOfET": "6:23 PM ET, Nov 21, 2026",
-  "asOfISO": "2026-11-21T18:23:37.200232-05:00",
+  "asOfET": "8:18 PM ET, Nov 21, 2026",
+  "asOfISO": "2026-11-21T20:18:57.479888-05:00",
   "todayET": "2026-11-21",
   "disclaimer": "Paper trades only. No real orders, and no Webull or TradingView paper orders, are placed from these alerts. Low Float News Scout rows are news alerts, not paper trades.",
   "chartSource": "Yahoo Finance chart API, fetched at build time. A missing ticker or failed request is omitted; the rest of the desk still builds.",
@@ -1148,7 +1148,7 @@
           "kind": "closed"
         },
         {
-          "timeET": "2026-11-21 18:23",
+          "timeET": "2026-11-21 20:18",
           "pnl": 4.6612,
           "cumulative": 33.9462,
           "alertId": "SSS-010",
@@ -1214,7 +1214,7 @@
           "kind": "closed"
         },
         {
-          "timeET": "2026-11-21 18:23",
+          "timeET": "2026-11-21 20:18",
           "pnl": 0.961,
           "cumulative": 6.736,
           "alertId": "SSS-010",
