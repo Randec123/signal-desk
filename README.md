@@ -45,6 +45,8 @@ The site reads `data/desk.json` and `data/charts.json`, which are built from:
 
 Price history is fetched at build time from the Yahoo Finance chart API and stored in `data/charts.json`. If a ticker fetch fails, that chart is omitted and the rest of the desk still builds. Chart candles use teal for up and white for down.
 
+**Chart at alert (stocks).** For each Stock Signal Scout alert the build makes sure `data/alert-charts/SSS_{TICKER}_{YYYYMMDD_HHMM}.png` exists. A missing one is rendered with `/workspace/stock-signal-scout/chart_alert.py` (its venv Python) from Yahoo hourly regular-session bars that had fully closed by the alert time, so no later price action shows. It has the 8/20/50 EMAs, entry zone, SL, TP1–TP3 with R labels, and prior-day high/low. Existing PNGs are reused. New ones are palette-compressed (about 30 KB each). The path is stored as `alert_chart` on the alert in `desk.json`, and the Stock detail card shows it as "Chart at alert" (lazy-loaded, tap to enlarge). If bars or the renderer fail, the chart is skipped and the reason goes in `alertChartErrors`. Set `SIGNAL_DESK_RERENDER_ALERT_CHARTS=1` to force a re-render.
+
 Rebuild and publish:
 
 ```bash
