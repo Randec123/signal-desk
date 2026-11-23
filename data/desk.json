@@ -1,6 +1,6 @@
 {
-  "asOfET": "4:24 PM ET, Nov 23, 2026",
-  "asOfISO": "2026-11-23T16:24:55.206756-05:00",
+  "asOfET": "6:25 PM ET, Nov 23, 2026",
+  "asOfISO": "2026-11-23T18:25:00.068928-05:00",
   "todayET": "2026-11-23",
   "disclaimer": "Paper trades only. No real orders, and no Webull or TradingView paper orders, are placed from these alerts. Low Float News Scout rows are news alerts, not paper trades.",
   "chartSource": "Yahoo Finance chart API, fetched at build time. A missing ticker or failed request is omitted; the rest of the desk still builds.",
@@ -17,8 +17,8 @@
     },
     "lowfloat": {
       "file": "lowfloat_alerts_log.csv",
-      "logMtimeET": "9:26 AM ET, Nov 23, 2026",
-      "rows": 35
+      "logMtimeET": "6:15 PM ET, Nov 23, 2026",
+      "rows": 37
     }
   },
   "options": {
@@ -2122,32 +2122,80 @@
         "chartAvailable": true,
         "move_day": "Day 1",
         "move_day_basis": "Prior session Nov 20 was not a big move (-2% on 1.5x volume); no earlier alert in the prior 2 trading days."
+      },
+      {
+        "alert_id": "LF-036",
+        "date_et": "2026-11-23",
+        "time_et": "16:30",
+        "session": "afterhours",
+        "ticker": "ALTG",
+        "price_at_alert": 5.13,
+        "float_m": 17.9,
+        "rel_vol": 150,
+        "news_headline": "Alta Equipment Group agrees to acquire Jackson Group Peterbilt for estimated enterprise value of about $399M.",
+        "news_url": "https://news-static.webullfintech.com/us/news-html/20261123/15975169470088192.html",
+        "catalyst_tag": "m&a",
+        "nextSessionClose": null,
+        "nextSessionCloseDate": null,
+        "chgToNextClosePct": null,
+        "highSinceAlert": 5.46,
+        "highSinceAlertTime": "2026-11-23 16:30",
+        "highSinceAlertPct": 6.4327,
+        "lastPrice": 4.61,
+        "chgToLastPct": -10.1365,
+        "chartAvailable": true,
+        "move_day": "Day 1",
+        "move_day_basis": "Prior session Nov 20 was not a big move (-8% on 1.8x volume); no earlier alert in the prior 2 trading days."
+      },
+      {
+        "alert_id": "LF-037",
+        "date_et": "2026-11-23",
+        "time_et": "18:10",
+        "session": "afterhours",
+        "ticker": "APUS",
+        "price_at_alert": 1.82,
+        "float_m": 0.6,
+        "rel_vol": 570,
+        "news_headline": "MindWave Innovations, a subsidiary of Apimeds, says it powers over $25M in insured ALCI ecosystem credits launched at COP31 (credits value, not revenue).",
+        "news_url": "https://www.globenewswire.com/news-release/2026/11/23/3408894/0/en/mindwave-innovations-inc-a-subsidiary-of-apimeds-pharmaceuticals-us-nyse-american-apus-powers-over-25-million-usd-in-insured-alci-ecosystem-credits-launched-at-un-climate-conferenc.html",
+        "catalyst_tag": "other",
+        "nextSessionClose": null,
+        "nextSessionCloseDate": null,
+        "chgToNextClosePct": null,
+        "highSinceAlert": 1.9,
+        "highSinceAlertTime": "2026-11-23 18:15",
+        "highSinceAlertPct": 4.3956,
+        "lastPrice": 1.5,
+        "chgToLastPct": -17.5824,
+        "chartAvailable": true,
+        "move_day": "Day 1",
+        "move_day_basis": "Prior session Nov 20 was not a big move (-8% on 0.8x volume); no earlier alert in the prior 2 trading days."
       }
     ],
     "summary": {
       "bot": "Low Float News Scout",
       "botId": "lowfloat",
-      "alerts": 35,
+      "alerts": 37,
       "bySession": {
         "premarket": 24,
-        "afterhours": 11
+        "afterhours": 13
       },
       "byCatalyst": {
         "earnings": 15,
-        "m&a": 10,
+        "m&a": 11,
         "dilution": 4,
-        "other": 3,
+        "other": 4,
         "fda": 2,
         "dividend": 1
       },
-      "tickers": 21,
+      "tickers": 23,
       "withNextClose": 35,
       "nextCloseWinners": 18,
       "nextCloseWinRate": 0.5143,
       "avgChgToNextClosePct": -3.2467,
-      "avgHighSinceAlertPct": 41.6081,
+      "avgHighSinceAlertPct": 39.6517,
       "byMoveDay": {
-        "Day 1": 21,
+        "Day 1": 23,
         "Day 2": 8,
         "Day 3": 4,
         "Day 4+": 2,
@@ -2155,10 +2203,10 @@
       },
       "moveDayStats": {
         "Day 1": {
-          "alerts": 21,
+          "alerts": 23,
           "withNextClose": 21,
           "avgChgToNextClosePct": -5.2286,
-          "avgHighSinceAlertPct": 34.1535
+          "avgHighSinceAlertPct": 31.6544
         },
         "Day 2": {
           "alerts": 8,
@@ -2241,6 +2289,54 @@
         "chartAvailable": true,
         "move_day": "Day 1",
         "move_day_basis": "Prior session Nov 20 was not a big move (-2% on 1.5x volume); no earlier alert in the prior 2 trading days."
+      },
+      {
+        "alert_id": "LF-036",
+        "date_et": "2026-11-23",
+        "time_et": "16:30",
+        "session": "afterhours",
+        "ticker": "ALTG",
+        "price_at_alert": 5.13,
+        "float_m": 17.9,
+        "rel_vol": 150,
+        "news_headline": "Alta Equipment Group agrees to acquire Jackson Group Peterbilt for estimated enterprise value of about $399M.",
+        "news_url": "https://news-static.webullfintech.com/us/news-html/20261123/15975169470088192.html",
+        "catalyst_tag": "m&a",
+        "nextSessionClose": null,
+        "nextSessionCloseDate": null,
+        "chgToNextClosePct": null,
+        "highSinceAlert": 5.46,
+        "highSinceAlertTime": "2026-11-23 16:30",
+        "highSinceAlertPct": 6.4327,
+        "lastPrice": 4.61,
+        "chgToLastPct": -10.1365,
+        "chartAvailable": true,
+        "move_day": "Day 1",
+        "move_day_basis": "Prior session Nov 20 was not a big move (-8% on 1.8x volume); no earlier alert in the prior 2 trading days."
+      },
+      {
+        "alert_id": "LF-037",
+        "date_et": "2026-11-23",
+        "time_et": "18:10",
+        "session": "afterhours",
+        "ticker": "APUS",
+        "price_at_alert": 1.82,
+        "float_m": 0.6,
+        "rel_vol": 570,
+        "news_headline": "MindWave Innovations, a subsidiary of Apimeds, says it powers over $25M in insured ALCI ecosystem credits launched at COP31 (credits value, not revenue).",
+        "news_url": "https://www.globenewswire.com/news-release/2026/11/23/3408894/0/en/mindwave-innovations-inc-a-subsidiary-of-apimeds-pharmaceuticals-us-nyse-american-apus-powers-over-25-million-usd-in-insured-alci-ecosystem-credits-launched-at-un-climate-conferenc.html",
+        "catalyst_tag": "other",
+        "nextSessionClose": null,
+        "nextSessionCloseDate": null,
+        "chgToNextClosePct": null,
+        "highSinceAlert": 1.9,
+        "highSinceAlertTime": "2026-11-23 18:15",
+        "highSinceAlertPct": 4.3956,
+        "lastPrice": 1.5,
+        "chgToLastPct": -17.5824,
+        "chartAvailable": true,
+        "move_day": "Day 1",
+        "move_day_basis": "Prior session Nov 20 was not a big move (-8% on 0.8x volume); no earlier alert in the prior 2 trading days."
       }
     ]
   },
@@ -2427,6 +2523,18 @@
     },
     "DWTX": {
       "last": 0.83,
+      "hasDaily": true,
+      "hasIntraday": true,
+      "errors": []
+    },
+    "ALTG": {
+      "last": 4.61,
+      "hasDaily": true,
+      "hasIntraday": true,
+      "errors": []
+    },
+    "APUS": {
+      "last": 1.5,
       "hasDaily": true,
       "hasIntraday": true,
       "errors": []
