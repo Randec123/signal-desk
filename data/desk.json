@@ -1,7 +1,7 @@
 {
-  "asOfET": "10:24 PM ET, Nov 22, 2026",
-  "asOfISO": "2026-11-22T22:24:08.748697-05:00",
-  "todayET": "2026-11-22",
+  "asOfET": "8:20 AM ET, Nov 23, 2026",
+  "asOfISO": "2026-11-23T08:20:33.917145-05:00",
+  "todayET": "2026-11-23",
   "disclaimer": "Paper trades only. No real orders, and no Webull or TradingView paper orders, are placed from these alerts. Low Float News Scout rows are news alerts, not paper trades.",
   "chartSource": "Yahoo Finance chart API, fetched at build time. A missing ticker or failed request is omitted; the rest of the desk still builds.",
   "sources": {
@@ -1160,7 +1160,7 @@
           "kind": "closed"
         },
         {
-          "timeET": "2026-11-22 22:24",
+          "timeET": "2026-11-23 08:20",
           "pnl": 4.6612,
           "cumulative": 33.9462,
           "alertId": "SSS-010",
@@ -1226,7 +1226,7 @@
           "kind": "closed"
         },
         {
-          "timeET": "2026-11-22 22:24",
+          "timeET": "2026-11-23 08:20",
           "pnl": 0.961,
           "cumulative": 6.736,
           "alertId": "SSS-010",
@@ -1949,9 +1949,9 @@
         "nextSessionClose": 1.34,
         "nextSessionCloseDate": "2026-11-20",
         "chgToNextClosePct": 16.5217,
-        "highSinceAlert": 1.93,
-        "highSinceAlertTime": "2026-11-20 17:30",
-        "highSinceAlertPct": 67.8261,
+        "highSinceAlert": 2.46,
+        "highSinceAlertTime": "2026-11-23 06:45",
+        "highSinceAlertPct": 113.913,
         "lastPrice": 1.34,
         "chgToLastPct": 16.5217,
         "chartAvailable": true,
@@ -1997,9 +1997,9 @@
         "nextSessionClose": 1.34,
         "nextSessionCloseDate": "2026-11-20",
         "chgToNextClosePct": 30.0971,
-        "highSinceAlert": 1.93,
-        "highSinceAlertTime": "2026-11-20 17:30",
-        "highSinceAlertPct": 87.3786,
+        "highSinceAlert": 2.46,
+        "highSinceAlertTime": "2026-11-23 06:45",
+        "highSinceAlertPct": 138.835,
         "lastPrice": 1.34,
         "chgToLastPct": 30.0971,
         "chartAvailable": true,
@@ -2051,7 +2051,7 @@
       "nextCloseWinners": 18,
       "nextCloseWinRate": 0.5455,
       "avgChgToNextClosePct": -1.3531,
-      "avgHighSinceAlertPct": 34.679,
+      "avgHighSinceAlertPct": 37.6349,
       "byMoveDay": {
         "Day 1": 19,
         "Day 2": 8,
@@ -2064,13 +2064,13 @@
           "alerts": 19,
           "withNextClose": 19,
           "avgChgToNextClosePct": -2.1483,
-          "avgHighSinceAlertPct": 31.7074
+          "avgHighSinceAlertPct": 34.1331
         },
         "Day 2": {
           "alerts": 8,
           "withNextClose": 8,
           "avgChgToNextClosePct": 14.7273,
-          "avgHighSinceAlertPct": 36.8162
+          "avgHighSinceAlertPct": 43.2482
         },
         "Day 3": {
           "alerts": 4,
@@ -2096,7 +2096,7 @@
     }
   },
   "today": {
-    "dateET": "2026-11-22",
+    "dateET": "2026-11-23",
     "options": [],
     "stocks": [],
     "lowfloat": []
