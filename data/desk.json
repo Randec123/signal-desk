@@ -1,6 +1,6 @@
 {
-  "asOfET": "8:17 PM ET, Nov 23, 2026",
-  "asOfISO": "2026-11-23T20:17:53.718766-05:00",
+  "asOfET": "10:26 PM ET, Nov 23, 2026",
+  "asOfISO": "2026-11-23T22:26:06.010592-05:00",
   "todayET": "2026-11-23",
   "disclaimer": "Paper trades only. No real orders, and no Webull or TradingView paper orders, are placed from these alerts. Low Float News Scout rows are news alerts, not paper trades.",
   "chartSource": "Yahoo Finance chart API, fetched at build time. A missing ticker or failed request is omitted; the rest of the desk still builds.",
@@ -2087,17 +2087,17 @@
         "news_headline": "Dogwood Therapeutics Halneuron Phase 2 primary endpoint met: 23.3% of patients achieved 50%+ pain reduction vs 9.2% on placebo.",
         "news_url": "https://news-static.webullfintech.com/us/news-html/20261123/15973093292634112.html",
         "catalyst_tag": "fda",
-        "nextSessionClose": null,
-        "nextSessionCloseDate": null,
-        "chgToNextClosePct": null,
+        "nextSessionClose": 0.83,
+        "nextSessionCloseDate": "2026-11-23",
+        "chgToNextClosePct": -31.405,
         "highSinceAlert": 1.7,
         "highSinceAlertTime": "2026-11-23 09:45",
         "highSinceAlertPct": 40.4959,
         "lastPrice": 0.83,
         "chgToLastPct": -31.405,
         "chartAvailable": true,
-        "move_day": "Day 1",
-        "move_day_basis": "Prior session Nov 20 was not a big move (-2% on 1.5x volume); no earlier alert in the prior 2 trading days."
+        "move_day": "Day 2",
+        "move_day_basis": "1 trading day after Nov 20 -2% on 5.7x volume"
       },
       {
         "alert_id": "LF-035",
@@ -2111,17 +2111,17 @@
         "news_headline": "New PM high $1.46 at 8:50 AM; same 7:32 AM Halneuron Phase 2b primary endpoint news.",
         "news_url": "https://news-static.webullfintech.com/us/news-html/20261123/15973093292634112.html",
         "catalyst_tag": "fda",
-        "nextSessionClose": null,
-        "nextSessionCloseDate": null,
-        "chgToNextClosePct": null,
+        "nextSessionClose": 0.83,
+        "nextSessionCloseDate": "2026-11-23",
+        "chgToNextClosePct": -37.594,
         "highSinceAlert": 1.7,
         "highSinceAlertTime": "2026-11-23 09:45",
         "highSinceAlertPct": 27.8195,
         "lastPrice": 0.83,
         "chgToLastPct": -37.594,
         "chartAvailable": true,
-        "move_day": "Day 1",
-        "move_day_basis": "Prior session Nov 20 was not a big move (-2% on 1.5x volume); no earlier alert in the prior 2 trading days."
+        "move_day": "Day 2",
+        "move_day_basis": "1 trading day after Nov 20 -2% on 5.7x volume"
       },
       {
         "alert_id": "LF-036",
@@ -2189,30 +2189,30 @@
         "dividend": 1
       },
       "tickers": 23,
-      "withNextClose": 33,
+      "withNextClose": 35,
       "nextCloseWinners": 18,
-      "nextCloseWinRate": 0.5455,
-      "avgChgToNextClosePct": -1.3531,
+      "nextCloseWinRate": 0.5143,
+      "avgChgToNextClosePct": -3.2471,
       "avgHighSinceAlertPct": 40.2902,
       "byMoveDay": {
-        "Day 1": 23,
-        "Day 2": 8,
+        "Day 1": 21,
+        "Day 2": 10,
         "Day 3": 4,
         "Day 4+": 2,
         "Unknown": 0
       },
       "moveDayStats": {
         "Day 1": {
-          "alerts": 23,
+          "alerts": 21,
           "withNextClose": 19,
           "avgChgToNextClosePct": -2.1483,
-          "avgHighSinceAlertPct": 32.6817
+          "avgHighSinceAlertPct": 32.5411
         },
         "Day 2": {
-          "alerts": 8,
-          "withNextClose": 8,
-          "avgChgToNextClosePct": 14.7273,
-          "avgHighSinceAlertPct": 61.4529
+          "alerts": 10,
+          "withNextClose": 10,
+          "avgChgToNextClosePct": 4.882,
+          "avgHighSinceAlertPct": 55.9939
         },
         "Day 3": {
           "alerts": 4,
@@ -2254,17 +2254,17 @@
         "news_headline": "Dogwood Therapeutics Halneuron Phase 2 primary endpoint met: 23.3% of patients achieved 50%+ pain reduction vs 9.2% on placebo.",
         "news_url": "https://news-static.webullfintech.com/us/news-html/20261123/15973093292634112.html",
         "catalyst_tag": "fda",
-        "nextSessionClose": null,
-        "nextSessionCloseDate": null,
-        "chgToNextClosePct": null,
+        "nextSessionClose": 0.83,
+        "nextSessionCloseDate": "2026-11-23",
+        "chgToNextClosePct": -31.405,
         "highSinceAlert": 1.7,
         "highSinceAlertTime": "2026-11-23 09:45",
         "highSinceAlertPct": 40.4959,
         "lastPrice": 0.83,
         "chgToLastPct": -31.405,
         "chartAvailable": true,
-        "move_day": "Day 1",
-        "move_day_basis": "Prior session Nov 20 was not a big move (-2% on 1.5x volume); no earlier alert in the prior 2 trading days."
+        "move_day": "Day 2",
+        "move_day_basis": "1 trading day after Nov 20 -2% on 5.7x volume"
       },
       {
         "alert_id": "LF-035",
@@ -2278,17 +2278,17 @@
         "news_headline": "New PM high $1.46 at 8:50 AM; same 7:32 AM Halneuron Phase 2b primary endpoint news.",
         "news_url": "https://news-static.webullfintech.com/us/news-html/20261123/15973093292634112.html",
         "catalyst_tag": "fda",
-        "nextSessionClose": null,
-        "nextSessionCloseDate": null,
-        "chgToNextClosePct": null,
+        "nextSessionClose": 0.83,
+        "nextSessionCloseDate": "2026-11-23",
+        "chgToNextClosePct": -37.594,
         "highSinceAlert": 1.7,
         "highSinceAlertTime": "2026-11-23 09:45",
         "highSinceAlertPct": 27.8195,
         "lastPrice": 0.83,
         "chgToLastPct": -37.594,
         "chartAvailable": true,
-        "move_day": "Day 1",
-        "move_day_basis": "Prior session Nov 20 was not a big move (-2% on 1.5x volume); no earlier alert in the prior 2 trading days."
+        "move_day": "Day 2",
+        "move_day_basis": "1 trading day after Nov 20 -2% on 5.7x volume"
       },
       {
         "alert_id": "LF-036",
