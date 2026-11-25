@@ -1,6 +1,6 @@
 {
-  "asOfET": "4:21 PM ET, Nov 25, 2026",
-  "asOfISO": "2026-11-25T16:21:15.875406-05:00",
+  "asOfET": "6:26 PM ET, Nov 25, 2026",
+  "asOfISO": "2026-11-25T18:26:58.458080-05:00",
   "todayET": "2026-11-25",
   "disclaimer": "Paper trades only. No real orders, and no Webull or TradingView paper orders, are placed from these alerts. Low Float News Scout rows are news alerts, not paper trades.",
   "chartSource": "Yahoo Finance chart API, fetched at build time. A missing ticker or failed request is omitted; the rest of the desk still builds.",
@@ -1563,9 +1563,9 @@
         "nextSessionClose": 1.52,
         "nextSessionCloseDate": "2026-11-13",
         "chgToNextClosePct": 28.8136,
-        "highSinceAlert": 2.325,
-        "highSinceAlertTime": "2026-11-25 14:15",
-        "highSinceAlertPct": 97.0339,
+        "highSinceAlert": 2.54,
+        "highSinceAlertTime": "2026-11-25 17:15",
+        "highSinceAlertPct": 115.2542,
         "lastPrice": 2.26,
         "chgToLastPct": 91.5254,
         "chartAvailable": true,
@@ -2442,7 +2442,7 @@
       "nextCloseWinners": 23,
       "nextCloseWinRate": 0.5349,
       "avgChgToNextClosePct": -2.2675,
-      "avgHighSinceAlertPct": 42.6269,
+      "avgHighSinceAlertPct": 43.0506,
       "byMoveDay": {
         "Day 1": 25,
         "Day 2": 12,
@@ -2461,7 +2461,7 @@
           "alerts": 12,
           "withNextClose": 12,
           "avgChgToNextClosePct": 6.4662,
-          "avgHighSinceAlertPct": 59.0873
+          "avgHighSinceAlertPct": 60.6056
         },
         "Day 3": {
           "alerts": 4,
