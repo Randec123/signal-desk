@@ -1,6 +1,6 @@
 {
-  "asOfET": "8:13 PM ET, Nov 24, 2026",
-  "asOfISO": "2026-11-24T20:13:27.520232-05:00",
+  "asOfET": "10:32 PM ET, Nov 24, 2026",
+  "asOfISO": "2026-11-24T22:32:02.074039-05:00",
   "todayET": "2026-11-24",
   "disclaimer": "Paper trades only. No real orders, and no Webull or TradingView paper orders, are placed from these alerts. Low Float News Scout rows are news alerts, not paper trades.",
   "chartSource": "Yahoo Finance chart API, fetched at build time. A missing ticker or failed request is omitted; the rest of the desk still builds.",
@@ -2199,9 +2199,9 @@
         "news_headline": "Alta Equipment Group agrees to acquire Jackson Group Peterbilt for estimated enterprise value of about $399M.",
         "news_url": "https://news-static.webullfintech.com/us/news-html/20261123/15975169470088192.html",
         "catalyst_tag": "m&a",
-        "nextSessionClose": null,
-        "nextSessionCloseDate": null,
-        "chgToNextClosePct": null,
+        "nextSessionClose": 6.14,
+        "nextSessionCloseDate": "2026-11-24",
+        "chgToNextClosePct": 19.6881,
         "highSinceAlert": 6.37,
         "highSinceAlertTime": "2026-11-24 12:30",
         "highSinceAlertPct": 24.1715,
@@ -2223,9 +2223,9 @@
         "news_headline": "MindWave Innovations, a subsidiary of Apimeds, says it powers over $25M in insured ALCI ecosystem credits launched at COP31 (credits value, not revenue).",
         "news_url": "https://www.globenewswire.com/news-release/2026/11/23/3408894/0/en/mindwave-innovations-inc-a-subsidiary-of-apimeds-pharmaceuticals-us-nyse-american-apus-powers-over-25-million-usd-in-insured-alci-ecosystem-credits-launched-at-un-climate-conferenc.html",
         "catalyst_tag": "other",
-        "nextSessionClose": null,
-        "nextSessionCloseDate": null,
-        "chgToNextClosePct": null,
+        "nextSessionClose": 2.31,
+        "nextSessionCloseDate": "2026-11-24",
+        "chgToNextClosePct": 26.9231,
         "highSinceAlert": 3.2,
         "highSinceAlertTime": "2026-11-24 19:45",
         "highSinceAlertPct": 75.8242,
@@ -2250,9 +2250,9 @@
         "null": [
           "other"
         ],
-        "nextSessionClose": null,
-        "nextSessionCloseDate": null,
-        "chgToNextClosePct": null,
+        "nextSessionClose": 2.31,
+        "nextSessionCloseDate": "2026-11-24",
+        "chgToNextClosePct": 15.5,
         "highSinceAlert": 3.2,
         "highSinceAlertTime": "2026-11-24 19:45",
         "highSinceAlertPct": 60.0,
@@ -2353,10 +2353,10 @@
         "https://www.globenewswire.com/news-release/2026/11/23/3408894/0/en/mindwave-innovations-inc-a-subsidiary-of-apimeds-pharmaceuticals-us-nyse-american-apus-powers-over-25-million-usd-in-insured-alci-ecosystem-credits-launched-at-un-climate-conferenc.html": 1
       },
       "tickers": 25,
-      "withNextClose": 35,
-      "nextCloseWinners": 18,
-      "nextCloseWinRate": 0.5143,
-      "avgChgToNextClosePct": -3.2471,
+      "withNextClose": 38,
+      "nextCloseWinners": 21,
+      "nextCloseWinRate": 0.5526,
+      "avgChgToNextClosePct": -1.3563,
       "avgHighSinceAlertPct": 40.3913,
       "byMoveDay": {
         "Day 1": 24,
@@ -2368,14 +2368,14 @@
       "moveDayStats": {
         "Day 1": {
           "alerts": 24,
-          "withNextClose": 19,
-          "avgChgToNextClosePct": -2.1483,
+          "withNextClose": 21,
+          "avgChgToNextClosePct": 0.2759,
           "avgHighSinceAlertPct": 32.8611
         },
         "Day 2": {
           "alerts": 11,
-          "withNextClose": 10,
-          "avgChgToNextClosePct": 4.882,
+          "withNextClose": 11,
+          "avgChgToNextClosePct": 5.8472,
           "avgHighSinceAlertPct": 56.3581
         },
         "Day 3": {
@@ -2469,9 +2469,9 @@
         "null": [
           "other"
         ],
-        "nextSessionClose": null,
-        "nextSessionCloseDate": null,
-        "chgToNextClosePct": null,
+        "nextSessionClose": 2.31,
+        "nextSessionCloseDate": "2026-11-24",
+        "chgToNextClosePct": 15.5,
         "highSinceAlert": 3.2,
         "highSinceAlertTime": "2026-11-24 19:45",
         "highSinceAlertPct": 60.0,
