@@ -1,6 +1,6 @@
 {
-  "asOfET": "10:33 AM ET, Nov 25, 2026",
-  "asOfISO": "2026-11-25T10:33:40.722859-05:00",
+  "asOfET": "12:28 PM ET, Nov 25, 2026",
+  "asOfISO": "2026-11-25T12:28:17.202106-05:00",
   "todayET": "2026-11-25",
   "disclaimer": "Paper trades only. No real orders, and no Webull or TradingView paper orders, are placed from these alerts. Low Float News Scout rows are news alerts, not paper trades.",
   "chartSource": "Yahoo Finance chart API, fetched at build time. A missing ticker or failed request is omitted; the rest of the desk still builds.",
@@ -1365,8 +1365,8 @@
         "highSinceAlert": 6.5,
         "highSinceAlertTime": "2026-11-12 09:45",
         "highSinceAlertPct": 35.6994,
-        "lastPrice": 3.59,
-        "chgToLastPct": -25.0522,
+        "lastPrice": 3.67,
+        "chgToLastPct": -23.382,
         "chartAvailable": true,
         "move_day": "Day 1",
         "move_day_basis": "Prior session Nov 11 was not a big move (+0%); no earlier alert in the prior 2 trading days."
@@ -1389,8 +1389,8 @@
         "highSinceAlert": 1.8794,
         "highSinceAlertTime": "2026-11-13 04:00",
         "highSinceAlertPct": 6.7841,
-        "lastPrice": 0.8201,
-        "chgToLastPct": -53.4034,
+        "lastPrice": 0.9203,
+        "chgToLastPct": -47.7102,
         "chartAvailable": true,
         "move_day": "Day 1",
         "move_day_basis": "Prior session Nov 11 was not a big move (-7% on 0.9x volume); no earlier alert in the prior 2 trading days."
@@ -1413,8 +1413,8 @@
         "highSinceAlert": 4.8999,
         "highSinceAlertTime": "2026-11-16 10:30",
         "highSinceAlertPct": 48.9331,
-        "lastPrice": 4.0,
-        "chgToLastPct": 21.5805,
+        "lastPrice": 4.03,
+        "chgToLastPct": 22.4924,
         "chartAvailable": true,
         "move_day": "Day 1",
         "move_day_basis": "Prior session Nov 11 was not a big move (-1% on 1.1x volume); no earlier alert in the prior 2 trading days."
@@ -1437,8 +1437,8 @@
         "highSinceAlert": 3.62,
         "highSinceAlertTime": "2026-11-13 04:00",
         "highSinceAlertPct": 33.0882,
-        "lastPrice": 1.89,
-        "chgToLastPct": -30.5147,
+        "lastPrice": 1.9,
+        "chgToLastPct": -30.1471,
         "chartAvailable": true,
         "move_day": "Day 1",
         "move_day_basis": "Prior session Nov 11 was not a big move (+7% on 1.0x volume); no earlier alert in the prior 2 trading days."
@@ -1461,8 +1461,8 @@
         "highSinceAlert": 4.8999,
         "highSinceAlertTime": "2026-11-16 10:30",
         "highSinceAlertPct": 44.1147,
-        "lastPrice": 4.0,
-        "chgToLastPct": 17.6471,
+        "lastPrice": 4.03,
+        "chgToLastPct": 18.5294,
         "chartAvailable": true,
         "move_day": "Day 1",
         "move_day_basis": "Prior session Nov 11 was not a big move (-1% on 1.1x volume); no earlier alert in the prior 2 trading days."
@@ -1485,8 +1485,8 @@
         "highSinceAlert": 3.62,
         "highSinceAlertTime": "2026-11-13 04:00",
         "highSinceAlertPct": 27.9152,
-        "lastPrice": 1.89,
-        "chgToLastPct": -33.2155,
+        "lastPrice": 1.9,
+        "chgToLastPct": -32.8622,
         "chartAvailable": true,
         "move_day": "Day 1",
         "move_day_basis": "Prior session Nov 11 was not a big move (+7% on 1.0x volume); no earlier alert in the prior 2 trading days."
@@ -1509,8 +1509,8 @@
         "highSinceAlert": 2.96,
         "highSinceAlertTime": "2026-11-16 11:00",
         "highSinceAlertPct": 8.8235,
-        "lastPrice": 1.89,
-        "chgToLastPct": -30.5147,
+        "lastPrice": 1.9,
+        "chgToLastPct": -30.1471,
         "chartAvailable": true,
         "move_day": "Day 2",
         "move_day_basis": "1 trading day after Nov 12 -1% on 12x volume"
@@ -1530,11 +1530,11 @@
         "nextSessionClose": 1.52,
         "nextSessionCloseDate": "2026-11-13",
         "chgToNextClosePct": 28.8136,
-        "highSinceAlert": 1.97,
-        "highSinceAlertTime": "2026-11-16 09:45",
-        "highSinceAlertPct": 66.9492,
-        "lastPrice": 1.79,
-        "chgToLastPct": 51.6949,
+        "highSinceAlert": 2.24,
+        "highSinceAlertTime": "2026-11-25 12:15",
+        "highSinceAlertPct": 89.8305,
+        "lastPrice": 2.205,
+        "chgToLastPct": 86.8644,
         "chartAvailable": true,
         "move_day": "Day 2",
         "move_day_basis": "1 trading day after Nov 12 +0% on 71x volume"
@@ -1557,8 +1557,8 @@
         "highSinceAlert": 4.8999,
         "highSinceAlertTime": "2026-11-16 10:30",
         "highSinceAlertPct": 40.8017,
-        "lastPrice": 4.0,
-        "chgToLastPct": 14.9425,
+        "lastPrice": 4.03,
+        "chgToLastPct": 15.8046,
         "chartAvailable": true,
         "move_day": "Day 2",
         "move_day_basis": "1 trading day after Nov 12 +6% on 147x volume"
@@ -1581,8 +1581,8 @@
         "highSinceAlert": 1.97,
         "highSinceAlertTime": "2026-11-18 08:45",
         "highSinceAlertPct": 89.4231,
-        "lastPrice": 1.33,
-        "chgToLastPct": 27.8846,
+        "lastPrice": 1.3,
+        "chgToLastPct": 25.0,
         "chartAvailable": true,
         "move_day": "Day 1",
         "move_day_basis": "Prior session Nov 13 was not a big move (-2% on 0.4x volume); no earlier alert in the prior 2 trading days."
@@ -1605,8 +1605,8 @@
         "highSinceAlert": 3.56,
         "highSinceAlertTime": "2026-11-17 07:30",
         "highSinceAlertPct": 145.5172,
-        "lastPrice": 1.69,
-        "chgToLastPct": 16.5517,
+        "lastPrice": 1.801,
+        "chgToLastPct": 24.2069,
         "chartAvailable": true,
         "move_day": "Day 3",
         "move_day_basis": "2 trading days after Nov 12 +175% on 123x volume"
@@ -1629,8 +1629,8 @@
         "highSinceAlert": 1.465,
         "highSinceAlertTime": "2026-11-16 09:30",
         "highSinceAlertPct": 5.3957,
-        "lastPrice": 1.04,
-        "chgToLastPct": -25.1799,
+        "lastPrice": 1.02,
+        "chgToLastPct": -26.6187,
         "chartAvailable": true,
         "move_day": "Day 3",
         "move_day_basis": "2 trading days after Nov 12 +119% on 1,382x volume"
@@ -1653,8 +1653,8 @@
         "highSinceAlert": 3.5893,
         "highSinceAlertTime": "2026-11-17 04:00",
         "highSinceAlertPct": 28.1893,
-        "lastPrice": 2.065,
-        "chgToLastPct": -26.25,
+        "lastPrice": 2.11,
+        "chgToLastPct": -24.6429,
         "chartAvailable": true,
         "move_day": "Day 1",
         "move_day_basis": "Prior session Nov 13 was not a big move (-1% on 1.5x volume); no earlier alert in the prior 2 trading days."
@@ -1677,8 +1677,8 @@
         "highSinceAlert": 3.4,
         "highSinceAlertTime": "2026-11-25 08:00",
         "highSinceAlertPct": 29.2776,
-        "lastPrice": 2.675,
-        "chgToLastPct": 1.711,
+        "lastPrice": 2.674,
+        "chgToLastPct": 1.673,
         "chartAvailable": true,
         "move_day": "Day 1",
         "move_day_basis": "Prior session Nov 13 was not a big move (-1% on 0.7x volume); no earlier alert in the prior 2 trading days."
@@ -1701,8 +1701,8 @@
         "highSinceAlert": 2.63,
         "highSinceAlertTime": "2026-11-17 04:00",
         "highSinceAlertPct": 16.8889,
-        "lastPrice": 0.397,
-        "chgToLastPct": -82.3556,
+        "lastPrice": 0.38,
+        "chgToLastPct": -83.1111,
         "chartAvailable": true,
         "move_day": "Day 1",
         "move_day_basis": "Prior session Nov 13 was not a big move (-7% on 2.3x volume); no earlier alert in the prior 2 trading days."
@@ -1725,8 +1725,8 @@
         "highSinceAlert": 3.5893,
         "highSinceAlertTime": "2026-11-17 04:00",
         "highSinceAlertPct": 18.0691,
-        "lastPrice": 2.065,
-        "chgToLastPct": -32.0724,
+        "lastPrice": 2.11,
+        "chgToLastPct": -30.5921,
         "chartAvailable": true,
         "move_day": "Day 1",
         "move_day_basis": "Prior session Nov 13 was not a big move (-1% on 1.5x volume); no earlier alert in the prior 2 trading days."
@@ -1749,8 +1749,8 @@
         "highSinceAlert": 3.4,
         "highSinceAlertTime": "2026-11-25 08:00",
         "highSinceAlertPct": 28.3019,
-        "lastPrice": 2.675,
-        "chgToLastPct": 0.9434,
+        "lastPrice": 2.674,
+        "chgToLastPct": 0.9057,
         "chartAvailable": true,
         "move_day": "Day 2",
         "move_day_basis": "1 trading day after Nov 16 +2% on 57x volume"
@@ -1773,8 +1773,8 @@
         "highSinceAlert": 3.37,
         "highSinceAlertTime": "2026-11-17 09:30",
         "highSinceAlertPct": 13.468,
-        "lastPrice": 2.065,
-        "chgToLastPct": -30.4714,
+        "lastPrice": 2.11,
+        "chgToLastPct": -28.9562,
         "chartAvailable": true,
         "move_day": "Day 2",
         "move_day_basis": "1 trading day after Nov 16 -11% on 25x volume"
@@ -1797,8 +1797,8 @@
         "highSinceAlert": 3.4499,
         "highSinceAlertTime": "2026-11-18 07:00",
         "highSinceAlertPct": 14.6146,
-        "lastPrice": 1.69,
-        "chgToLastPct": -43.8538,
+        "lastPrice": 1.801,
+        "chgToLastPct": -40.1661,
         "chartAvailable": true,
         "move_day": "Day 4+",
         "move_day_basis": "3 trading days after Nov 12 +175% on 123x volume"
@@ -1821,8 +1821,8 @@
         "highSinceAlert": 4.48,
         "highSinceAlertTime": "2026-11-17 09:30",
         "highSinceAlertPct": 11.7207,
-        "lastPrice": 3.57,
-        "chgToLastPct": -10.9726,
+        "lastPrice": 3.75,
+        "chgToLastPct": -6.4838,
         "chartAvailable": true,
         "move_day": "Day 1",
         "move_day_basis": "Prior session Nov 16 was not a big move (-4% on 1.1x volume); no earlier alert in the prior 2 trading days."
@@ -1845,8 +1845,8 @@
         "highSinceAlert": 10.24,
         "highSinceAlertTime": "2026-11-23 11:30",
         "highSinceAlertPct": 213.1498,
-        "lastPrice": 7.12,
-        "chgToLastPct": 117.737,
+        "lastPrice": 7.02,
+        "chgToLastPct": 114.6789,
         "chartAvailable": true,
         "move_day": "Day 2",
         "move_day_basis": "1 trading day after Nov 17 -80% on 29x volume"
@@ -1869,8 +1869,8 @@
         "highSinceAlert": 4.2,
         "highSinceAlertTime": "2026-11-19 10:45",
         "highSinceAlertPct": 58.4906,
-        "lastPrice": 1.92,
-        "chgToLastPct": -27.5472,
+        "lastPrice": 1.87,
+        "chgToLastPct": -29.434,
         "chartAvailable": true,
         "move_day": "Day 3",
         "move_day_basis": "2 trading days after Nov 16 +21% on 0.3x volume"
@@ -1893,8 +1893,8 @@
         "highSinceAlert": 1.91,
         "highSinceAlertTime": "2026-11-18 09:30",
         "highSinceAlertPct": 3.2432,
-        "lastPrice": 1.33,
-        "chgToLastPct": -28.1081,
+        "lastPrice": 1.3,
+        "chgToLastPct": -29.7297,
         "chartAvailable": true,
         "move_day": "Day 3",
         "move_day_basis": "2 trading days after Nov 16 +52% on 3,193x volume"
@@ -1917,8 +1917,8 @@
         "highSinceAlert": 4.74,
         "highSinceAlertTime": "2026-11-19 04:00",
         "highSinceAlertPct": 50.9554,
-        "lastPrice": 1.72,
-        "chgToLastPct": -45.2229,
+        "lastPrice": 1.78,
+        "chgToLastPct": -43.3121,
         "chartAvailable": true,
         "move_day": "Day 1",
         "move_day_basis": "Prior session Nov 17 was not a big move (-2% on 1.3x volume); no earlier alert in the prior 2 trading days."
@@ -1941,8 +1941,8 @@
         "highSinceAlert": 4.74,
         "highSinceAlertTime": "2026-11-19 04:00",
         "highSinceAlertPct": 26.4,
-        "lastPrice": 1.72,
-        "chgToLastPct": -54.1333,
+        "lastPrice": 1.78,
+        "chgToLastPct": -52.5333,
         "chartAvailable": true,
         "move_day": "Day 1",
         "move_day_basis": "Prior session Nov 17 was not a big move (-2% on 1.3x volume); no earlier alert in the prior 2 trading days."
@@ -1965,8 +1965,8 @@
         "highSinceAlert": 2.85,
         "highSinceAlertTime": "2026-11-19 09:00",
         "highSinceAlertPct": 35.0711,
-        "lastPrice": 1.714,
-        "chgToLastPct": -18.7678,
+        "lastPrice": 2.01,
+        "chgToLastPct": -4.7393,
         "chartAvailable": true,
         "move_day": "Day 1",
         "move_day_basis": "Prior session Nov 18 was not a big move (+2% on 0.7x volume); no earlier alert in the prior 2 trading days."
@@ -1989,8 +1989,8 @@
         "highSinceAlert": 3.46,
         "highSinceAlertTime": "2026-11-19 09:45",
         "highSinceAlertPct": 8.4639,
-        "lastPrice": 1.72,
-        "chgToLastPct": -46.0815,
+        "lastPrice": 1.78,
+        "chgToLastPct": -44.2006,
         "chartAvailable": true,
         "move_day": "Day 2",
         "move_day_basis": "1 trading day after Nov 18 -2% on 269x volume"
@@ -2013,8 +2013,8 @@
         "highSinceAlert": 1.68,
         "highSinceAlertTime": "2026-11-19 13:30",
         "highSinceAlertPct": 54.1284,
-        "lastPrice": 0.9731,
-        "chgToLastPct": -10.7248,
+        "lastPrice": 0.9963,
+        "chgToLastPct": -8.5963,
         "chartAvailable": true,
         "move_day": "Day 1",
         "move_day_basis": "Prior session Nov 18 was not a big move (+1% on 0.9x volume); no earlier alert in the prior 2 trading days."
@@ -2037,8 +2037,8 @@
         "highSinceAlert": 2.62,
         "highSinceAlertTime": "2026-11-19 09:30",
         "highSinceAlertPct": 3.1496,
-        "lastPrice": 1.714,
-        "chgToLastPct": -32.5197,
+        "lastPrice": 2.01,
+        "chgToLastPct": -20.8661,
         "chartAvailable": true,
         "move_day": "Day 1",
         "move_day_basis": "Prior session Nov 18 was not a big move (+2% on 0.7x volume); no earlier alert in the prior 2 trading days."
@@ -2061,8 +2061,8 @@
         "highSinceAlert": 2.46,
         "highSinceAlertTime": "2026-11-23 06:45",
         "highSinceAlertPct": 113.913,
-        "lastPrice": 1.54,
-        "chgToLastPct": 33.913,
+        "lastPrice": 1.69,
+        "chgToLastPct": 46.9565,
         "chartAvailable": true,
         "move_day": "Day 1",
         "move_day_basis": "Prior session Nov 18 was not a big move (+15% on 3.9x volume); no earlier alert in the prior 2 trading days."
@@ -2085,8 +2085,8 @@
         "highSinceAlert": 1.37,
         "highSinceAlertTime": "2026-11-20 09:00",
         "highSinceAlertPct": 20.1754,
-        "lastPrice": 0.0382,
-        "chgToLastPct": -96.6491,
+        "lastPrice": 0.0417,
+        "chgToLastPct": -96.3421,
         "chartAvailable": true,
         "move_day": "Day 4+",
         "move_day_basis": "3 trading days after Nov 17 +25% on 1.6x volume"
@@ -2109,8 +2109,8 @@
         "highSinceAlert": 2.46,
         "highSinceAlertTime": "2026-11-23 06:45",
         "highSinceAlertPct": 138.835,
-        "lastPrice": 1.54,
-        "chgToLastPct": 49.5146,
+        "lastPrice": 1.69,
+        "chgToLastPct": 64.0777,
         "chartAvailable": true,
         "move_day": "Day 2",
         "move_day_basis": "1 trading day after Nov 19 -1% on 27x volume"
@@ -2133,8 +2133,8 @@
         "highSinceAlert": 1.2,
         "highSinceAlertTime": "2026-11-20 09:30",
         "highSinceAlertPct": 2.5641,
-        "lastPrice": 1.01,
-        "chgToLastPct": -13.6752,
+        "lastPrice": 1.02,
+        "chgToLastPct": -12.8205,
         "chartAvailable": true,
         "move_day": "Day 1",
         "move_day_basis": "Prior session Nov 19 was not a big move (-2% on 0.2x volume); no earlier alert in the prior 2 trading days."
@@ -2157,8 +2157,8 @@
         "highSinceAlert": 1.7,
         "highSinceAlertTime": "2026-11-23 09:45",
         "highSinceAlertPct": 40.4959,
-        "lastPrice": 0.901,
-        "chgToLastPct": -25.5372,
+        "lastPrice": 0.9,
+        "chgToLastPct": -25.6198,
         "chartAvailable": true,
         "move_day": "Day 2",
         "move_day_basis": "1 trading day after Nov 20 -2% on 5.7x volume"
@@ -2181,8 +2181,8 @@
         "highSinceAlert": 1.7,
         "highSinceAlertTime": "2026-11-23 09:45",
         "highSinceAlertPct": 27.8195,
-        "lastPrice": 0.901,
-        "chgToLastPct": -32.2556,
+        "lastPrice": 0.9,
+        "chgToLastPct": -32.3308,
         "chartAvailable": true,
         "move_day": "Day 2",
         "move_day_basis": "1 trading day after Nov 20 -2% on 5.7x volume"
@@ -2205,8 +2205,8 @@
         "highSinceAlert": 6.37,
         "highSinceAlertTime": "2026-11-24 12:30",
         "highSinceAlertPct": 24.1715,
-        "lastPrice": 6.115,
-        "chgToLastPct": 19.2008,
+        "lastPrice": 6.11,
+        "chgToLastPct": 19.1033,
         "chartAvailable": true,
         "move_day": "Day 1",
         "move_day_basis": "Prior session Nov 20 was not a big move (-8% on 1.8x volume); no earlier alert in the prior 2 trading days."
@@ -2226,11 +2226,11 @@
         "nextSessionClose": 2.31,
         "nextSessionCloseDate": "2026-11-24",
         "chgToNextClosePct": 26.9231,
-        "highSinceAlert": 3.3,
-        "highSinceAlertTime": "2026-11-25 10:15",
-        "highSinceAlertPct": 81.3187,
-        "lastPrice": 3.017,
-        "chgToLastPct": 65.7692,
+        "highSinceAlert": 3.43,
+        "highSinceAlertTime": "2026-11-25 10:45",
+        "highSinceAlertPct": 88.4615,
+        "lastPrice": 2.975,
+        "chgToLastPct": 63.4615,
         "chartAvailable": true,
         "move_day": "Day 1",
         "move_day_basis": "Prior session Nov 20 was not a big move (-8% on 0.8x volume); no earlier alert in the prior 2 trading days."
@@ -2253,11 +2253,11 @@
         "nextSessionClose": 2.31,
         "nextSessionCloseDate": "2026-11-24",
         "chgToNextClosePct": 15.5,
-        "highSinceAlert": 3.3,
-        "highSinceAlertTime": "2026-11-25 10:15",
-        "highSinceAlertPct": 65.0,
-        "lastPrice": 3.017,
-        "chgToLastPct": 50.85,
+        "highSinceAlert": 3.43,
+        "highSinceAlertTime": "2026-11-25 10:45",
+        "highSinceAlertPct": 71.5,
+        "lastPrice": 2.975,
+        "chgToLastPct": 48.75,
         "chartAvailable": true,
         "move_day": "Day 2",
         "move_day_basis": "1 trading day after Nov 23 -6% on 65x volume"
@@ -2274,14 +2274,14 @@
         "news_headline": "SaverOne 6-K: letter of intent to acquire Drew Therapeutics; Drew holders get the greater of 92% of the combined company or $240M in value.",
         "news_url": "https://www.sec.gov/Archives/edgar/data/1894693/000121390026123675/0001213900-26-123675-index.html",
         "catalyst_tag": "m&a",
-        "nextSessionClose": 1.315,
+        "nextSessionClose": 1.4108,
         "nextSessionCloseDate": "2026-11-25",
-        "chgToNextClosePct": -12.3333,
+        "chgToNextClosePct": -5.9467,
         "highSinceAlert": 1.89,
         "highSinceAlertTime": "2026-11-24 17:15",
         "highSinceAlertPct": 26.0,
-        "lastPrice": 1.315,
-        "chgToLastPct": -12.3333,
+        "lastPrice": 1.411,
+        "chgToLastPct": -5.9333,
         "chartAvailable": true,
         "move_day": "Day 1",
         "move_day_basis": "Prior session Nov 23 was not a big move (-6% on 0.1x volume); no earlier alert in the prior 2 trading days."
@@ -2298,14 +2298,14 @@
         "news_headline": "New AH high $1.97; same 4:10 PM 6-K LOI to acquire Drew Therapeutics (Drew holders get at least 92% of the combined company).",
         "news_url": "https://www.sec.gov/Archives/edgar/data/1894693/000121390026123675/0001213900-26-123675-index.html",
         "catalyst_tag": "m&a",
-        "nextSessionClose": 1.315,
+        "nextSessionClose": 1.4108,
         "nextSessionCloseDate": "2026-11-25",
-        "chgToNextClosePct": -20.7831,
+        "chgToNextClosePct": -15.012,
         "highSinceAlert": 1.88,
         "highSinceAlertTime": "2026-11-25 05:15",
         "highSinceAlertPct": 13.253,
-        "lastPrice": 1.315,
-        "chgToLastPct": -20.7831,
+        "lastPrice": 1.411,
+        "chgToLastPct": -15.0,
         "chartAvailable": true,
         "move_day": "Day 1",
         "move_day_basis": "Prior session Nov 23 was not a big move (-6% on 0.1x volume); no earlier alert in the prior 2 trading days."
@@ -2322,14 +2322,14 @@
         "news_headline": "DarkIris 6-K: CEO buys 420K Class B shares at $1.20; company buys mobile games for a stated $30M, paid with 2.5M Class A shares at $1.20 plus 2.5M warrants at $0.40.",
         "news_url": "https://www.sec.gov/Archives/edgar/data/2058584/000149315226054034/0001493152-26-054034.txt",
         "catalyst_tag": "dilution",
-        "nextSessionClose": 1.03,
+        "nextSessionClose": 1.11,
         "nextSessionCloseDate": "2026-11-25",
-        "chgToNextClosePct": -16.2602,
+        "chgToNextClosePct": -9.7561,
         "highSinceAlert": 1.6699,
         "highSinceAlertTime": "2026-11-25 04:15",
         "highSinceAlertPct": 35.7642,
-        "lastPrice": 1.03,
-        "chgToLastPct": -16.2602,
+        "lastPrice": 1.11,
+        "chgToLastPct": -9.7561,
         "chartAvailable": true,
         "move_day": "Day 1",
         "move_day_basis": "Prior session Nov 23 was not a big move (+2% on 0.0x volume); no earlier alert in the prior 2 trading days."
@@ -2349,14 +2349,14 @@
         "null": [
           "fda"
         ],
-        "nextSessionClose": 2.215,
+        "nextSessionClose": 1.995,
         "nextSessionCloseDate": "2026-11-25",
-        "chgToNextClosePct": -36.8946,
+        "chgToNextClosePct": -43.1624,
         "highSinceAlert": 3.95,
         "highSinceAlertTime": "2026-11-25 08:30",
         "highSinceAlertPct": 12.5356,
-        "lastPrice": 2.215,
-        "chgToLastPct": -36.8946,
+        "lastPrice": 1.995,
+        "chgToLastPct": -43.1624,
         "chartAvailable": true,
         "move_day": "Day 1",
         "move_day_basis": "Prior session Nov 24 was not a big move (-3% on 0.2x volume); no earlier alert in the prior 2 trading days."
@@ -2373,14 +2373,14 @@
         "news_headline": "Same Nov 24 after-hours 6-K: $30M mobile-games deal paid in 2.5M new shares at $1.20 plus 2.5M warrants; CEO buys 420K Class B shares at $1.20.",
         "news_url": "https://www.sec.gov/Archives/edgar/data/2058584/000149315226054034/0001493152-26-054034.txt",
         "catalyst_tag": "dilution",
-        "nextSessionClose": 1.03,
+        "nextSessionClose": 1.11,
         "nextSessionCloseDate": "2026-11-25",
-        "chgToNextClosePct": -8.8496,
+        "chgToNextClosePct": -1.7699,
         "highSinceAlert": 1.25,
         "highSinceAlertTime": "2026-11-25 09:30",
         "highSinceAlertPct": 10.6195,
-        "lastPrice": 1.03,
-        "chgToLastPct": -8.8496,
+        "lastPrice": 1.11,
+        "chgToLastPct": -1.7699,
         "chartAvailable": true,
         "move_day": "Day 2",
         "move_day_basis": "1 trading day after the Nov 24 alert on this ticker (-1% on 1.5x volume)"
@@ -2408,8 +2408,8 @@
       "withNextClose": 43,
       "nextCloseWinners": 21,
       "nextCloseWinRate": 0.4884,
-      "avgChgToNextClosePct": -3.4107,
-      "avgHighSinceAlertPct": 41.3835,
+      "avgChgToNextClosePct": -2.9578,
+      "avgHighSinceAlertPct": 42.2329,
       "byMoveDay": {
         "Day 1": 25,
         "Day 2": 12,
@@ -2421,14 +2421,14 @@
         "Day 1": {
           "alerts": 25,
           "withNextClose": 25,
-          "avgChgToNextClosePct": -3.2191,
-          "avgHighSinceAlertPct": 34.7731
+          "avgChgToNextClosePct": -2.7233,
+          "avgHighSinceAlertPct": 35.0588
         },
         "Day 2": {
           "alerts": 12,
           "withNextClose": 12,
-          "avgChgToNextClosePct": 4.6225,
-          "avgHighSinceAlertPct": 55.2273
+          "avgChgToNextClosePct": 5.2125,
+          "avgHighSinceAlertPct": 57.6758
         },
         "Day 3": {
           "alerts": 4,
@@ -2473,14 +2473,14 @@
         "null": [
           "fda"
         ],
-        "nextSessionClose": 2.215,
+        "nextSessionClose": 1.995,
         "nextSessionCloseDate": "2026-11-25",
-        "chgToNextClosePct": -36.8946,
+        "chgToNextClosePct": -43.1624,
         "highSinceAlert": 3.95,
         "highSinceAlertTime": "2026-11-25 08:30",
         "highSinceAlertPct": 12.5356,
-        "lastPrice": 2.215,
-        "chgToLastPct": -36.8946,
+        "lastPrice": 1.995,
+        "chgToLastPct": -43.1624,
         "chartAvailable": true,
         "move_day": "Day 1",
         "move_day_basis": "Prior session Nov 24 was not a big move (-3% on 0.2x volume); no earlier alert in the prior 2 trading days."
@@ -2497,14 +2497,14 @@
         "news_headline": "Same Nov 24 after-hours 6-K: $30M mobile-games deal paid in 2.5M new shares at $1.20 plus 2.5M warrants; CEO buys 420K Class B shares at $1.20.",
         "news_url": "https://www.sec.gov/Archives/edgar/data/2058584/000149315226054034/0001493152-26-054034.txt",
         "catalyst_tag": "dilution",
-        "nextSessionClose": 1.03,
+        "nextSessionClose": 1.11,
         "nextSessionCloseDate": "2026-11-25",
-        "chgToNextClosePct": -8.8496,
+        "chgToNextClosePct": -1.7699,
         "highSinceAlert": 1.25,
         "highSinceAlertTime": "2026-11-25 09:30",
         "highSinceAlertPct": 10.6195,
-        "lastPrice": 1.03,
-        "chgToLastPct": -8.8496,
+        "lastPrice": 1.11,
+        "chgToLastPct": -1.7699,
         "chartAvailable": true,
         "move_day": "Day 2",
         "move_day_basis": "1 trading day after the Nov 24 alert on this ticker (-1% on 1.5x volume)"
@@ -2513,223 +2513,223 @@
   },
   "chartTickers": {
     "TSLA": {
-      "last": 364.812,
+      "last": 365.95,
       "hasDaily": true,
       "hasIntraday": true,
       "errors": []
     },
     "MSTR": {
-      "last": 71.53,
+      "last": 74.15,
       "hasDaily": true,
       "hasIntraday": true,
       "errors": []
     },
     "GOOGL": {
-      "last": 266.54,
+      "last": 269.05,
       "hasDaily": true,
       "hasIntraday": true,
       "errors": []
     },
     "META": {
-      "last": 576.635,
+      "last": 594.092,
       "hasDaily": true,
       "hasIntraday": true,
       "errors": []
     },
     "AMZN": {
-      "last": 237.92,
+      "last": 242.525,
       "hasDaily": true,
       "hasIntraday": true,
       "errors": []
     },
     "NBIS": {
-      "last": 77.715,
+      "last": 79.545,
       "hasDaily": true,
       "hasIntraday": true,
       "errors": []
     },
     "MSFT": {
-      "last": 480.87,
+      "last": 484.75,
       "hasDaily": true,
       "hasIntraday": true,
       "errors": []
     },
     "HOOD": {
-      "last": 62.55,
+      "last": 62.92,
       "hasDaily": true,
       "hasIntraday": true,
       "errors": []
     },
     "NVDA": {
-      "last": 143.925,
+      "last": 143.58,
       "hasDaily": true,
       "hasIntraday": true,
       "errors": []
     },
     "COIN": {
-      "last": 97.0,
+      "last": 99.083,
       "hasDaily": true,
       "hasIntraday": true,
       "errors": []
     },
     "CRCL": {
-      "last": 44.51,
+      "last": 45.65,
       "hasDaily": true,
       "hasIntraday": true,
       "errors": []
     },
     "ADXN": {
-      "last": 3.59,
+      "last": 3.67,
       "hasDaily": true,
       "hasIntraday": true,
       "errors": []
     },
     "CRMN": {
-      "last": 0.8201,
+      "last": 0.9203,
       "hasDaily": true,
       "hasIntraday": true,
       "errors": []
     },
     "VTSI": {
-      "last": 4.0,
+      "last": 4.03,
       "hasDaily": true,
       "hasIntraday": true,
       "errors": []
     },
     "SNAL": {
-      "last": 1.89,
+      "last": 1.9,
       "hasDaily": true,
       "hasIntraday": true,
       "errors": []
     },
     "SLSN": {
-      "last": 1.79,
+      "last": 2.205,
       "hasDaily": true,
       "hasIntraday": true,
       "errors": []
     },
     "HIHO": {
-      "last": 1.33,
+      "last": 1.3,
       "hasDaily": true,
       "hasIntraday": true,
       "errors": []
     },
     "GP": {
-      "last": 1.69,
+      "last": 1.801,
       "hasDaily": true,
       "hasIntraday": true,
       "errors": []
     },
     "AIMD": {
-      "last": 1.04,
+      "last": 1.02,
       "hasDaily": true,
       "hasIntraday": true,
       "errors": []
     },
     "SPAI": {
-      "last": 2.065,
+      "last": 2.11,
       "hasDaily": true,
       "hasIntraday": true,
       "errors": []
     },
     "AYTU": {
-      "last": 2.675,
+      "last": 2.674,
       "hasDaily": true,
       "hasIntraday": true,
       "errors": []
     },
     "CSAI": {
-      "last": 0.397,
+      "last": 0.38,
       "hasDaily": true,
       "hasIntraday": true,
       "errors": []
     },
     "LUCK": {
-      "last": 3.57,
+      "last": 3.75,
       "hasDaily": true,
       "hasIntraday": true,
       "errors": []
     },
     "CUE": {
-      "last": 7.12,
+      "last": 7.02,
       "hasDaily": true,
       "hasIntraday": true,
       "errors": []
     },
     "NCPL": {
-      "last": 1.92,
+      "last": 1.87,
       "hasDaily": true,
       "hasIntraday": true,
       "errors": []
     },
     "INHD": {
-      "last": 1.72,
+      "last": 1.78,
       "hasDaily": true,
       "hasIntraday": true,
       "errors": []
     },
     "SEAT": {
-      "last": 1.714,
+      "last": 2.01,
       "hasDaily": true,
       "hasIntraday": true,
       "errors": []
     },
     "MRKR": {
-      "last": 0.9731,
+      "last": 0.9963,
       "hasDaily": true,
       "hasIntraday": true,
       "errors": []
     },
     "MEDS": {
-      "last": 1.54,
+      "last": 1.69,
       "hasDaily": true,
       "hasIntraday": true,
       "errors": []
     },
     "VWAV": {
-      "last": 0.0382,
+      "last": 0.0417,
       "hasDaily": true,
       "hasIntraday": true,
       "errors": []
     },
     "SAGT": {
-      "last": 1.01,
+      "last": 1.02,
       "hasDaily": true,
       "hasIntraday": true,
       "errors": []
     },
     "DWTX": {
-      "last": 0.901,
+      "last": 0.9,
       "hasDaily": true,
       "hasIntraday": true,
       "errors": []
     },
     "ALTG": {
-      "last": 6.115,
+      "last": 6.11,
       "hasDaily": true,
       "hasIntraday": true,
       "errors": []
     },
     "APUS": {
-      "last": 3.017,
+      "last": 2.975,
       "hasDaily": true,
       "hasIntraday": true,
       "errors": []
     },
     "SVRE": {
-      "last": 1.315,
+      "last": 1.411,
       "hasDaily": true,
       "hasIntraday": true,
       "errors": []
     },
     "DKI": {
-      "last": 1.03,
+      "last": 1.11,
       "hasDaily": true,
       "hasIntraday": true,
       "errors": []
     },
     "NRSN": {
-      "last": 2.215,
+      "last": 1.995,
       "hasDaily": true,
       "hasIntraday": true,
       "errors": []
