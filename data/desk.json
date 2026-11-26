@@ -1,7 +1,7 @@
 {
-  "asOfET": "10:22 PM ET, Nov 25, 2026",
-  "asOfISO": "2026-11-25T22:22:26.249746-05:00",
-  "todayET": "2026-11-25",
+  "asOfET": "8:39 AM ET, Nov 26, 2026",
+  "asOfISO": "2026-11-26T08:39:57.280462-05:00",
+  "todayET": "2026-11-26",
   "disclaimer": "Paper trades only. No real orders, and no Webull or TradingView paper orders, are placed from these alerts. Low Float News Scout rows are news alerts, not paper trades.",
   "chartSource": "Yahoo Finance chart API, fetched at build time. A missing ticker or failed request is omitted; the rest of the desk still builds.",
   "sources": {
@@ -2487,95 +2487,10 @@
     }
   },
   "today": {
-    "dateET": "2026-11-25",
+    "dateET": "2026-11-26",
     "options": [],
-    "stocks": [
-      {
-        "alert_id": "SSS-013",
-        "alert_time_et": "2026-11-25 13:42:00",
-        "ticker": "MSTR",
-        "side": "SHORT",
-        "setup_type": "Prior-day low + 52-week low retest from below as resistance + premarket high, after liquidity sweep",
-        "rating": "4/5",
-        "entry_zone_lo": 76.85,
-        "entry_zone_hi": 77.55,
-        "price_at_alert": 77.28,
-        "tp1": 73.8,
-        "tp2": 70.37,
-        "tp3": 67.5,
-        "stop": 78.25,
-        "exit_rule": "75/25",
-        "status": "open",
-        "entry_time": "2026-11-25 13:42",
-        "entry_px": 77.28,
-        "exit1_time": null,
-        "exit1_px": null,
-        "exit1_reason": null,
-        "exit2_time": null,
-        "exit2_px": null,
-        "exit2_reason": null,
-        "r_result": null,
-        "pnl_per_share": null,
-        "mfe": null,
-        "mae": null,
-        "first_hit": null,
-        "notes": "Alert price 77.28 inside the 76.85-77.55 zone, so filled at the alert price per tracker rule (SSS suggested the 77.20 midpoint; not used). 1R = 78.25-77.28 = 0.97. TP3 ignored under 75/25. Short hold expected: Thanksgiving 11/26 closed, 11/27 half day. Chart: /workspace/stock-signal-scout/charts/MSTR_20261125_1342.png. Logged on arrival.",
-        "alert_chart": "data/alert-charts/SSS_MSTR_20261125_1342.png"
-      }
-    ],
-    "lowfloat": [
-      {
-        "alert_id": "LF-042",
-        "date_et": "2026-11-25",
-        "time_et": "08:20",
-        "session": "premarket",
-        "ticker": "NRSN",
-        "price_at_alert": 3.51,
-        "float_m": 1.19,
-        "rel_vol": 26000,
-        "news_headline": "NeuraLight says eye-movement biomarkers showed a statistically significant treatment effect for PrimeC in NeuroSense Phase 2b PARADIGM ALS trial (p=0.04",
-        "news_url": "n=36).",
-        "catalyst_tag": "https://www.prnewswire.com/news-releases/neuralights-precision-brain-function-biomarkers-detect-statistically-significant-treatment-effect-in-neurosenses-phase-2b-als-clinical-trial-302950075.html",
-        "null": [
-          "fda"
-        ],
-        "nextSessionClose": 1.76,
-        "nextSessionCloseDate": "2026-11-25",
-        "chgToNextClosePct": -49.8575,
-        "highSinceAlert": 3.95,
-        "highSinceAlertTime": "2026-11-25 08:30",
-        "highSinceAlertPct": 12.5356,
-        "lastPrice": 1.76,
-        "chgToLastPct": -49.8575,
-        "chartAvailable": true,
-        "move_day": "Day 1",
-        "move_day_basis": "Prior session Nov 24 was not a big move (-3% on 0.2x volume); no earlier alert in the prior 2 trading days."
-      },
-      {
-        "alert_id": "LF-043",
-        "date_et": "2026-11-25",
-        "time_et": "08:20",
-        "session": "premarket",
-        "ticker": "DKI",
-        "price_at_alert": 1.13,
-        "float_m": null,
-        "rel_vol": 600,
-        "news_headline": "Same Nov 24 after-hours 6-K: $30M mobile-games deal paid in 2.5M new shares at $1.20 plus 2.5M warrants; CEO buys 420K Class B shares at $1.20.",
-        "news_url": "https://www.sec.gov/Archives/edgar/data/2058584/000149315226054034/0001493152-26-054034.txt",
-        "catalyst_tag": "dilution",
-        "nextSessionClose": 1.28,
-        "nextSessionCloseDate": "2026-11-25",
-        "chgToNextClosePct": 13.2743,
-        "highSinceAlert": 1.36,
-        "highSinceAlertTime": "2026-11-25 14:30",
-        "highSinceAlertPct": 20.354,
-        "lastPrice": 1.28,
-        "chgToLastPct": 13.2743,
-        "chartAvailable": true,
-        "move_day": "Day 2",
-        "move_day_basis": "1 trading day after the Nov 24 alert on this ticker (-1% on 2.1x volume)"
-      }
-    ]
+    "stocks": [],
+    "lowfloat": []
   },
   "chartTickers": {
     "TSLA": {
