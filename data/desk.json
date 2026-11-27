@@ -1,7 +1,7 @@
 {
-  "asOfET": "10:20 PM ET, Nov 26, 2026",
-  "asOfISO": "2026-11-26T22:20:35.504555-05:00",
-  "todayET": "2026-11-26",
+  "asOfET": "8:44 AM ET, Nov 27, 2026",
+  "asOfISO": "2026-11-27T08:44:19.651506-05:00",
+  "todayET": "2026-11-27",
   "disclaimer": "Paper trades only. No real orders, and no Webull or TradingView paper orders, are placed from these alerts. Low Float News Scout rows are news alerts, not paper trades.",
   "chartSource": "Yahoo Finance chart API, fetched at build time. A missing ticker or failed request is omitted; the rest of the desk still builds.",
   "sources": {
@@ -2487,7 +2487,7 @@
     }
   },
   "today": {
-    "dateET": "2026-11-26",
+    "dateET": "2026-11-27",
     "options": [],
     "stocks": [],
     "lowfloat": []
